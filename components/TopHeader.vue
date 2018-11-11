@@ -9,9 +9,6 @@
         </li>
       </ul>
     </nav>
-    <a href="/" class="top-header__col top-header__logo">
-      <h1>vued</h1>
-    </a>
   </header>
 </template>
 
@@ -32,22 +29,6 @@ export default {
     padding-bottom: 30px;
   }
 
-  .top-header__logo {
-    text-align: center;
-    position: absolute;
-    left: 50%;
-    text-decoration: none;
-
-    h1 {
-      position: relative;
-      max-height: 60px;
-      left: -50%;
-      top: -15px;
-      color: #000;
-      font-weight: bold;
-    }
-  }
-
   .top-header__nav {
     list-style: none;
     display: flex;
@@ -55,7 +36,7 @@ export default {
 
     .top-header__link {
       text-decoration: none;
-      color: #000;
+      color: #3b8070;
       margin: 0 5px;
       font-size: 18px;
       font-weight: bold;
