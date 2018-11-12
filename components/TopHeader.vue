@@ -36,7 +36,7 @@ export default {
 
     .top-header__link {
       text-decoration: none;
-      color: #41b883;
+      color: #3b8070;
       margin: 0 5px;
       font-size: 18px;
       font-weight: bold;

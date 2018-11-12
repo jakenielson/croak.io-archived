@@ -20,3 +20,9 @@ $ yarn run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+## To Do
+
+* Blog previews
+* Blog details
+* Meta
