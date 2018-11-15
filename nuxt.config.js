@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const path = require('path')
 
 module.exports = {
   mode: 'universal',
@@ -34,7 +35,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/bloks'
+    '~/plugins/bloks',
+    { src: '~/plugins/phaser', ssr: false }
   ],
 
   /*
@@ -64,7 +66,6 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      
     }
   }
 }

@@ -8,8 +8,4 @@ export default function ({ app, isServer, route, store, isDev }) {
   if (!store.state.settings._uid) {
     return store.dispatch('loadSettings', {version: version})
   }
-  
-  if (!store.state.settings._uid) {
-    return store.dispatch('loadSettings', {version: version})
-  }
 }

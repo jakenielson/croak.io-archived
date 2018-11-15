@@ -15,10 +15,12 @@
     "cross-env": "^5.2.0",
     "marked": "^0.5.1",
     "nuxt": "^2.0.0",
+    "phaser": "^3.15.1",
     "storyblok-nuxt": "^0.0.9"
   },
   "devDependencies": {
     "css-loader": "^1.0.1",
+    "file-loader": "^2.0.0",
     "node-sass": "^4.10.0",
     "nodemon": "^1.11.0",
     "sass-loader": "^7.1.0"

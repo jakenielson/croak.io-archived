@@ -21,8 +21,17 @@ $ yarn run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
-## To Do
+## Features I Want
 
-* Blog previews
-* Blog details
-* Meta
+* Home page w/ featured game
+* Games list page
+* Game pages
+* Blog list page
+  * Search/filter
+  * Vue, Phaser, Art categories
+* Blog pages
+* Tools page (external links to stuff I use)
+* About page
+* Contact page w/ form
+* Twitter/YouTube/Kofi links
+* Meta tags and twitter cards
