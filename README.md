@@ -30,7 +30,6 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
   * Search/filter
   * Vue, Phaser, Art categories
 * Blog pages
-* Tools page (external links to stuff I use)
 * About page
 * Contact page w/ form
 * Twitter/YouTube/Kofi links

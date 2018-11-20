@@ -1,3 +1,3 @@
-import Game from '~/games/croak/main'
+import Croak from '~/games/croak/main'
 
-window.Game = Game;
+window.Croak = Croak;

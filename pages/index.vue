@@ -1,17 +1,17 @@
 <template>
   <section class="util__container">
-    <Game />
+    <Croak />
     <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
   </section>
 </template>
 
 <script>
 import storyblokLivePreview from '@/mixins/storyblokLivePreview';
-import Game from '~/components/Game.vue'
+import Croak from '~/components/games/Croak.vue'
 
 export default {
   components: {
-    Game,
+    Croak,
   },
   data () {
     return { story: { content: {} } }
