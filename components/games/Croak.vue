@@ -17,9 +17,6 @@ export default {
   },
   mounted() {
     this.game = new Croak(config, this.height, this.width);
-  },
-  beforeDestroy() {
-    this.game.destroy();
   }
 }
 </script>
