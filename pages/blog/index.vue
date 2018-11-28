@@ -33,7 +33,34 @@ export default {
     }).catch((res) => {
       context.error({ statusCode: res.response.status, message: res.response.data })
     })
-  }
+  },
+  head() {
+    return {
+      title: 'Blog',
+      titleTemplate: 'croak.io | %s',
+      meta: [
+        {'charset': 'utf-8'},
+        {'Content-Type': 'text/html'},
+        {'name': 'viewport', 'content': 'width=device-width, initial-scale=1'},
+        {'vmid': 'description', 'name': 'description', 'content': 'Game development, the internet, and design.'},
+        {'vmid': 'og:title', 'property': 'og:title', 'content': 'Read my blog!'},
+        {'vmid': 'og:site_name', 'property': 'og:site_name', 'content': 'croak.io'},
+        {'vmid': 'og:type', 'property': 'og:type', 'content': 'website'},
+        {'vmid': 'og:url', 'property': 'og:url', 'content': 'https://croak.io/blog'},
+        {'vmid': 'og:image', 'property': 'og:image', 'content': 'https://croak.io/logo.png'},
+        {'vmid': 'og:description', 'property': 'og:description', 'content': 'Game development, the internet, and design.'},
+        {'vmid': 'twitter:card', 'name': 'twitter:card', 'content': 'summary'},
+        {'vmid': 'twitter:site', 'name': 'twitter:site', 'content': '@croak_io'},
+        {'vmid': 'twitter:title', 'name': 'twitter:title', 'content': 'Read my blog!'},
+        {'vmid': 'twitter:description', 'name': 'twitter:description', 'content': 'Game development, the internet, and design.'},
+        {'vmid': 'twitter:image', 'name': 'twitter:image', 'content': 'https://croak.io/logo.png'},
+        {'vmid': 'twitter:image:alt', 'name': 'twitter:image:alt', 'content': 'croak.io logo'},
+        {'vmid': 'itemprop:name', 'itemprop': 'name', 'content': 'Read my blog!'},
+        {'vmid': 'itemprop:description', 'itemprop': 'description', 'content': 'Game development, the internet, and design.'},
+        {'vmid': 'itemprop:image', 'itemprop': 'image', 'content': 'https://croak.io/logo.png'},
+      ]
+    }
+  },
 }
 </script>
 

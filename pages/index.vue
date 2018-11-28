@@ -29,6 +29,33 @@ export default {
     }).catch((res) => {
       context.error({ statusCode: res.response.status, message: res.response.data })
     })
+  },
+  head() {
+    return {
+      title: 'Home',
+      titleTemplate: 'croak.io | %s',
+      meta: [
+        {'charset': 'utf-8'},
+        {'Content-Type': 'text/html'},
+        {'name': 'viewport', 'content': 'width=device-width, initial-scale=1'},
+        {'vmid': 'description', 'name': 'description', 'content': 'I make games about frogs and write in my blog.'},
+        {'vmid': 'og:title', 'property': 'og:title', 'content': 'Welcome to croak.io!'},
+        {'vmid': 'og:site_name', 'property': 'og:site_name', 'content': 'croak.io'},
+        {'vmid': 'og:type', 'property': 'og:type', 'content': 'website'},
+        {'vmid': 'og:url', 'property': 'og:url', 'content': 'https://croak.io'},
+        {'vmid': 'og:image', 'property': 'og:image', 'content': 'https://croak.io/logo.png'},
+        {'vmid': 'og:description', 'property': 'og:description', 'content': 'I make games about frogs and write in my blog.'},
+        {'vmid': 'twitter:card', 'name': 'twitter:card', 'content': 'summary'},
+        {'vmid': 'twitter:site', 'name': 'twitter:site', 'content': '@croak_io'},
+        {'vmid': 'twitter:title', 'name': 'twitter:title', 'content': 'Welcome to croak.io!'},
+        {'vmid': 'twitter:description', 'name': 'twitter:description', 'content': 'I make games about frogs and write in my blog.'},
+        {'vmid': 'twitter:image', 'name': 'twitter:image', 'content': 'https://croak.io/logo.png'},
+        {'vmid': 'twitter:image:alt', 'name': 'twitter:image:alt', 'content': 'croak.io logo'},
+        {'vmid': 'itemprop:name', 'itemprop': 'name', 'content': 'Welcome to croak.io!'},
+        {'vmid': 'itemprop:description', 'itemprop': 'description', 'content': 'I make games about frogs and write in my blog.'},
+        {'vmid': 'itemprop:image', 'itemprop': 'image', 'content': 'https://croak.io/logo.png'},
+      ]
+    }
   }
 }
 </script>

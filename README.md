@@ -23,14 +23,16 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## Features I Want
 
-* Home page w/ featured game
-* Games list page
-* Game pages
-* Blog list page
-  * Search/filter
-  * Vue, Phaser, Art categories
-* Blog pages
-* About page
 * Contact page w/ form
 * Twitter/YouTube/Kofi links
 * Meta tags and twitter cards
+
+## To Do
+
+* Finish meta tags
+* Test og tags and twitter card
+* Contact page
+* About page
+* Search/Filter for Games and Blog pages
+* Twitter/Youtube/Kofi links
+* favicon

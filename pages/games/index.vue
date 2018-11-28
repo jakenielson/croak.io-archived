@@ -33,6 +33,33 @@ export default {
     }).catch((res) => {
       context.error({ statusCode: res.response.status, message: res.response.data })
     })
+  },
+  head() {
+    return {
+      title: 'Games',
+      titleTemplate: 'croak.io | %s',
+      meta: [
+        {'charset': 'utf-8'},
+        {'Content-Type': 'text/html'},
+        {'name': 'viewport', 'content': 'width=device-width, initial-scale=1'},
+        {'vmid': 'description', 'name': 'description', 'content': 'Free indie games right in your browser.'},
+        {'vmid': 'og:title', 'property': 'og:title', 'content': 'Play my games!'},
+        {'vmid': 'og:site_name', 'property': 'og:site_name', 'content': 'croak.io'},
+        {'vmid': 'og:type', 'property': 'og:type', 'content': 'website'},
+        {'vmid': 'og:url', 'property': 'og:url', 'content': 'https://croak.io/games'},
+        {'vmid': 'og:image', 'property': 'og:image', 'content': 'https://croak.io/logo.png'},
+        {'vmid': 'og:description', 'property': 'og:description', 'content': 'Free indie games right in your browser.'},
+        {'vmid': 'twitter:card', 'name': 'twitter:card', 'content': 'summary'},
+        {'vmid': 'twitter:site', 'name': 'twitter:site', 'content': '@croak_io'},
+        {'vmid': 'twitter:title', 'name': 'twitter:title', 'content': 'Play my games!'},
+        {'vmid': 'twitter:description', 'name': 'twitter:description', 'content': 'Free indie games right in your browser.'},
+        {'vmid': 'twitter:image', 'name': 'twitter:image', 'content': 'https://croak.io/logo.png'},
+        {'vmid': 'twitter:image:alt', 'name': 'twitter:image:alt', 'content': 'croak.io logo'},
+        {'vmid': 'itemprop:name', 'itemprop': 'name', 'content': 'Play my games!'},
+        {'vmid': 'itemprop:description', 'itemprop': 'description', 'content': 'Free indie games right in your browser.'},
+        {'vmid': 'itemprop:image', 'itemprop': 'image', 'content': 'https://croak.io/logo.png'},
+      ]
+    }
   }
 }
 </script>
