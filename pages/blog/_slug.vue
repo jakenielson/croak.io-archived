@@ -20,6 +20,12 @@ export default {
   computed: {
     body () {
       return marked(this.story.content.body)
+    },
+    ogImage () {
+      return `https://${this.story.content.og_image.slice(2)}`;
+    },
+    twitterImage () {
+      return `https://${this.story.content.twitter_image.slice(2)}`;
     }
   },
   mixins: [storyblokLivePreview],
@@ -38,28 +44,28 @@ export default {
   },
   head() {
     return {
-      title: this.story.name,
+      title: this.story.content.name,
       titleTemplate: 'croak.io | %s',
       meta: [
         {'charset': 'utf-8'},
         {'Content-Type': 'text/html'},
         {'name': 'viewport', 'content': 'width=device-width, initial-scale=1'},
-        {'vmid': 'description', 'name': 'description', 'content': 'Game development, the internet, and design.'},
-        {'vmid': 'og:title', 'property': 'og:title', 'content': 'Read my blog!'},
+        {'vmid': 'description', 'name': 'description', 'content': this.story.content.intro},
+        {'vmid': 'og:title', 'property': 'og:title', 'content': this.story.content.name},
         {'vmid': 'og:site_name', 'property': 'og:site_name', 'content': 'croak.io'},
         {'vmid': 'og:type', 'property': 'og:type', 'content': 'website'},
         {'vmid': 'og:url', 'property': 'og:url', 'content': 'https://croak.io/blog'},
-        {'vmid': 'og:image', 'property': 'og:image', 'content': 'https://croak.io/logo.png'},
-        {'vmid': 'og:description', 'property': 'og:description', 'content': 'Game development, the internet, and design.'},
+        {'vmid': 'og:image', 'property': 'og:image', 'content': this.ogImage},
+        {'vmid': 'og:description', 'property': 'og:description', 'content': this.story.content.intro},
         {'vmid': 'twitter:card', 'name': 'twitter:card', 'content': 'summary'},
         {'vmid': 'twitter:site', 'name': 'twitter:site', 'content': '@croak_io'},
-        {'vmid': 'twitter:title', 'name': 'twitter:title', 'content': 'Read my blog!'},
-        {'vmid': 'twitter:description', 'name': 'twitter:description', 'content': 'Game development, the internet, and design.'},
-        {'vmid': 'twitter:image', 'name': 'twitter:image', 'content': 'https://croak.io/logo.png'},
+        {'vmid': 'twitter:title', 'name': 'twitter:title', 'content': this.story.content.name},
+        {'vmid': 'twitter:description', 'name': 'twitter:description', 'content': this.story.content.intro},
+        {'vmid': 'twitter:image', 'name': 'twitter:image', 'content': this.twitterImage},
         {'vmid': 'twitter:image:alt', 'name': 'twitter:image:alt', 'content': 'croak.io logo'},
-        {'vmid': 'itemprop:name', 'itemprop': 'name', 'content': 'Read my blog!'},
-        {'vmid': 'itemprop:description', 'itemprop': 'description', 'content': 'Game development, the internet, and design.'},
-        {'vmid': 'itemprop:image', 'itemprop': 'image', 'content': 'https://croak.io/logo.png'},
+        {'vmid': 'itemprop:name', 'itemprop': 'name', 'content': this.story.content.name},
+        {'vmid': 'itemprop:description', 'itemprop': 'description', 'content': this.story.content.intro},
+        {'vmid': 'itemprop:image', 'itemprop': 'image', 'content': this.ogImage},
       ]
     }
   },

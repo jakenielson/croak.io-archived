@@ -67,5 +67,10 @@ module.exports = {
     */
     extend(config, ctx) {
     }
+  },
+  generate: {
+    routes: [
+      '/blog/test-post-please-ignore'
+    ]
   }
 }
