@@ -1,7 +1,7 @@
 {
-  "name": "vued",
+  "name": "croak.io",
   "version": "1.0.0",
-  "description": "A vue.js blog",
+  "description": "My website. Created with Nuxt, Storyblok, and love to host my games.",
   "author": "Jake",
   "private": true,
   "scripts": {

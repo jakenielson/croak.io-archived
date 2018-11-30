@@ -1,6 +1,6 @@
-# vued
+# croak.io
 
-> A vue.js blog
+> My website. Created with Nuxt, Storyblok, and love to host my games.
 
 ## Build Setup
 
@@ -23,7 +23,9 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* Twitter card images, fix _slug tags
+* Fix cards on all pages
+* Thicc twitter cards
+* Pull dynamic pages from storyblok in nuxt.config.js
 
 * Contact page
 * About page

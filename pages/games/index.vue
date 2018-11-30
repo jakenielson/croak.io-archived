@@ -1,6 +1,6 @@
 <template>
   <section class="util__container">
-    <div v-for="game in data.stories" :key="game.content._uid" class="game__overview">
+    <div v-for="game in data.stories" :key="game.content._uid" v-if="game.name !== 'root'" class="game__overview">
       <h2>
         <nuxt-link class="game__detail-link" :to="'/' + game.full_slug">
           {{ game.content.name }}
@@ -20,6 +20,19 @@
 export default {
   data() {
     return { total: 0, data: { stories: [] } }
+  },
+  computed: {
+    root() {
+      for (let i = 0; i < this.data.stories.length; i++) {
+        if (this.data.stories[i].name === 'root') return this.data.stories[i].content;
+      }
+    },
+    ogImage() {
+      return `https://${this.root.og_image.slice(2)}`;
+    },
+    twitterImage() {
+      return `https://${this.root.twitter_image.slice(2)}`;
+    }
   },
   asyncData(context) {
     let version = context.query._storyblok || context.isDev ? 'draft' : 'publisher';
@@ -42,22 +55,22 @@ export default {
         {'charset': 'utf-8'},
         {'Content-Type': 'text/html'},
         {'name': 'viewport', 'content': 'width=device-width, initial-scale=1'},
-        {'vmid': 'description', 'name': 'description', 'content': 'Free indie games right in your browser.'},
-        {'vmid': 'og:title', 'property': 'og:title', 'content': 'Play my games!'},
+        {'vmid': 'description', 'name': 'description', 'content': this.root.description},
+        {'vmid': 'og:title', 'property': 'og:title', 'content': this.root.title},
         {'vmid': 'og:site_name', 'property': 'og:site_name', 'content': 'croak.io'},
         {'vmid': 'og:type', 'property': 'og:type', 'content': 'website'},
         {'vmid': 'og:url', 'property': 'og:url', 'content': 'https://croak.io/games'},
-        {'vmid': 'og:image', 'property': 'og:image', 'content': 'https://croak.io/logo.png'},
-        {'vmid': 'og:description', 'property': 'og:description', 'content': 'Free indie games right in your browser.'},
+        {'vmid': 'og:image', 'property': 'og:image', 'content': this.ogImage},
+        {'vmid': 'og:description', 'property': 'og:description', 'content': this.root.description},
         {'vmid': 'twitter:card', 'name': 'twitter:card', 'content': 'summary'},
         {'vmid': 'twitter:site', 'name': 'twitter:site', 'content': '@croak_io'},
-        {'vmid': 'twitter:title', 'name': 'twitter:title', 'content': 'Play my games!'},
-        {'vmid': 'twitter:description', 'name': 'twitter:description', 'content': 'Free indie games right in your browser.'},
-        {'vmid': 'twitter:image', 'name': 'twitter:image', 'content': 'https://croak.io/logo.png'},
-        {'vmid': 'twitter:image:alt', 'name': 'twitter:image:alt', 'content': 'croak.io logo'},
-        {'vmid': 'itemprop:name', 'itemprop': 'name', 'content': 'Play my games!'},
-        {'vmid': 'itemprop:description', 'itemprop': 'description', 'content': 'Free indie games right in your browser.'},
-        {'vmid': 'itemprop:image', 'itemprop': 'image', 'content': 'https://croak.io/logo.png'},
+        {'vmid': 'twitter:title', 'name': 'twitter:title', 'content': this.root.title},
+        {'vmid': 'twitter:description', 'name': 'twitter:description', 'content': this.root.description},
+        {'vmid': 'twitter:image', 'name': 'twitter:image', 'content': this.twitterImage},
+        {'vmid': 'twitter:image:alt', 'name': 'twitter:image:alt', 'content': this.root.image_alt},
+        {'vmid': 'itemprop:name', 'itemprop': 'name', 'content': this.root.title},
+        {'vmid': 'itemprop:description', 'itemprop': 'description', 'content': this.root.description},
+        {'vmid': 'itemprop:image', 'itemprop': 'image', 'content': this.ogImage},
       ]
     }
   }
