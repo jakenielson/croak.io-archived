@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const pkg = require('./package')
 const path = require('path')
 
@@ -69,8 +71,11 @@ module.exports = {
     }
   },
   generate: {
-    routes: [
-      '/blog/test-post-please-ignore'
-    ]
+    routes: function () {
+      return axios.get('https://api.storyblok.com/v1/cdn/stories?token=BMrhKOV0AUIQc7QLAKF4UAtt&starts_with=blog')
+        .then((res) => {
+          return res.data.stories.filter(s => s.name !== 'root').map(s => `/${s.full_slug}`);
+        })
+    }
   }
 }

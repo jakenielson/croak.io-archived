@@ -23,7 +23,6 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* Fix cards on all pages
 * Thicc twitter cards
 * Pull dynamic pages from storyblok in nuxt.config.js
 
