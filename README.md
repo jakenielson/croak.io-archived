@@ -23,9 +23,6 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* Thicc twitter cards
-* Pull dynamic pages from storyblok in nuxt.config.js
-
 * Contact page
 * About page
 
@@ -38,9 +35,6 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 * style
 
 * style
-
-* figure out now.sh fuckery
-* deploy to croak.io
 
 * article
 
