@@ -20,10 +20,22 @@ export default {
       message: '',
     }
   },
+  computed: {
+    templateParams() {
+      return {
+        reply_to: this.email,
+        content: this.message
+      }
+    }
+  },
   methods: {
     submit() {
-      console.log('email', this.email);
-      console.log('message', this.message);
+      this.$email('gmail', 'template_kv8my4vB', this.templateParams)
+        .then((response) => {
+          console.log('SUCCESS!', response.status, response.text);
+        }, (error) => {
+          console.log('FAILED...', error);
+        });
     }
   }
 }
