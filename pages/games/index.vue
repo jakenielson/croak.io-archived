@@ -1,6 +1,7 @@
 <template>
   <section class="util__container">
-    <div v-for="game in data.stories" :key="game.content._uid" v-if="game.name !== 'root'" class="game__overview">
+    <search-bar :dataset="storyTitles" @filter="filter"/>
+    <div v-for="game in filteredStories" :key="game.content._uid" v-if="game.name !== 'root'" class="game__overview">
       <h2>
         <nuxt-link class="game__detail-link" :to="'/' + game.full_slug">
           {{ game.content.name }}
@@ -17,9 +18,20 @@
 </template>
 
 <script>
+import SearchBar from '~/components/SearchBar.vue';
+
 export default {
+  components: {
+    SearchBar,
+  },
   data() {
-    return { total: 0, data: { stories: [] } }
+    return { 
+      total: 0,
+      data: {
+        stories: []
+      },
+      filteredTitles: [],
+    }
   },
   computed: {
     root() {
@@ -32,7 +44,19 @@ export default {
     },
     twitterImage() {
       return `https://${this.root.twitter_image.slice(2)}`;
+    },
+    storyTitles() {
+      if (!this.data.stories) return [];
+      return this.data.stories.map(story => story.name);
+    },
+    filteredStories() {
+      return this.data.stories.filter(story => this.filteredTitles.includes(story.name));
     }
+  },
+  methods: {
+    filter(filteredTitles) {
+      this.filteredTitles = filteredTitles;
+    },
   },
   asyncData(context) {
     let version = context.query._storyblok || context.isDev ? 'draft' : 'publisher';

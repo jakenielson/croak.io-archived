@@ -1,0 +1,37 @@
+<template>
+  <div class="search-bar__wrapper">
+    <label class="search-bar__label" for="query">Search</label>
+    <input class="search-bar__input" v-model="query" type="text" id="query" name="query">
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['dataset'],
+  data() {
+    return {
+      query: '',
+      emitTimeout: null,
+    }
+  },
+  computed: {
+    filteredSet() {
+      return this.dataset.filter(v => v.includes(this.query));
+    }
+  },
+  watch: {
+    query() {
+      if (this.emitTimeout) clearTimeout(this.emitTimeout);
+      this.emitTimeout = setTimeout(() => {
+        this.$emit('filter', this.filteredSet);
+      }, 100);
+    }
+  },
+  mounted() {
+    this.$emit('filter', this.filteredSet);
+  }
+}
+</script>
+
+<style lang="scss">
+</style>
