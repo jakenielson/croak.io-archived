@@ -23,7 +23,6 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* Search/Filter for Games and Blog pages
 * Twitter/Youtube/Kofi links
 * favicon
 

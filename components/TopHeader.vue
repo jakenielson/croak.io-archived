@@ -9,6 +9,13 @@
         </li>
       </ul>
     </nav>
+    <nav class="top-header__col">
+      <ul class="top-header__nav">
+        <li v-for="(nav, index) in socialNav" :key="index">
+          <a class="top-header__link" :href="nav.link.cached_url" target="_blank">{{ nav.name }}</a>
+        </li>
+      </ul>
+    </nav>
   </header>
 </template>
 
@@ -17,6 +24,9 @@ export default {
   computed: {
     mainNav() {
       return this.$store.state.settings.main_nav;
+    },
+    socialNav() {
+      return this.$store.state.settings.social_nav;
     }
   }
 }
