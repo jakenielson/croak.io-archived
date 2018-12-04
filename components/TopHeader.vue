@@ -1,13 +1,13 @@
 <template>
   <header class="top-header util__container">
-    <i class="nes-logo top-header__toggle" @click="openNav"></i>
+    <i class="nes-logo top-header__open" @click="openNav"></i>
     <div class="top-header__wrapper util__flex" :class="{'is-open': isOpen}">
-      <i class="icon close top-header__toggle" v-if="isOpen" @click="closeNav"></i>
+      <i class="icon close top-header__close" v-if="isOpen" @click="closeNav"></i>
       <nav class="top-header__col">
       <ul class="top-header__nav">
         <li class="top-header__nav-item" v-for="(nav, index) in mainNav" :key="index">
           <nuxt-link class="top-header__link" :to="nav.link.cached_url">
-            {{ nav.name }}
+            <button class="btn">{{ nav.name }}</button>
           </nuxt-link>
         </li>
       </ul>
@@ -61,10 +61,10 @@ export default {
 
   .top-header__wrapper {
     justify-content: space-between;
-    padding: 20px;
+    max-width: calc(100% - 40px);
   }
 
-  .top-header__toggle {
+  .top-header__open {
     display: none;
     cursor: pointer;
   }
@@ -73,6 +73,7 @@ export default {
     list-style: none;
     display: flex;
     flex-direction: row;
+    padding-left: 0;
 
     .top-header__link {
       text-decoration: none;
@@ -96,8 +97,15 @@ export default {
       display: flex;
     }
 
-    .top-header__toggle {
+    .top-header__open {
       display: block;
+    }
+
+    .top-header__close {
+      // position: relative;
+      // top: 30px;
+      // left: 30px;
+      margin: 30px;
     }
 
     .top-header__wrapper {
