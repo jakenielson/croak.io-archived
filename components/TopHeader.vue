@@ -1,8 +1,11 @@
 <template>
-  <header class="top-header util__flex util__container">
-    <nav class="top-header__col">
+  <header class="top-header util__container">
+    <i class="nes-logo top-header__toggle" @click="openNav"></i>
+    <div class="top-header__wrapper util__flex" :class="{'is-open': isOpen}">
+      <i class="icon close top-header__toggle" v-if="isOpen" @click="closeNav"></i>
+      <nav class="top-header__col">
       <ul class="top-header__nav">
-        <li v-for="(nav, index) in mainNav" :key="index">
+        <li class="top-header__nav-item" v-for="(nav, index) in mainNav" :key="index">
           <nuxt-link class="top-header__link" :to="nav.link.cached_url">
             {{ nav.name }}
           </nuxt-link>
@@ -10,23 +13,40 @@
       </ul>
     </nav>
     <nav class="top-header__col">
-      <ul class="top-header__nav">
-        <li v-for="(nav, index) in socialNav" :key="index">
-          <a class="top-header__link" :href="nav.link.cached_url" target="_blank">{{ nav.name }}</a>
+      <ul class="top-header__nav top-header__social">
+        <li class="top-header__nav-item" v-for="(nav, index) in socialNav" :key="index">
+          <a class="top-header__link" :href="nav.link.cached_url" target="_blank"><img class="top-header__icon" :src="getSrc(nav.icon)"></a>
         </li>
       </ul>
     </nav>
+    </div>
   </header>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      isOpen: false,
+    }
+  },
   computed: {
     mainNav() {
       return this.$store.state.settings.main_nav;
     },
     socialNav() {
       return this.$store.state.settings.social_nav;
+    }
+  },
+  methods: {
+    getSrc(src) {
+      return `https://${src.slice(2)}`;
+    },
+    openNav() {
+      this.isOpen = true;
+    },
+    closeNav() {
+      this.isOpen = false;
     }
   }
 }
@@ -39,6 +59,16 @@ export default {
     padding-bottom: 30px;
   }
 
+  .top-header__wrapper {
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .top-header__toggle {
+    display: none;
+    cursor: pointer;
+  }
+
   .top-header__nav {
     list-style: none;
     display: flex;
@@ -48,8 +78,54 @@ export default {
       text-decoration: none;
       color: #3b8070;
       margin: 0 5px;
-      font-size: 18px;
+      font-size: 1em;
       font-weight: bold;
+
+      .top-header__icon {
+        height: 16px;
+        width: 16px;
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .util__flex.top-header__wrapper, .util__flex.top-header {
+      display: none;
+    }
+
+    .util__flex.top-header__wrapper.is-open {
+      display: flex;
+    }
+
+    .top-header__toggle {
+      display: block;
+    }
+
+    .top-header__wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      flex-direction: column;
+      width: 180px;
+      z-index: 999;
+      background-color: #fff;
+      box-shadow: 2px 2px lightgrey;
+
+      .top-header__nav {
+        flex-direction: column;
+        padding-left: 0;
+        align-items: center;
+        justify-content: space-between;
+
+        .top-header__nav-item {
+          padding: 20px 5px;
+        }
+      }
+
+      .top-header__social {
+        flex-direction: row;
+        justify-content: space-around;
+      }
     }
   }
 </style>

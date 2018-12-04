@@ -23,7 +23,6 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* Twitter/Youtube/Kofi links
 * favicon
 
 * design
