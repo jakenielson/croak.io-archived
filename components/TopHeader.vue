@@ -15,7 +15,7 @@
     <nav class="top-header__col">
       <ul class="top-header__nav top-header__social">
         <li class="top-header__nav-item" v-for="(nav, index) in socialNav" :key="index">
-          <a class="top-header__link" :href="nav.link.cached_url" target="_blank"><img class="top-header__icon" :src="getSrc(nav.icon)"></a>
+          <a class="top-header__link" :href="nav.link.cached_url"><img class="top-header__icon" :src="getSrc(nav.icon)"></a>
         </li>
       </ul>
     </nav>
@@ -88,12 +88,14 @@ export default {
       font-weight: bold;
 
       .top-header__icon {
-        height: 16px;
-        width: 16px;
+        height: 32px;
+        width: 32px;
+        margin: 7px;
+        image-rendering: pixelated;
       }
     }
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 650px) {
     .util__flex.top-header__wrapper, .util__flex.top-header {
       display: none;
     }
@@ -136,6 +138,7 @@ export default {
 
       .top-header__social {
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-around;
       }
     }
