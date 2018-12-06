@@ -77,7 +77,7 @@ export default {
   .page {
     flex-direction: column;
 
-    h1 {
+    h2 {
       margin: 20px 0;
     }
   }

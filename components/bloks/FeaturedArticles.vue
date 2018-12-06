@@ -1,6 +1,6 @@
 <template>
   <div v-editable="blok" class="featured-articles util__flex util__container">
-    <h1>Featured Articles:</h1>
+    <h2 class="featured-articles__header">Featured Articles</h2>
     <div class="featured-articles__wrapper util__flex">
       <nuxt-link v-for="article in blok.articles" :key="article._uid" class="featured-article container with-title is-center" :to="article.link.cached_url">
         <p class="featured-article__title title">{{ article.title }}</p>
@@ -20,6 +20,9 @@ export default {
 .featured-articles {
   display: flex;
   flex-direction: column;
+}
+.featured-articles__header {
+  text-align: center;
 }
 .featured-articles__wrapper {
   flex-grow: 1;

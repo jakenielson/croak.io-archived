@@ -100,6 +100,7 @@ export default {
 
     .util__flex.top-header__wrapper.is-open {
       display: flex;
+      position: fixed;
     }
 
     .top-header__open {
@@ -108,9 +109,6 @@ export default {
 
     .top-header__close {
       display: block;
-      // position: relative;
-      // top: 30px;
-      // left: 30px;
       margin: 30px;
     }
 
