@@ -69,6 +69,11 @@ export default {
     cursor: pointer;
   }
 
+  .top-header__close {
+    display: none;
+    cursor: pointer;
+  }
+
   .top-header__nav {
     list-style: none;
     display: flex;
@@ -102,6 +107,7 @@ export default {
     }
 
     .top-header__close {
+      display: block;
       // position: relative;
       // top: 30px;
       // left: 30px;
