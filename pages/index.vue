@@ -1,5 +1,5 @@
 <template>
-  <section class="util__container">
+  <section class="util__container home__section">
     <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
   </section>
 </template>
@@ -64,3 +64,22 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.page {
+  min-height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-evenly;
+}
+@media only screen and (max-width: 950px) {
+  .page {
+    flex-direction: column;
+
+    h1 {
+      margin: 20px 0;
+    }
+  }
+}
+</style>
