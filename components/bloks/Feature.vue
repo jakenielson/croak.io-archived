@@ -45,17 +45,26 @@ export default {
   }
 
   .feature__image {
-    max-height: 312px;
-    max-width: 312px;
+    height: 416px;
+    width: 416px;
     margin-bottom: 20px;
     border-color: #212529;
     border-style: solid;
     border-width: 4px;
     border-radius: 4px;
+    image-rendering: pixelated;
   }
 
   .feature__container {
-    max-width: 400px;
+    max-width: 500px;
+  }
+}
+@media screen and (max-width: 650px) { 
+  .feature__wrapper {
+    .feature__image {
+      height: 208px;
+      width: 208px;
+    }
   }
 }
 </style>
