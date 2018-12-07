@@ -1,0 +1,24 @@
+a {
+  text-decoration: none;
+  color: #000;
+
+  p {
+    text-decoration: none;
+    color: #000;
+    
+    &:hover {
+      text-decoration: none;
+      color: #000;
+    }
+  }
+}
+
+a:hover {
+  text-decoration: none;
+  color: #000;
+
+  p {
+    text-decoration: none;
+    color: #000;
+  }
+}

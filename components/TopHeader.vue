@@ -81,8 +81,6 @@ export default {
     padding-left: 0;
 
     .top-header__link {
-      text-decoration: none;
-      color: #3b8070;
       margin: 0 5px;
       font-size: 1em;
       font-weight: bold;

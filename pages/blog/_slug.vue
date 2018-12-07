@@ -92,9 +92,6 @@ export default {
 }
 
 .blog__back-link {
-  text-decoration: none;
-  color: #3b8070;
-  // margin: 0 5px;
   margin-left: -10px;
   font-size: 16px;
   font-weight: bold;

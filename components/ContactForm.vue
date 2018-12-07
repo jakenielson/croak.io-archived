@@ -1,6 +1,6 @@
 <template>
   <form class="contact-form">
-    <div class="contact-form__section">
+    <div class="contact-form__section util__flex-col">
       <label class="contact-form__label" for="email">Email</label>
       <input class="contact-form__text" v-model="email" type="text" id="email" name="email">
     </div>
@@ -43,8 +43,6 @@ export default {
 
 <style lang="scss">
 .contact-form__section {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 20px;
 }
 .contact-form__label {

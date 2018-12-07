@@ -1,18 +1,12 @@
 <template>
-  <section class="util__container">
+  <section class="games__section util__container util__flex-col">
+    <h1 class="games__header">Games</h1>
     <search-bar :dataset="storyTitles" @filter="filter"/>
-    <div v-for="game in filteredStories" :key="game.content._uid" v-if="game.name !== 'root'" class="game__overview">
-      <h2>
-        <nuxt-link class="game__detail-link" :to="'/' + game.full_slug">
-          {{ game.content.name }}
-        </nuxt-link>
-      </h2>
-      <small>
-        {{ game.published_at }}
-      </small>
-      <p>
-        {{ game.content.description }}
-      </p>
+    <div class="games__wrapper util__flex-wrap">
+      <nuxt-link v-for="game in filteredStories" :key="game.content._uid" v-if="game.name !== 'root'" class="game container with-title is-center" :to="'/' + game.full_slug">
+        <p class="game__title title">{{ game.content.name }}</p>
+        <p class="game__description">{{ game.content.description }}</p>
+      </nuxt-link>
     </div>
   </section>
 </template>
@@ -102,18 +96,12 @@ export default {
 </script>
 
 <style lang="scss">
-.game__overview {
-  padding: 0 20px;
-  max-width: 600px;
-  margin: 40px auto 60px;
-
-  p {
-    line-height: 1.6;
-  }
+.games__section {
+  align-items: center;
 }
 
-.game__detail-link {
-  color: #3b8070;
-  text-decoration: none;
+.game {
+  margin: 40px;
+  max-width: 600px;
 }
 </style>

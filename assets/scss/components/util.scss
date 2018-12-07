@@ -3,11 +3,18 @@
 }
 
 .util__flex-col {
-  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.util__flex-eq {
-  flex: 1;
+.util__flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.util__flex-center {
+  justify-content: center;
+  align-items: center;
 }
 
 .util__container {

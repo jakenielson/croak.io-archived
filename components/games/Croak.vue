@@ -1,5 +1,5 @@
 <template>
-  <div id="game-container"/>
+  <div id="game-container" class="util__flex-col util__flex-center"/>
 </template>
 
 <script>
@@ -26,10 +26,6 @@ export default {
 
 <style lang="css">
 #game-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   margin-right: 20px;
 }
 @media only screen and (max-width: 900px) {

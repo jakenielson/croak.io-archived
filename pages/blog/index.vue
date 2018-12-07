@@ -1,18 +1,12 @@
 <template>
-  <section class="util__container">
+  <section class="blog__section util__container util__flex-col">
+    <h1 class="blog__header">Blog</h1>
     <search-bar :dataset="storyTitles" @filter="filter"/>
-    <div :key="blogPost.content._uid" v-for="blogPost in filteredStories" v-if="blogPost.name !== 'root'" class="blog__overview">
-      <h2>
-        <nuxt-link class="blog__detail-link" :to="'/' + blogPost.full_slug">
-          {{ blogPost.content.name }}
-        </nuxt-link>
-      </h2>
-      <small>
-        {{ blogPost.published_at }}
-      </small>
-      <p>
-        {{ blogPost.content.intro }}
-      </p>
+    <div class="blog__wrapper util__flex-wrap">
+      <nuxt-link v-for="blogPost in filteredStories" :key="blogPost.content._uid" v-if="blogPost.name !== 'root'" class="article container with-title is-center" :to="'/' + blogPost.full_slug">
+        <p class="article__title title">{{ blogPost.content.name }}</p>
+        <p class="article__description">{{ blogPost.content.intro }}</p>
+      </nuxt-link>
     </div>
   </section>
 </template>
@@ -102,18 +96,12 @@ export default {
 </script>
 
 <style lang="scss">
-.blog__overview {
-  padding: 0 20px;
-  max-width: 600px;
-  margin: 40px auto 60px;
-
-  p {
-    line-height: 1.6;
-  }
+.blog__section {
+  align-items: center;
 }
 
-.blog__detail-link {
-  color: #3b8070;
-  text-decoration: none;
+.article {
+  margin: 40px;
+  max-width: 600px;
 }
 </style>

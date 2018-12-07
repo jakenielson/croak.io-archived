@@ -1,7 +1,7 @@
 <template>
   <div class="search-bar__wrapper">
     <label class="search-bar__label" for="query">Search</label>
-    <input class="search-bar__input" v-model="query" type="text" id="query" name="query">
+    <input class="search-bar__input input" v-model="query" type="text" id="query" name="query">
   </div>
 </template>
 
@@ -34,4 +34,10 @@ export default {
 </script>
 
 <style lang="scss">
+.search-bar__label {
+  width: 20%;
+}
+.search-bar__input {
+  width: 70%;
+}
 </style>

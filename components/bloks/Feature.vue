@@ -1,7 +1,7 @@
 <template>
-  <div v-editable="blok" class="feature util__flex util__container">
+  <div v-editable="blok" class="feature util__flex-col util__container">
     <h2 class="feature__header">Featured Game</h2>
-    <div class="feature__wrapper util__flex">
+    <div class="feature__wrapper util__flex-col">
       <nuxt-link class="feature__link" :to="blok.link.cached_url">
         <img class="feature__image" :src="imageSrc">
       </nuxt-link>
@@ -25,24 +25,16 @@ export default {
 </script>
 
 <style lang="scss">
-.feature {
-  display: flex;
-  flex-direction: column;
-}
 .feature__header {
   text-align: center;
-  margin-bottom: 40px;
 }
 .feature__wrapper {
   flex-grow: 1;
   align-items: center;
   justify-content: space-between;
-  flex-direction: column;
 
   .feature__link {
     cursor: pointer;
-    color: #000;
-    text-decoration: none;
   }
 
   .feature__image {
