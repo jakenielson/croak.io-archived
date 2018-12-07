@@ -76,10 +76,6 @@ export default {
 @media only screen and (max-width: 950px) {
   .page {
     flex-direction: column;
-
-    h2 {
-      margin: 20px 0;
-    }
   }
 }
 </style>

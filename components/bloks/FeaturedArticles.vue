@@ -23,19 +23,27 @@ export default {
 }
 .featured-articles__header {
   text-align: center;
+  margin-bottom: 40px;
 }
 .featured-articles__wrapper {
   flex-grow: 1;
   align-items: center;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
   .featured-article {
     cursor: pointer;
     color: #000;
     text-decoration: none;
-    margin: 20px 0px;
     max-width: 500px;
+    margin: 20px 0;
+
+    &:first-child {
+      margin-top: 0px;
+    }
+    &:last-child {
+      margin-bottom: 0px;
+    }
   }
 }
 </style>

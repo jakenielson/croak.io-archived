@@ -31,11 +31,12 @@ export default {
 }
 .feature__header {
   text-align: center;
+  margin-bottom: 40px;
 }
 .feature__wrapper {
   flex-grow: 1;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
 
   .feature__link {
@@ -57,6 +58,11 @@ export default {
 
   .feature__container {
     max-width: 500px;
+  }
+}
+@media screen and (max-width: 950px) { 
+  .feature {
+    margin-bottom: 40px;
   }
 }
 @media screen and (max-width: 650px) { 

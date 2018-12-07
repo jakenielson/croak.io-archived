@@ -107,6 +107,7 @@ export default {
 
     .top-header__open {
       display: block;
+      position: absolute;
     }
 
     .top-header__close {
