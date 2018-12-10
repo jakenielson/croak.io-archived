@@ -23,24 +23,7 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* favicon
-
-* design
-
-* style
-
-* style
-
-* article
-
-* article
-
-* test / polish
-
-* article
-
-* article
-
-* test / polish
-
-* article
+* Contact page
+* About page
+* Game page
+* Article page

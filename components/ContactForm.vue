@@ -2,13 +2,13 @@
   <form class="contact-form">
     <div class="contact-form__section util__flex-col">
       <label class="contact-form__label" for="email">Email</label>
-      <input class="contact-form__text" v-model="email" type="text" id="email" name="email">
+      <input class="contact-form__text input" v-model="email" type="text" id="email" name="email">
     </div>
-    <div class="contact-form__section">
+    <div class="contact-form__section util__flex-col">
       <label class="contact-form__label" for="message">Message</label>
-      <textarea class="contact-form__textarea" v-model="message" id="message" name="message" rows="10"></textarea>
+      <textarea class="contact-form__textarea input" v-model="message" id="message" name="message" rows="10"></textarea>
     </div>
-    <button class="contact-form__button" @click.prevent="submit">Submit</button>
+    <button class="contact-form__button btn" @click.prevent="submit">Send</button>
   </form>
 </template>
 
@@ -42,20 +42,23 @@ export default {
 </script>
 
 <style lang="scss">
+.contact-form {
+  margin-top: 40px;
+}
 .contact-form__section {
   margin-bottom: 20px;
 }
 .contact-form__label {
-  font-size: 32px;
+  // font-size: 32px;
   margin-bottom: 5px;
 }
 .contact-form__text {
   width: 250px;
 }
 .contact-form__text, .contact-form__textarea {
-  font-size: 18px;
+  // font-size: 18px;
 }
 .contact-form__button {
-  font-size: 18px;
+  // font-size: 18px;
 }
 </style>

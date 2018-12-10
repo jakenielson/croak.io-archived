@@ -12,15 +12,4 @@ export default {
 </script>
 
 <style lang="scss">
-  .titled-text {
-    align-items: center;
-
-    .titled-text__title {
-      font-size: 42px;
-    }
-
-    .titled-text__text {
-      font-size: 20px;
-    }
-  }
 </style>

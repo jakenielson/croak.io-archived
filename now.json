@@ -1,5 +1,9 @@
 {
-  "name": "croak",
+  "version": 2,
+  "name": "nuxt-static",
+  "builds": [
+      { "src": "package.json", "use": "@now/static-build" }
+  ],
   "alias": [
     "www.croak.io",
     "croak.io"
