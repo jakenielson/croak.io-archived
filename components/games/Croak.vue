@@ -18,8 +18,8 @@ export default {
   methods: {
     resize() {
       const header = document.getElementById('top-header');
-      const windowHeight = window.innerHeight - header.offsetHeight - 20;
-      const windowWidth = window.innerWidth - 20;
+      const windowHeight = window.innerHeight - header.offsetHeight - 40;
+      const windowWidth = window.innerWidth - 40;
       const windowRatio = windowWidth / windowHeight;
       const gameRatio = this.width / this.height;
 

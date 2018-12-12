@@ -1,11 +1,6 @@
 <template>
   <section class="util__container">
-    <div v-editable="story.content" class="blog">
-      <nuxt-link class="blog__back-link" to="/blog"> &lt; Back </nuxt-link>
-      <h1>{{ story.content.name }}</h1>
-      <div class="blog__body" v-html="body">
-      </div>
-    </div>
+    <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
   </section>
 </template>
 
@@ -15,12 +10,9 @@ import storyblokLivePreview from '@/mixins/storyblokLivePreview'
 
 export default {
   data () {
-    return { story: { content: { body: '' } } }
+    return { story: { content: { } } }
   },
   computed: {
-    body () {
-      return marked(this.story.content.body)
-    },
     url () {
       return `https://croak.io/${this.story.full_slug}`;
     },
