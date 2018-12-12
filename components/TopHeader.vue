@@ -1,5 +1,5 @@
 <template>
-  <header class="top-header util__container">
+  <header id="top-header" class="top-header">
     <i class="nes-logo top-header__open" @click="openNav"></i>
     <div class="top-header__wrapper util__flex" :class="{'is-open': isOpen}">
       <i class="icon close top-header__close" v-if="isOpen" @click="closeNav"></i>
@@ -55,8 +55,7 @@ export default {
 <style lang="scss">
   .top-header {
     justify-content: space-between;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 30px;
   }
 
   .top-header__wrapper {

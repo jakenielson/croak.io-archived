@@ -19,4 +19,17 @@ export default {
 
 <style lang="scss">
 @import '../assets/scss/styles.scss';
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 </style>

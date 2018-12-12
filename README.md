@@ -23,7 +23,5 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* Contact page
-* About page
 * Game page
 * Article page

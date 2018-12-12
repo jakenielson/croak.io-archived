@@ -15,10 +15,39 @@ export default {
       resizeTimeout: null
     };
   },
+  methods: {
+    resize() {
+      const header = document.getElementById('top-header');
+      const windowHeight = window.innerHeight - header.offsetHeight - 20;
+      const windowWidth = window.innerWidth - 20;
+      const windowRatio = windowWidth / windowHeight;
+      const gameRatio = this.width / this.height;
+
+      if (windowRatio < gameRatio) {
+        this.width = windowWidth;
+        this.height = (windowWidth / gameRatio);
+      } else {
+        this.width = (windowHeight * gameRatio);
+        this.height = windowHeight;
+      } if (this.game) {
+        this.game.resize(this.width, this.height);
+      }
+    },
+    triggerResize() {
+      clearTimeout(this.resizeTimeout);
+      this.resizeTimeout = setTimeout(() => {
+        this.resize();
+      }, 200);
+    },
+  },
   mounted() {
+    document.getElementById('main').style.justifyContent = 'center';
+    this.resize();
     this.game = new Croak(config, this.height, this.width);
+    window.addEventListener("resize", this.triggerResize, false);
   },
   beforeDestroy() {
+    document.getElementById('main').style.justifyContent = 'flex-start';
     this.game.destroy();
   }
 }
@@ -26,11 +55,5 @@ export default {
 
 <style lang="css">
 #game-container {
-  margin-right: 20px;
-}
-@media only screen and (max-width: 900px) {
-  #game-container {
-    margin-right: 0;
-  }
 }
 </style>
