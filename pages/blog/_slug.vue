@@ -1,5 +1,5 @@
 <template>
-  <section class="util__container">
+  <section class="util__container blog-container">
     <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
   </section>
 </template>
@@ -68,24 +68,5 @@ export default {
 </script>
 
 <style lang="scss">
-.blog {
-  padding: 0 20px;
-  max-width: 600px;
-  margin: 40px auto 100px;
 
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-.blog__body {
-  line-height: 1.6;
-}
-
-.blog__back-link {
-  margin-left: -10px;
-  font-size: 16px;
-  font-weight: bold;
-}
 </style>

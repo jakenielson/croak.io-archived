@@ -23,5 +23,11 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* Game page
-* Article page
+* Style blog components
+* Write an article
+* Update OG images to 1200x1200
+
+* The mounted and beforeDestroy logic that adds and removes style should instead add and remove a class
+* Rename and rethink bloks with additional configuration (I understand these better now)
+* Add gameboy game background
+* Fix layout and loading on mobile
