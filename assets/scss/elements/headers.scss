@@ -10,3 +10,21 @@
   font-size: 18px;
   margin: 24px 0 24px 20px;
 }
+
+@media screen and (max-width: 650px) {
+  .header--large, .header--medium, .header--small {
+    margin-left: 0px;
+  }
+  .header--large {
+    font-size: 24px;
+    margin: 32px 0;
+  }
+  .header--medium {
+    font-size: 18px;
+    margin: 24px 0;
+  }
+  .header--small {
+    font-size: 12px;
+    margin: 18px 0;
+  }
+}

@@ -4,3 +4,9 @@ p {
 .paragraph {
   margin: 20px 0;
 }
+
+@media screen and (max-width: 650px) {
+  .paragraph {
+    font-size: 8px;
+  }
+}
