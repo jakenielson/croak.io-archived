@@ -1,14 +1,17 @@
 .header--large {
   font-size: 40px;
-  margin: 40px 0 40px 20px;
+  margin: 40px 0;
+  text-align: center;
 }
 .header--medium {
   font-size: 28px;
-  margin: 32px 0 32px 20px;
+  margin: 32px 0;
+  text-align: center;
 }
 .header--small {
   font-size: 18px;
-  margin: 24px 0 24px 20px;
+  margin: 24px 0;
+  text-align: center;
 }
 
 @media screen and (max-width: 650px) {

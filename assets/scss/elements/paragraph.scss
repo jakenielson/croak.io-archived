@@ -3,10 +3,11 @@ p {
 }
 .paragraph {
   margin: 20px 0;
+  text-indent: 40px;
 }
 
 @media screen and (max-width: 650px) {
   .paragraph {
-    font-size: 10px;
+    font-size: 12px;
   }
 }

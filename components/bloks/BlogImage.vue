@@ -18,14 +18,19 @@ export default {
 <style lang="scss">
 .blog-image__wrapper {
   display: flex;
+  position: relative;
   flex-direction: row;
   justify-content: center;
-  padding: 40px 0;
-  max-width: 100%;
-  overflow: hidden;
+  padding: 60px 0;
 }
 .blog-image {
-  max-height: 400px;
-  width: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  -ms-transform: translate(-50%, -50%); /* IE 9 */
+  -webkit-transform: translate(-50%, -50%); /* Safari */
+  transform: translate(-50%, -50%);
 }
 </style>

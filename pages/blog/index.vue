@@ -2,7 +2,7 @@
   <section class="blog__section util__container util__flex-col">
     <h1 class="blog__header">Blog</h1>
     <search-bar :dataset="storyTitles" @filter="filter"/>
-    <div class="blog__wrapper util__flex-wrap">
+    <div class="blog__wrapper util__flex-col">
       <nuxt-link v-for="blogPost in filteredStories" :key="blogPost.content._uid" v-if="blogPost.name !== 'root'" class="article container with-title is-center" :to="'/' + blogPost.full_slug">
         <p class="article__title title">{{ blogPost.content.name }}</p>
         <p class="article__description">{{ blogPost.content.intro }}</p>

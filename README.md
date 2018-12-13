@@ -23,9 +23,10 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* Style blog components
-* Write an article
 * Update OG images to 1200x1200
+* Fix blog typos
+* Center blog headers
+* Add indent to paragraphs
 
 * The mounted and beforeDestroy logic that adds and removes style should instead add and remove a class
 * Rename and rethink bloks with additional configuration (I understand these better now)
