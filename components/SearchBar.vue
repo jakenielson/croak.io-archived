@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     filteredSet() {
-      return this.dataset.filter(v => v.includes(this.query));
+      return this.dataset.filter(v => v.toLowerCase().includes(this.query.toLowerCase()));
     }
   },
   watch: {
