@@ -27,4 +27,13 @@ export default {
 #main {
   flex: 1;
 }
+@media screen and (max-width: 650px) {
+  #main {
+    margin-top: 73px;
+    
+    &.main__game {
+      margin-top: 0;
+    }
+  }
+}
 </style>

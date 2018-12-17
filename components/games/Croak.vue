@@ -48,10 +48,12 @@ export default {
   mounted() {
     document.getElementById('main').classList.remove('util__flex-start');
     document.getElementById('main').classList.add('util__flex-center');
+    document.getElementById('main').classList.add('main__game');
     this.initGame();
   },
   beforeDestroy() {
     document.getElementById('main').classList.remove('util__flex-center');
+    document.getElementById('main').classList.remove('main__game');
     document.getElementById('main').classList.add('util__flex-start');
     this.game.destroy();
   }

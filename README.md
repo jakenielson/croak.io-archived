@@ -23,8 +23,9 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* Rename and rethink bloks with additional configuration (I understand these better now)
 * Add gameboy game background
 * Fix layout and loading on mobile
 
 * Game should be full screen and have an in-game back button
+* Close header on nav
+* Contact form titled-text fix
