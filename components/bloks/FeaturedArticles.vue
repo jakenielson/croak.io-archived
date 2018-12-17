@@ -22,8 +22,7 @@ export default {
 }
 .featured-articles__wrapper {
   flex-grow: 1;
-  align-items: center;
-  justify-content: space-between;
+  margin-top: 20px;
 
   .featured-article {
     cursor: pointer;

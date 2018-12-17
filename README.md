@@ -23,7 +23,6 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* The mounted and beforeDestroy logic that adds and removes style should instead add and remove a class
 * Rename and rethink bloks with additional configuration (I understand these better now)
 * Add gameboy game background
 * Fix layout and loading on mobile
