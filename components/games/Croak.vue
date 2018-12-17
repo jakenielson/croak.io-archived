@@ -39,21 +39,24 @@ export default {
         this.resize();
       }, 200);
     },
+    initGame() {
+      this.resize();
+      this.game = new Croak(config, this.height, this.width);
+      window.addEventListener("resize", this.triggerResize, false);
+    }
   },
   mounted() {
-    document.getElementById('main').style.justifyContent = 'center';
-    this.resize();
-    this.game = new Croak(config, this.height, this.width);
-    window.addEventListener("resize", this.triggerResize, false);
+    document.getElementById('main').classList.remove('util__flex-start');
+    document.getElementById('main').classList.add('util__flex-center');
+    this.initGame();
   },
   beforeDestroy() {
-    document.getElementById('main').style.justifyContent = 'flex-start';
+    document.getElementById('main').classList.remove('util__flex-center');
+    document.getElementById('main').classList.add('util__flex-start');
     this.game.destroy();
   }
 }
 </script>
 
 <style lang="css">
-#game-container {
-}
 </style>

@@ -23,12 +23,9 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* Update OG images to 1200x1200
-* Fix blog typos
-* Center blog headers
-* Add indent to paragraphs
-
 * The mounted and beforeDestroy logic that adds and removes style should instead add and remove a class
 * Rename and rethink bloks with additional configuration (I understand these better now)
 * Add gameboy game background
 * Fix layout and loading on mobile
+
+* Game should be full screen and have an in-game back button

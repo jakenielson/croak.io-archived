@@ -1,7 +1,7 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper util__flex-col">
     <top-header/>
-    <main id="main" role="main">
+    <main id="main" role="main" class="util__flex-col util__flex-start ">
       <nuxt/>
     </main>
   </div>
@@ -22,14 +22,9 @@ export default {
 
 .wrapper {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 #main {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 </style>
