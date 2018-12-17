@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style lang="scss">
-.page {
+.home__section .page {
   min-height: calc(100vh - 150px);
   display: flex;
   flex-direction: row;
@@ -74,7 +74,7 @@ export default {
   justify-content: space-evenly;
 }
 @media only screen and (max-width: 950px) {
-  .page {
+  .home__section .page {
     flex-direction: column;
   }
 }

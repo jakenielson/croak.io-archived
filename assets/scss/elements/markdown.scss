@@ -1,8 +1,17 @@
 .markdown {
   .markdown__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     h1 {
       margin-bottom: 40px;
     }
+
+    p {
+      text-indent: 40px;
+    }
+
     a {
       color: $brand-color-2;
     }

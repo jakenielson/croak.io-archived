@@ -1,5 +1,6 @@
 <template>
-  <section class="util__container">
+  <section class="contact__section util__container util__flex-col">
+    <h1 class="contact__header">Contact</h1>
     <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
     <contact-form></contact-form>
   </section>
@@ -67,3 +68,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.contact__section {
+  align-items: center;
+}
+.contact-form {
+  width: 100%;
+}
+</style>
