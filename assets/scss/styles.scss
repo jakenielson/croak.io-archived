@@ -15,5 +15,6 @@ $breakpoint-large-max: ($breakpoint-xlarge - 1);
 @import 'elements/paragraph.scss';
 @import 'elements/links.scss';
 @import 'elements/inputs.scss';
+@import 'elements/markdown.scss';
 @import 'components/util.scss';
 @import 'components/nuxt.scss';

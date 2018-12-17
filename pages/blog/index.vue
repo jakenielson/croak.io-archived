@@ -100,6 +100,10 @@ export default {
   align-items: center;
 }
 
+.blog__header {
+  margin-bottom: 40px;
+}
+
 .article {
   margin: 40px;
   max-width: 600px;

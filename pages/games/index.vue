@@ -100,6 +100,10 @@ export default {
   align-items: center;
 }
 
+.games__header {
+  margin-bottom: 40px;
+}
+
 .game-preview {
   margin: 40px;
   max-width: 600px;
