@@ -8,7 +8,8 @@
       <label class="contact-form__label" for="message">Message</label>
       <textarea class="contact-form__textarea input" v-model="message" id="message" name="message" rows="10"></textarea>
     </div>
-    <button class="contact-form__button btn" @click.prevent="submit">Send</button>
+    <button class="contact-form__button btn" @click.prevent="submit" :disabled="sending">Send</button>
+    <span class="contact-form__prompt">{{ prompt }}</span>
   </form>
 </template>
 
@@ -18,6 +19,8 @@ export default {
     return {
       email: '',
       message: '',
+      prompt: '',
+      sending: false,
     }
   },
   computed: {
@@ -30,12 +33,24 @@ export default {
   },
   methods: {
     submit() {
-      this.$email('gmail', 'template_kv8my4vB', this.templateParams)
+      if (this.email && this.message) {
+        this.sending = true;
+        this.prompt = 'Sending...';
+        this.$email('gmail', 'template_kv8my4vB', this.templateParams)
         .then((response) => {
-          console.log('SUCCESS!', response.status, response.text);
+          this.sending = false;
+          this.prompt = 'Sent!';
+          this.clearForm();
         }, (error) => {
-          console.log('FAILED...', error);
+          this.sending = false;
+          this.prompt = 'Error!';
+          this.clearForm();
         });
+      }
+    },
+    clearForm() {
+      this.email = '';
+      this.message = '';
     }
   }
 }
