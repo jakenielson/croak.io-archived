@@ -25,7 +25,7 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 * Make containers narrower
 * Fix controller and input css on mobile
-* Game should be full screen and have an in-game back button
+* Fix mobile viewport units https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 
 
 * Game should have no padding on the top, and padding equal to the topheader padding on the bottom
