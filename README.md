@@ -23,9 +23,9 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* Add gameboy game background
-* Fix layout and loading on mobile
-
+* Make containers narrower
+* Fix controller and input css on mobile
 * Game should be full screen and have an in-game back button
-* Close header on nav
-* Contact form titled-text fix
+
+
+* Game should have no padding on the top, and padding equal to the topheader padding on the bottom

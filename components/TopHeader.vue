@@ -90,6 +90,7 @@ export default {
     display: flex;
     flex-direction: row;
     padding-left: 0;
+    margin: 0;
 
     .top-header__link {
       margin: 0 5px;
