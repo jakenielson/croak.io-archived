@@ -3,10 +3,10 @@
     <h1 class="games__header">Games</h1>
     <search-bar :dataset="storyTitles" @filter="filter"/>
     <div class="games__wrapper util__flex-col">
-      <nuxt-link v-for="game in filteredStories" :key="game.content._uid" v-if="game.name !== 'root'" class="game-preview container with-title is-center" :to="'/' + game.full_slug">
+      <a v-for="game in filteredStories" :key="game.content._uid" v-if="game.name !== 'root'" class="game-preview container with-title is-center" :href="'/' + game.full_slug">
         <p class="game-preview__title title">{{ game.content.name }}</p>
         <p class="game-preview__description">{{ game.content.description }}</p>
-      </nuxt-link>
+      </a>
     </div>
   </section>
 </template>

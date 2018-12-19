@@ -2,13 +2,13 @@
   <div v-editable="blok" class="featured-game util__flex-col util__container">
     <h2 class="featured-game__header">Featured Game</h2>
     <div class="featured-game__wrapper util__flex-col">
-      <nuxt-link class="featured-game__link" :to="blok.link.cached_url">
+      <a class="featured-game__link" :href="blok.link.cached_url">
         <img class="featured-game__image" :src="imageSrc">
-      </nuxt-link>
-      <nuxt-link class="featured-game__container feature__link container with-title is-center" :to="blok.link.cached_url">
+      </a>
+      <a class="featured-game__container feature__link container with-title is-center" :href="blok.link.cached_url">
         <p class="featured-game__title title">{{ blok.name }}</p>
         <p class="featured-game__description">{{ blok.description }}</p>
-      </nuxt-link>
+      </a>
     </div>
   </div>
 </template>
