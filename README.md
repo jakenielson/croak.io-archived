@@ -23,7 +23,6 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* Add padding to bottom of pages on mobile
 * Replace NES controller with frog image
 * Keep social navs at the top instead of in collapsed nav
 * Fix mobile viewport units https://css-tricks.com/the-trick-to-viewport-units-on-mobile/

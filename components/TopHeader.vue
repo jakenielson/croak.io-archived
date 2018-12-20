@@ -1,6 +1,6 @@
 <template>
   <header id="top-header" class="top-header">
-    <i class="nes-logo top-header__open" @click="openNav"></i>
+    <img class="top-header__open" @click="openNav" :src="getSrc(collapseIcon)">
     <div class="top-header__wrapper util__flex" :class="{'is-open': isOpen}">
       <i class="icon close top-header__close" v-if="isOpen" @click="closeNav"></i>
       <nav class="top-header__col">
@@ -48,6 +48,9 @@ export default {
     },
     subNav() {
       return this.$store.state.settings.sub_nav;
+    },
+    collapseIcon() {
+      return this.$store.state.settings.collapse_icon;
     }
   },
   methods: {
@@ -78,6 +81,10 @@ export default {
   .top-header__open {
     display: none;
     cursor: pointer;
+    height: 32px;
+    width: 32px;
+    margin: 7px;
+    image-rendering: pixelated;
   }
 
   .top-header__close {
@@ -116,6 +123,7 @@ export default {
     .util__flex.top-header__wrapper.is-open {
       display: flex;
       position: fixed;
+      padding-bottom: 40px;
     }
 
     .top-header__open {
@@ -139,7 +147,8 @@ export default {
       width: 180px;
       z-index: 999;
       background-color: #fff;
-      box-shadow: 2px 2px lightgrey;
+      // box-shadow: 4px 4px black;
+      border-right: 4px solid black;
 
       .top-header__nav {
         flex-direction: column;
