@@ -1,13 +1,13 @@
 p {
-  line-height: 1.5em;
+  line-height: 1.8em;
 }
 .paragraph {
   margin: 20px 0;
   text-indent: 40px;
-}
-
-@media screen and (max-width: 650px) {
-  .paragraph {
-    font-size: 12px;
-  }
+  font-size: 1em;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  -ms-word-break: normal;
+  word-break: normal;
 }

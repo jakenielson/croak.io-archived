@@ -1,33 +1,19 @@
 .header--large {
-  font-size: 40px;
+  font-size: 2.5em;
   margin: 40px 0;
+  line-height: 1.6em;
   text-align: center;
 }
 .header--medium {
-  font-size: 28px;
+  font-size: 2em;
   margin: 32px 0;
+  line-height: 1.6em;
   text-align: center;
 }
 .header--small {
-  font-size: 18px;
+  font-size: 1.5em;
   margin: 24px 0;
+  line-height: 1.6em;
   text-align: center;
 }
 
-@media screen and (max-width: 650px) {
-  .header--large, .header--medium, .header--small {
-    margin-left: 0px;
-  }
-  .header--large {
-    font-size: 28px;
-    margin: 28px 0;
-  }
-  .header--medium {
-    font-size: 20px;
-    margin: 20px 0;
-  }
-  .header--small {
-    font-size: 12px;
-    margin: 12px 0;
-  }
-}

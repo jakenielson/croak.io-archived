@@ -66,11 +66,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-@media screen and (max-width: 650px) {
-  .blog-container {
-    text-align: center;
-  }
-}
-</style>

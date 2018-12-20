@@ -23,9 +23,27 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
+* Think about scoping
 * Make containers narrower
-* Fix controller and input css on mobile
+* Add padding to bottom of pages on mobile
+* Replace NES controller with frog image
+* Keep social navs at the top instead of in collapsed nav
 * Fix mobile viewport units https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 
+## Future
 
-* Game should have no padding on the top, and padding equal to the topheader padding on the bottom
+* Replace NES.css with custom css
+* Code bloks for articles
+* Fix mobile landscape
+
+## Game Fixes
+
+* Fix ghost being cut off by top of screen
+* Set frog z-index based on row
+* Fix spawning/despawning
+* Fix or disable resize errors
+
+## Game Improvements
+
+* Start screen
+* Donate link on game over
