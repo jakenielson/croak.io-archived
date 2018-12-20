@@ -23,8 +23,6 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* Think about scoping
-* Make containers narrower
 * Add padding to bottom of pages on mobile
 * Replace NES controller with frog image
 * Keep social navs at the top instead of in collapsed nav

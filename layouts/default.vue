@@ -26,9 +26,11 @@ export default {
 
 #main {
   flex: 1;
+  padding-bottom: 40px;
 
   &.main__game {
     margin-top: -30px;
+    padding-bottom: 0;
   }
 }
 @media screen and (max-width: 650px) {

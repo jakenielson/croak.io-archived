@@ -64,16 +64,9 @@ export default {
   margin-bottom: 20px;
 }
 .contact-form__label {
-  // font-size: 32px;
   margin-bottom: 5px;
 }
 .contact-form__text {
   width: 250px;
-}
-.contact-form__text, .contact-form__textarea {
-  // font-size: 18px;
-}
-.contact-form__button {
-  // font-size: 18px;
 }
 </style>
