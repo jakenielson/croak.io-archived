@@ -21,13 +21,8 @@ $ yarn run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
-## To Do
+## Site Features
 
-* Fix sidenav on mobile landscape (put on top of screen, lengthwise)
-
-## Future
-
-* Replace NES.css with custom css
 * Code bloks for articles
 
 ## Game Fixes
@@ -41,3 +36,12 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 * Start screen
 * Donate link on game over
+
+## Project Management
+
+* Replace NES.css with custom css
+
+## Tech Debt
+
+* Clean up responsive CSS
+* Anything reusable, move to CSS folder

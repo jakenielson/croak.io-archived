@@ -10,7 +10,7 @@ export default class Car extends Phaser.Physics.Arcade.Sprite {
     this.direction = direction;
     this.row = row;
     this.order = order;
-    this.setDepth(2);
+    this.setDepth(row);
 
     this.scene.physics.world.enable(this);
     this.scene.add.existing(this);

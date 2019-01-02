@@ -15,7 +15,7 @@ export default class Frog extends Phaser.Physics.Arcade.Sprite {
     this.nextTile = [];
     this.willTriggerTile = false;
 
-    this.setDepth(1);
+    this.setDepth(12);
     this.setOrigin(0, 0.25);
 
     this.scene.physics.world.enable(this);
@@ -79,6 +79,7 @@ export default class Frog extends Phaser.Physics.Arcade.Sprite {
     let animSuff;
     if (direction === 'right' || direction === 'left') animSuff = 'side';
     else animSuff = direction;
+    this.setDepth(nextY / 16);
     this.play(`jump_${animSuff}`);
     this.on('animationcomplete', () => {
       this.play(`idle_${animSuff}`);
