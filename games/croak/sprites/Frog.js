@@ -112,6 +112,7 @@ export default class Frog extends Phaser.Physics.Arcade.Sprite {
       this.moving = false;
       this.setDepth(99);
       this.setVelocity(0);
+      if (this.y < 4) this.y = 4;
       this.on('animationstart', () => {
         this.setFlipX(false);
       }, this);
