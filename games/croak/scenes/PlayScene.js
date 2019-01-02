@@ -223,8 +223,8 @@ export default class PlayScene extends Scene {
   homeCheck(tile) {
     const lily = this.mapLayers.lily.data.getTileAt(tile.x, tile.y);
     return (lily &&
-        (((this.frog.x) % 16) <= 2 ||
-        ((this.frog.x) % 16) >= 14))
+        (((this.frog.x) % 16) <= 6 ||
+        ((this.frog.x) % 16) >= 10))
   }
 
   // check if the player won the game
@@ -254,7 +254,7 @@ export default class PlayScene extends Scene {
 
   // clean up for win / game over
   destroyAll() {
-    // this.cars.forEach(car => car.destroy());
+    this.cars.clear(true, true);
     this.logs.forEach(log => log.destroy());
     this.turtles.forEach(turtle => turtle.destroy());
     this.homeFrogs.forEach(frog => frog.destroy());
