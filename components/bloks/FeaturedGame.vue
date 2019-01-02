@@ -58,8 +58,8 @@ export default {
 @media screen and (max-width: 650px) { 
   .featured-game__wrapper {
     .featured-game__image {
-      height: 208px;
-      width: 208px;
+      height: 312px;
+      width: 312px;
     }
   }
 }

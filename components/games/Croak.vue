@@ -60,5 +60,10 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
+#game-container {
+  canvas {
+    border: 4px solid black;
+  }
+}
 </style>

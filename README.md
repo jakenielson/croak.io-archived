@@ -23,15 +23,12 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## To Do
 
-* Replace NES controller with frog image
-* Keep social navs at the top instead of in collapsed nav
-* Fix mobile viewport units https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+* Fix sidenav on mobile landscape (put on top of screen, lengthwise)
 
 ## Future
 
 * Replace NES.css with custom css
 * Code bloks for articles
-* Fix mobile landscape
 
 ## Game Fixes
 

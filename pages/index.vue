@@ -67,7 +67,7 @@ export default {
 
 <style lang="scss">
 .home__section .page {
-  min-height: calc(100vh - 150px);
+  min-height: calc(100% - 150px);
   display: flex;
   flex-direction: row;
   align-items: stretch;

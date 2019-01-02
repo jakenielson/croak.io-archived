@@ -21,7 +21,7 @@ export default {
 @import '../assets/scss/styles.scss';
 
 .wrapper {
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 #main {
@@ -33,7 +33,7 @@ export default {
     padding-bottom: 0;
   }
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 650px), (max-device-width: 850px) {
   #main {
     margin-top: 73px;
     

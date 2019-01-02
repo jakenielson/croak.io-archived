@@ -3,7 +3,7 @@
     <img class="top-header__open" @click="openNav" :src="getSrc(collapseIcon)">
     <div class="top-header__wrapper util__flex" :class="{'is-open': isOpen}">
       <i class="icon close top-header__close" v-if="isOpen" @click="closeNav"></i>
-      <nav class="top-header__col">
+      <nav class="top-header__col button-col">
       <ul class="top-header__nav">
         <li class="top-header__nav-item" v-for="(nav, index) in mainNav" :key="index">
           <nuxt-link v-if="nav.internal" class="top-header__link" :to="nav.link.cached_url" @click.native="closeNav">
@@ -16,21 +16,21 @@
           </a>
         </li>
       </ul>
-    </nav>
-    <nav class="top-header__col">
-      <ul class="top-header__nav top-header__sub">
-        <li class="top-header__nav-item" v-for="(nav, index) in subNav" :key="index">
-          <nuxt-link v-if="nav.internal" class="top-header__link" :to="nav.link.cached_url" @click.native="closeNav">
-            <img v-if="nav.icon" class="top-header__icon" :src="getSrc(nav.icon)">
-            <button v-else class="btn">{{ nav.name }}</button>
-          </nuxt-link>
-          <a v-else class="top-header__link" :href="nav.link.cached_url" target="_blank" @click="closeNav">
-            <img v-if="nav.icon" class="top-header__icon" :src="getSrc(nav.icon)">
-            <button v-else class="btn">{{ nav.name }}</button>
-          </a>
-        </li>
-      </ul>
-    </nav>
+      </nav>
+      <nav class="top-header__col icon-col">
+        <ul class="top-header__nav top-header__sub">
+          <li class="top-header__nav-item" v-for="(nav, index) in subNav" :key="index">
+            <nuxt-link v-if="nav.internal" class="top-header__link" :to="nav.link.cached_url" @click.native="closeNav">
+              <img v-if="nav.icon" class="top-header__icon" :src="getSrc(nav.icon)">
+              <button v-else class="btn">{{ nav.name }}</button>
+            </nuxt-link>
+            <a v-else class="top-header__link" :href="nav.link.cached_url" target="_blank" @click="closeNav">
+              <img v-if="nav.icon" class="top-header__icon" :src="getSrc(nav.icon)">
+              <button v-else class="btn">{{ nav.name }}</button>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
 </template>
@@ -75,7 +75,6 @@ export default {
 
   .top-header__wrapper {
     justify-content: space-between;
-    max-width: calc(100% - 40px);
   }
 
   .top-header__open {
@@ -112,7 +111,7 @@ export default {
       }
     }
   }
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 650px), (max-device-width: 850px) {
     .top-header {
       padding: 0;
     }
@@ -139,6 +138,7 @@ export default {
     }
 
     .top-header__wrapper {
+      display: block;
       position: absolute;
       top: 0;
       left: 0;
@@ -166,6 +166,18 @@ export default {
         flex-wrap: wrap;
         justify-content: space-around;
       }
+    }
+  }
+  @media screen and (max-width: 650px) and (max-height: 560px),
+  screen and (max-device-width: 850px) and (max-height: 560px) {
+    .button-col {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .icon-col {
+      display: none;
     }
   }
 </style>
