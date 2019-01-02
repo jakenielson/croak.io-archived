@@ -20,7 +20,7 @@ export default class Turtle extends Phaser.Physics.Arcade.Sprite {
 
   update() {
     if (this.x < -24) {
-      this.setPosition(208, this.y);
+      this.setPosition(216, this.y);
     }
   }
 }
