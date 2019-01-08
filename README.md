@@ -21,27 +21,29 @@ $ yarn run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
-## Site Features
+## Wrap-Up
 
-* Code bloks for articles
+* Finish Start screen
+* Mobile controls
+* Points / Improve UI
+* Music
+* Sound effects
+* Flies
+* Tongue
+* Lives mechanic
 
-## Game Fixes
+## Site Improvements
 
-* Fix ghost being cut off by top of screen
-* Set frog z-index based on row
-* Fix spawning/despawning
-* Fix or disable resize errors
-
-## Game Improvements
-
-* Start screen
-* Donate link on game over
-
-## Project Management
-
+* Cache storyblok stories
 * Replace NES.css with custom css
 
 ## Tech Debt
 
 * Clean up responsive CSS
 * Anything reusable, move to CSS folder
+
+## Start Screen
+
+* Fade-in croak.io logo
+* Turtles/Options swim in from the right
+* Frog jumps into the water with a 'plop' to select option

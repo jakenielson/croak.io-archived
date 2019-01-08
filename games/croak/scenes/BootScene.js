@@ -1,5 +1,6 @@
 import { Scene } from 'phaser';
 import mortMap from '~/games/croak/maps/mortMap.json';
+import titleMap from '~/games/croak/maps/titleMap.json';
 
 export default class BootScene extends Scene {
   constructor () {
@@ -7,10 +8,11 @@ export default class BootScene extends Scene {
   }
 
   preload () {
+    this.load.tilemapTiledJSON('titleMap', titleMap);
     this.load.tilemapTiledJSON('mortMap', mortMap);
     this.load.image('mortTiles', '/croak/mortTiles.png');
     this.load.bitmapFont('font', '/croak/font.png', '/croak/font.fnt');
-
+    this.load.bitmapFont('outlineFont', '/croak/outlineFont.png', '/croak/outlineFont.fnt');
     this.load.spritesheet('frog', '/croak/mortFrog.png', { frameWidth: 16, frameHeight: 16 });
     this.load.spritesheet('carRed', '/croak/mortCarRed.png', {frameWidth: 32, frameHeight: 24 });
     this.load.spritesheet('carBlue', '/croak/mortCarBlue.png', {frameWidth: 32, frameHeight: 24 });
@@ -137,6 +139,7 @@ export default class BootScene extends Scene {
 
   create () {
     this.createAnimations();
-    this.scene.start('PlayScene');
+    // this.scene.start('PlayScene');
+    this.scene.start('TitleScene');
   }
 }

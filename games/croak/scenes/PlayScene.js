@@ -39,8 +39,8 @@ export default class PlayScene extends Scene {
       this.events.destroy();
     });
 
-    this.map = this.make.tilemap({ key: 'mortMap' });
-    this.tiles = this.map.addTilesetImage('mortTiles');
+    // this.map = this.make.tilemap({ key: 'mortMap' });
+    // this.tiles = this.map.addTilesetImage('mortTiles');
     this.cursors = this.input.keyboard.createCursorKeys();
     
     this.createMap();

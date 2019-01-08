@@ -62,6 +62,8 @@ export default {
 
 <style lang="scss">
 #game-container {
+  font-family: 'Press Start 2P', cursive;
+  
   canvas {
     border: 4px solid black;
   }
