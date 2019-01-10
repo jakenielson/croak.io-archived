@@ -10,6 +10,7 @@ export default class BootScene extends Scene {
   preload () {
     this.load.tilemapTiledJSON('titleMap', titleMap);
     this.load.tilemapTiledJSON('mortMap', mortMap);
+    this.load.image('splashScreen', '/croak/splashScreen.png');
     this.load.image('mortTiles', '/croak/mortTiles.png');
     this.load.bitmapFont('font', '/croak/font.png', '/croak/font.fnt');
     this.load.bitmapFont('outlineFont', '/croak/outlineFont.png', '/croak/outlineFont.fnt');
@@ -139,7 +140,6 @@ export default class BootScene extends Scene {
 
   create () {
     this.createAnimations();
-    // this.scene.start('PlayScene');
     this.scene.start('TitleScene');
   }
 }

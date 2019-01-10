@@ -46,4 +46,16 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 * Fade-in croak.io logo
 * Turtles/Options swim in from the right
-* Frog jumps into the water with a 'plop' to select option
+* Turtle/Option/Frog swims off to the left on select
+
+## Scratch
+
+## Dev Log
+
+* Title screen design
+  * Title card
+  * Outlined text
+  * Character cursor
+  * Swim in and out
+  * Splash screen
+  * About screen
