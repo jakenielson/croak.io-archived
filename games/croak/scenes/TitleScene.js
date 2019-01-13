@@ -10,6 +10,7 @@ export default class TitleScene extends Scene {
 
   init () {
     this.rect = null;
+    this.icon = null;
 
     this.map = null;
     this.tiles = null;
@@ -22,6 +23,8 @@ export default class TitleScene extends Scene {
     this.selected = null;
 
     this.cursors = null;
+
+    this.splashState = 'Hidden';
   }
 
   create () {
@@ -32,14 +35,15 @@ export default class TitleScene extends Scene {
 
 
   splash() {
-    const rect = this.add.rectangle(0, 0, this.sys.game.config.width, this.sys.game.config.height, 0x92d63b).setOrigin(0, 0);
-    const icon = this.add.image(104, 104, 'splashScreen').setScale(2);
-    setTimeout(() => {
-      this.title();
-    }, 2000);
+    this.rect = this.add.rectangle(0, 0, this.sys.game.config.width, this.sys.game.config.height, 0x92d63b).setOrigin(0, 0);
+    this.icon = this.add.image(104, 104, 'splashScreen').setScale(2).setAlpha(0.01);
+    this.splashState = 'FadeIn';
   }
 
   title() {
+    this.rect.destroy(true);
+    this.icon.destroy(true);
+
     this.map = this.make.tilemap({ key: 'titleMap' });
     this.tiles = this.map.addTilesetImage('mortTiles');
     this.map.createStaticLayer('Tile Layer 1', this.tiles, 0, 0);
@@ -47,12 +51,6 @@ export default class TitleScene extends Scene {
     this.cursors = this.input.keyboard.createCursorKeys();
 
     this.titleCard = new TitleCard(this);
-    const logo = new Phaser.GameObjects.Image(this, this.sys.game.config.width / 2, this.sys.game.config.height / 2, 'splashScreen', 0);
-
-    // this.options.push(this.add.bitmapText(102, 142, 'outlineFont', 'START', 8));
-    // // this.options.push(this.add.bitmapText(102, 158, 'outlineFont', 'ABOUT', 8));
-    // this.add.ellipse(102, 154, 40, 4, 0x000000, 170).setOrigin(0, 0);
-    // this.add.ellipse(102, 170, 40, 4, 0x000000, 170).setOrigin(0, 0);
 
     this.turtles.push(new TitleTurtle(this, 0, 'START'));
     this.turtles.push(new TitleTurtle(this, 1, 'ABOUT'));
@@ -86,10 +84,33 @@ export default class TitleScene extends Scene {
   }
 
   selectOption(option) {
+    this.events.destroy();
     this.scene.start('PlayScene');
   }
 
+  splashFadeIn() {
+    if (this.icon.alpha < 1) this.icon.setAlpha(this.icon.alpha + 0.03 > 1 ? 1 : this.icon.alpha + 0.03);
+    else {
+      this.splashState = 'Show';
+      setTimeout(() => {
+        this.splashState = 'FadeOut'
+      }, 1000);
+    }
+  }
+
+  splashFadeOut() {
+    if (this.icon.alpha > 0.01) this.icon.setAlpha(this.icon.alpha - 0.03 < 0.01 ? 0.01 : this.icon.alpha - 0.03);
+    else {
+      this.splashState = 'Hidden';
+      setTimeout(() => {
+        this.title();
+      }, 500);
+    }
+  }
+
   update() {
+    if (this.splashState === 'FadeIn') this.splashFadeIn();
+    else if (this.splashState === 'FadeOut') this.splashFadeOut();
     if (this.frog) this.frog.update(this.cursors);
     this.turtles.forEach(turtle => turtle.update());
   }

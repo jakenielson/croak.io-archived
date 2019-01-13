@@ -25,9 +25,9 @@ export default class TitleTurtle extends Phaser.Physics.Arcade.Sprite {
   }
 
   stopCheck() {
-    if (this.x <= 72) {
+    if (this.x <= 52) {
       this.setVelocity(0);
-      this.x = 72;
+      this.x = 52;
       this.swimming = false;
     }
   }

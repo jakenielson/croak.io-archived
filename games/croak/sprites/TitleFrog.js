@@ -80,9 +80,9 @@ export default class TitleFrog extends Phaser.Physics.Arcade.Sprite {
   }
 
   swimCheck() {
-    if (this.x <= 80) {
+    if (this.x <= 60) {
       this.setVelocity(0);
-      this.x = 80;
+      this.x = 60;
       this.swimming = false;
     }
   }

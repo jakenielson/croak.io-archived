@@ -32,6 +32,12 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 * Tongue
 * Lives mechanic
 
+## Start Screen
+
+* Turtle/Option/Frog swims off to the left on select
+* Transition to game scene
+* About screen
+
 ## Site Improvements
 
 * Cache storyblok stories
@@ -41,12 +47,6 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 * Clean up responsive CSS
 * Anything reusable, move to CSS folder
-
-## Start Screen
-
-* Fade-in croak.io logo
-* Turtles/Options swim in from the right
-* Turtle/Option/Frog swims off to the left on select
 
 ## Scratch
 
