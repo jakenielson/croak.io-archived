@@ -66,25 +66,28 @@ export default class TitleScene extends Scene {
 
   // triggered when the game resizes
   onResize(width, height) {
-    if (width === undefined) {
-      width = this.sys.game.config.width;
+    if (this.cameras.main) {
+      if (width === undefined) {
+        width = this.sys.game.config.width;
+      }
+      if (height === undefined) {
+        height = this.sys.game.config.height;
+      } 
+      this.setCamera(width);
     }
-    if (height === undefined) {
-      height = this.sys.game.config.height;
-    } 
-    this.setCamera(width);
   }
 
   // sets the size of the camera
   setCamera(size) {
-    this.cameras.main.setZoom(size / 208);
-    this.cameras.main.setOrigin(0, 0);
-    this.cameras.main.setPosition(0, 0);
-    this.cameras.main.setSize(size);
+    if (this.cameras.main) {
+      this.cameras.main.setZoom(size / 208);
+      this.cameras.main.setOrigin(0, 0);
+      this.cameras.main.setPosition(0, 0);
+      this.cameras.main.setSize(size);
+    }
   }
 
   selectOption(option) {
-    this.events.destroy();
     this.scene.start('PlayScene');
   }
 
