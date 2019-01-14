@@ -27,10 +27,11 @@ export default class PlayScene extends Scene {
     this.isGameOver = false;
 
     this.cursors = null;
+    this.rect = null;
   }
 
   // called when the scene starts, after init
-  create () {
+  create() {
     this.physics.world.setBounds(0, 0, 208, 208);
     this.setCamera(this.sys.game.config.width);
     this.events.on('resize', this.onResize, this);
@@ -38,15 +39,27 @@ export default class PlayScene extends Scene {
       this.destroyAll();
       this.events.destroy();
     });
-
-    // this.map = this.make.tilemap({ key: 'mortMap' });
-    // this.tiles = this.map.addTilesetImage('mortTiles');
+    
     this.cursors = this.input.keyboard.createCursorKeys();
     
     this.createMap();
     this.createGameObjects();
     this.createUI();
     this.spawnFrog();
+
+    this.rect = this.add.rectangle(0, 0, this.sys.game.config.width, this.sys.game.config.height, 0x000000)
+      .setOrigin(0, 0).setDepth(99);
+
+    this.scene.setVisible(0, 'PlayScene');
+
+    this.events.on('transitioncomplete', () => {
+      this.scene.setVisible(1, 'PlayScene');
+      this.tweens.add({
+        targets: this.rect,
+        alpha: 0,
+        duration: 250
+      });
+    }, this);
   }
 
   // create the map, tiles, and layers

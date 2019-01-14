@@ -35,8 +35,7 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 ## Start Screen
 
 * Turtle/Option/Frog swims off to the left on select
-* Transition to game scene
-* About screen
+* Transition to game scene https://labs.phaser.io/edit.html?src=src/scenes\transition%20test%201.js
 
 ## Site Improvements
 

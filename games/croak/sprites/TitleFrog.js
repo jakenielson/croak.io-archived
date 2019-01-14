@@ -16,6 +16,7 @@ export default class TitleFrog extends Phaser.Physics.Arcade.Sprite {
     this.option = 0;
 
     this.swimming = false;
+    this.locked = false;
 
     this.play(`idle_side`);
   }
@@ -28,9 +29,11 @@ export default class TitleFrog extends Phaser.Physics.Arcade.Sprite {
 
   inputCheck(cursors) {
     if (this.swimming) return;
-    else if (cursors.down.isDown && this.option < this.totalOptions) this.hopDown();
-    else if (cursors.up.isDown && this.option != 0) this.hopUp();
-    else if (cursors.space.isDown) this.scene.selectOption(this.option);
+    else if (!this.locked) {
+      if (cursors.down.isDown && this.option < this.totalOptions) this.hopDown();
+      else if (cursors.up.isDown && this.option != 0) this.hopUp();
+      else if (cursors.space.isDown) this.scene.selectOption(this.option);
+    }
   }
 
   stopCheck() {

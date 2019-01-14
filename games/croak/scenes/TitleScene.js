@@ -88,7 +88,14 @@ export default class TitleScene extends Scene {
   }
 
   selectOption(option) {
-    this.scene.start('PlayScene');
+    if (option === 0) {
+      this.toGame();
+      // this.scene.start('PlayScene');
+    }
+    else { 
+      // this.frog.locked = true;
+      // this.sys.game.toDevlog();
+    }
   }
 
   splashFadeIn() {
@@ -109,6 +116,22 @@ export default class TitleScene extends Scene {
         this.title();
       }, 500);
     }
+  }
+
+  transitionOut() {
+    this.rect.setAlpha(this.rect.alpha + 0.08 > 1 ? 1 : this.rect.alpha + 0.08);
+  }
+
+  toGame() {
+    this.rect = this.add.rectangle(0, 0, this.sys.game.config.width, this.sys.game.config.height, 0x000000)
+      .setOrigin(0, 0).setAlpha(0.01);
+    this.scene.transition({
+      target: 'PlayScene',
+      duration: 500,
+      moveBelow: true,
+      allowInput: false,
+      onUpdate: this.transitionOut
+    });
   }
 
   update() {

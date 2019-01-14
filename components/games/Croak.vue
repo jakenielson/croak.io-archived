@@ -39,9 +39,15 @@ export default {
         this.resize();
       }, 200);
     },
+    toDevlog() {
+      this.$router.push({
+        path: '/'
+      });
+    },
     initGame() {
       this.resize();
       this.game = new Croak(config, this.height, this.width);
+      this.game.toDevlog = this.toDevlog;
       window.addEventListener("resize", this.triggerResize, false);
     }
   },
