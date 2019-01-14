@@ -47,18 +47,18 @@ export default class PlayScene extends Scene {
     this.createUI();
     this.spawnFrog();
 
-    this.rect = this.add.rectangle(0, 0, this.sys.game.config.width, this.sys.game.config.height, 0x000000)
-      .setOrigin(0, 0).setDepth(99);
-
-    this.scene.setVisible(0, 'PlayScene');
-
-    this.events.on('transitioncomplete', () => {
-      this.scene.setVisible(1, 'PlayScene');
+    this.events.on('transitionstart', () => {
+      this.rect = this.add.rectangle(0, 0, this.sys.game.config.width, this.sys.game.config.height, 0x000000)
+        .setOrigin(0, 0).setDepth(99);
       this.tweens.add({
         targets: this.rect,
         alpha: 0,
-        duration: 250
+        duration: 1000
       });
+    }, this);
+
+    this.events.on('transitioncomplete', () => {
+      this.scene.setVisible(1, 'PlayScene');
     }, this);
   }
 

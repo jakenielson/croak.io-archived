@@ -33,7 +33,6 @@ export default class TitleScene extends Scene {
     this.splash();
   }
 
-
   splash() {
     this.rect = this.add.rectangle(0, 0, this.sys.game.config.width, this.sys.game.config.height, 0x92d63b).setOrigin(0, 0);
     this.icon = this.add.image(104, 104, 'splashScreen').setScale(2).setAlpha(0.01);
@@ -132,6 +131,7 @@ export default class TitleScene extends Scene {
       allowInput: false,
       onUpdate: this.transitionOut
     });
+    this.scene.setVisible(0, 'PlayScene');
   }
 
   update() {
