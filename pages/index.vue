@@ -8,6 +8,7 @@
 import storyblokLivePreview from '@/mixins/storyblokLivePreview';
 
 export default {
+  middleware: 'loadArticles',
   components: {
   },
   data () {

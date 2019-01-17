@@ -15,22 +15,24 @@
 import SearchBar from '~/components/SearchBar.vue';
 
 export default {
+  middleware: 'loadArticles',
   components: {
     SearchBar,
   },
   data () {
     return { 
       total: 0,
-      data: {
-        stories: []
-      },
+      // articles: [],
       filteredTitles: [],
     }
   },
   computed: {
+    articles() {
+      return this.$store.state.articles;
+    },
     root() {
-      for (let i = 0; i < this.data.stories.length; i++) {
-        if (this.data.stories[i].name === 'root') return this.data.stories[i].content;
+      for (let i = 0; i < this.articles.length; i++) {
+        if (this.articles[i].name === 'root') return this.articles[i].content;
       }
     },
     ogImage() {
@@ -40,30 +42,17 @@ export default {
       return `https://${this.root.twitter_image.slice(2)}`;
     },
     storyTitles() {
-      if (!this.data.stories) return [];
-      return this.data.stories.map(story => story.name);
+      if (!this.articles) return [];
+      return this.articles.map(story => story.name);
     },
     filteredStories() {
-      return this.data.stories.filter(story => this.filteredTitles.includes(story.name));
+      return this.articles.filter(story => this.filteredTitles.includes(story.name));
     }
   },
   methods: {
     filter(filteredTitles) {
       this.filteredTitles = filteredTitles;
     },
-  },
-  asyncData (context) {
-    let version = context.query._storyblok || context.isDev ? 'draft' : 'publisher';
-
-    return context.app.$storyapi.get('cdn/stories', {
-      version: version,
-      starts_with: `blog`,
-      cv: context.store.state.cacheVersion
-    }).then((res) => {
-      return res
-    }).catch((res) => {
-      context.error({ statusCode: res.response.status, message: res.response.data })
-    })
   },
   head() {
     return {
