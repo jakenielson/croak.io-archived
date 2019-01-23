@@ -2,6 +2,7 @@ import { Scene, GameObjects } from 'phaser';
 import TitleCard from '~/games/croak/ui/TitleCard';
 import TitleTurtle from '~/games/croak/sprites/TitleTurtle';
 import TitleFrog from '~/games/croak/sprites/TitleFrog';
+import AboutCard from '~/games/croak/ui/AboutCard';
 
 export default class TitleScene extends Scene {
   constructor () {
@@ -16,6 +17,7 @@ export default class TitleScene extends Scene {
     this.tiles = null;
 
     this.titleCard = null;
+    this.aboutCard = null;
     this.turtles = [];
     this.frog = null;
     this.options = [];
@@ -88,12 +90,12 @@ export default class TitleScene extends Scene {
 
   selectOption(option) {
     if (option === 0) {
-      this.toGame();
-      // this.scene.start('PlayScene');
+      this.frog.swimOut();
+      this.turtles[0].swimOut();
+      setTimeout(() => this.toGame(), 1800);
     }
     else { 
-      // this.frog.locked = true;
-      // this.sys.game.toDevlog();
+      this.showAbout();
     }
   }
 
@@ -132,6 +134,18 @@ export default class TitleScene extends Scene {
       onUpdate: this.transitionOut
     });
     this.scene.setVisible(0, 'PlayScene');
+  }
+
+  showAbout() {
+    if (this.frog.locked) return;
+    this.frog.locked = true;
+    setTimeout(() => {
+      this.frog.locked = false;
+    }, 500);
+
+    if (!this.aboutCard) this.aboutCard = new AboutCard(this);
+
+    this.aboutCard.toggle();
   }
 
   update() {

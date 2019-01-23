@@ -10,6 +10,7 @@ export default class TitleTurtle extends Phaser.Physics.Arcade.Sprite {
     this.setOrigin(0, 0);
 
     this.swimming = false;
+    this.leaving = false;
 
     this.text = this.scene.add.bitmapText(208 + 32, 142 + (index * 16), 'outlineFont', text, 8);
     this.textShadow = this.scene.add.ellipse(208 + 32, 154 + (index * 16), 40, 4, 0x000000, 170).setOrigin(0, 0);
@@ -21,7 +22,8 @@ export default class TitleTurtle extends Phaser.Physics.Arcade.Sprite {
   }
 
   swimOut() {
-
+    this.leaving = true;
+    this.setVelocity(-80, 0);
   }
 
   stopCheck() {
@@ -33,10 +35,10 @@ export default class TitleTurtle extends Phaser.Physics.Arcade.Sprite {
   }
 
   update() {
-    if (this.swimming) {
+    if (this.swimming || this.leaving) {
       this.text.x = this.x + 32;
       this.textShadow.x = this.x + 32;
-      this.stopCheck();
+      if (this.swimming) this.stopCheck();
     }
   }
 }

@@ -79,7 +79,8 @@ export default class TitleFrog extends Phaser.Physics.Arcade.Sprite {
   }
 
   swimOut() {
-    
+    this.locked = true;
+    this.setVelocity(-80, 0);
   }
 
   swimCheck() {

@@ -21,6 +21,30 @@ $ yarn run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
+## Start Screen
+
+* Turtle/Option/Frog swims off to the left on select
+
+##
+
+##
+
+##
+
+##
+
+##
+
+##
+
+##
+
+##
+
+##
+
+##
+
 ## Wrap-Up
 
 * Finish Start screen
@@ -32,11 +56,6 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 * Tongue
 * Lives mechanic
 
-## Start Screen
-
-* Turtle/Option/Frog swims off to the left on select
-* About Screen
-
 ## Site Improvements
 
 * Cache storyblok stories
@@ -46,15 +65,3 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 * Clean up responsive CSS
 * Anything reusable, move to CSS folder
-
-## Scratch
-
-## Dev Log
-
-* Title screen design
-  * Title card
-  * Outlined text
-  * Character cursor
-  * Swim in and out
-  * Splash screen
-  * About screen

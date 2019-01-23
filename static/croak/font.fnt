@@ -1,6 +1,6 @@
 <font>
   <info face="font" size="8" bold="0" italic="0" charset="" unicode="" stretchH="100" smooth="1" aa="1" padding="2,2,2,2" spacing="0,0" outline="0"/>
-  <common lineHeight="8" base="8" scaleW="33" scaleH="146" pages="1" packed="0"/>
+  <common lineHeight="12" base="8" scaleW="33" scaleH="146" pages="1" packed="0"/>
   <pages>
     <page id="0" file="font.png"/>
   </pages>
