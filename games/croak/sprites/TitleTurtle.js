@@ -8,11 +8,12 @@ export default class TitleTurtle extends Phaser.Physics.Arcade.Sprite {
     this.scene.physics.world.enable(this);
     this.scene.add.existing(this);
     this.setOrigin(0, 0);
+    this.setInteractive();
 
     this.swimming = false;
     this.leaving = false;
 
-    this.text = this.scene.add.bitmapText(208 + 32, 142 + (index * 16), 'outlineFont', text, 8);
+    this.text = this.scene.add.bitmapText(208 + 32, 142 + (index * 16), 'outlineFont', text, 8).setInteractive();
     this.textShadow = this.scene.add.ellipse(208 + 32, 154 + (index * 16), 40, 4, 0x000000, 170).setOrigin(0, 0);
   }
 

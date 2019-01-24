@@ -21,9 +21,15 @@ $ yarn run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
-## Start Screen
+## Mobile Controls
 
-* Turtle/Option/Frog swims off to the left on select
+* Start Screen
+  * Touch Option to move frog
+  * Touch frogged Option to select option
+
+* Game Screen
+  * Swipe up, down, left, right to move frog
+  * Tap to restart at game over / you win
 
 ##
 

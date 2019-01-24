@@ -60,6 +60,24 @@ export default class PlayScene extends Scene {
     this.events.on('transitioncomplete', () => {
       this.scene.setVisible(1, 'PlayScene');
     }, this);
+
+    this.input.on('pointerup', (event, target) => {
+      const xDiff = event.upX - event.downX;
+      const yDiff = event.upY - event.downY;
+      const time = event.upTime - event.downTime;
+
+      if (time < 1000 && !this.frog.dead) {
+        if (yDiff >= 10 && Math.abs(yDiff) > Math.abs(xDiff)) {
+          if ((this.frog.y + 16) < (this.physics.world.bounds.y + this.physics.world.bounds.height)) this.frog.hop([0, 64], 'down');
+        } else if (yDiff <= -10 && Math.abs(yDiff) > Math.abs(xDiff)) {
+          if ((this.frog.y) > this.physics.world.bounds.y) this.frog.hop([0, -64], 'up');
+        } else if (xDiff >= 10 && Math.abs(xDiff) > Math.abs(yDiff)) {
+          if ((this.frog.x + 16) < (this.physics.world.bounds.x + this.physics.world.bounds.width)) this.frog.hop([64, 0], 'right');
+        } else if (xDiff <= -10 && Math.abs(xDiff) > Math.abs(yDiff)) {
+          if ((this.frog.x) > this.physics.world.bounds.x) this.frog.hop([-64, 0], 'left');
+        }
+      }
+    });
   }
 
   // create the map, tiles, and layers

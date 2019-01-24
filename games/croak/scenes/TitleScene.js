@@ -57,7 +57,36 @@ export default class TitleScene extends Scene {
     this.turtles.push(new TitleTurtle(this, 1, 'ABOUT'));
     this.frog = new TitleFrog(this);
 
+    this.input.on('pointerup', (event, target) => {
+      const xDiff = event.upX - event.downX;
+      const yDiff = event.upY - event.downY;
+      const time = event.upTime - event.downTime;
+
+      if (time < 1000) {
+        if ((xDiff <= 5 && xDiff >= -5) && (yDiff <= 5 && yDiff >= -5)) {
+          this.clickHandler();
+        } else if (yDiff >= 10) {
+          this.swipeHandler('DOWN');
+        } else if (yDiff <= -10) {
+          this.swipeHandler('UP');
+        }
+      }
+    });
+
     this.swimIn();
+  }
+
+  clickHandler() {
+    if (this.frog.body.velocity.x === 0 && this.frog.body.velocity.y === 0) {
+      this.selectOption(this.frog.option);
+    }
+  }
+
+  swipeHandler(direction) {
+    if (this.frog.body.velocity.x === 0 && this.frog.body.velocity.y === 0) {
+      if (direction === 'UP' && this.frog.option > 0) this.frog.hopUp();
+      else if (direction === 'DOWN' && this.frog.option < 1) this.frog.hopDown();
+    }
   }
 
   swimIn() {
