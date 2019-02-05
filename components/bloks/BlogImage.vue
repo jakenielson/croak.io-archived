@@ -1,7 +1,7 @@
 <template>
-  <div class="blog-image__wrapper">
+  <!-- <div class="blog-image__wrapper"> -->
     <img v-editable="blok" class="blog-image" :src="src"/>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -25,5 +25,7 @@ export default {
 .blog-image {
   width: 100%;
   object-fit: contain;
+  margin-bottom: 40px;
+  border-radius: 6px;
 }
 </style>

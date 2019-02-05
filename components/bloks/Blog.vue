@@ -12,5 +12,6 @@ export default {
 <style>
 .blog {
   max-width: 100%;
+  overflow-x: hidden;
 }
 </style>
