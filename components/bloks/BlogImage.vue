@@ -21,16 +21,9 @@ export default {
   position: relative;
   flex-direction: row;
   justify-content: center;
-  padding: 60px 0;
 }
 .blog-image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  max-width: 100%;
-  max-height: 100%;
-  -ms-transform: translate(-50%, -50%); /* IE 9 */
-  -webkit-transform: translate(-50%, -50%); /* Safari */
-  transform: translate(-50%, -50%);
+  width: 100%;
+  object-fit: contain;
 }
 </style>

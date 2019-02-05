@@ -21,6 +21,9 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,700'},
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Press+Start+2P'}
     ],
+    script: [
+      { src: 'https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js' }
+    ]
   },
 
   /*

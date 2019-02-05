@@ -7,6 +7,7 @@ import FeaturedArticles from '~/components/bloks/FeaturedArticles.vue';
 import Paragraph from '~/components/bloks/Paragraph.vue';
 import BlogHeader from '~/components/bloks/BlogHeader.vue';
 import BlogImage from '~/components/bloks/BlogImage.vue';
+import CodeBlock from '~/components/bloks/CodeBlock.vue';
 
 Vue.component('page', Page);
 Vue.component('blog', Blog);
@@ -16,3 +17,4 @@ Vue.component('featured-articles', FeaturedArticles);
 Vue.component('paragraph', Paragraph);
 Vue.component('blog-header', BlogHeader);
 Vue.component('blog-image', BlogImage);
+Vue.component('code-block', CodeBlock);

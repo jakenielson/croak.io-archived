@@ -9,3 +9,8 @@ export default {
   props: ['blok']
 }
 </script>
+<style>
+.blog {
+  max-width: 100%;
+}
+</style>
