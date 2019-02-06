@@ -1,4 +1,5 @@
 import Vuex from 'vuex';
+import Vue from 'vue';
 
 const createStore = () => {
   return new Vuex.Store({
@@ -7,11 +8,14 @@ const createStore = () => {
       settings: {
         main_nav: []
       },
-      articles: [],
+      articles: {},
+      previews: [],
     },
     getters: {
       getArticleBySlug: (state) => (slug) => {
-        return state.articles.find(article => article.slug === slug)
+        for (let uuid in state.articles) {
+          if (state.articles[uuid].slug === slug) return state.articles[uuid];
+        } return null;
       }
     },
     mutations: {
@@ -23,7 +27,13 @@ const createStore = () => {
       },
       setArticles(state, articles) {
         state.articles = articles;
-      }
+      },
+      setPreviews(state, previews) {
+        state.previews = previews;
+      },
+      setArticle(state, article) {
+        Vue.set(state.articles, article.uuid, article);
+      },
     },
     actions: {
       loadSettings({ commit }, context) {
@@ -33,15 +43,33 @@ const createStore = () => {
           commit('setSettings', res.data.story.content);
         })
       },
-      loadArticles({ commit }, context) {
+      loadPreviews({ commit }, context) {
         return this.$storyapi.get('cdn/stories', {
           version: context.version,
+          cv: context.cacheVersion,
           starts_with: `blog`,
+          is_startpage: `0`,
+          excluding_fields: `body,component,image_alt,og_image,twitter_image`
+        }).then((res) => {
+          const previews = res.data.stories.map((story) => {
+            return {
+              id: story.uuid,
+              slug: story.slug,
+              name: story.content.name,
+              intro: story.content.intro
+            }
+          });
+          commit('setPreviews', previews);
+        })
+      },
+      loadArticle({ commit }, context) {
+        return this.$storyapi.get(`cdn/stories/blog/${context.slug}`, {
+          version: context.version,
           cv: context.cacheVersion
         }).then((res) => {
-          commit('setArticles', res.data.stories);
+          commit('setArticle', res.data.story);
         })
-      }
+      },
     }
   })
 }

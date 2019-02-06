@@ -9,7 +9,7 @@ import marked from 'marked'
 import storyblokLivePreview from '@/mixins/storyblokLivePreview'
 
 export default {
-  middleware: 'loadArticles',
+  middleware: 'loadArticle',
   data () {
     return { 
       slug: '',
