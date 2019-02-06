@@ -16,7 +16,7 @@ const createStore = () => {
         for (let uuid in state.articles) {
           if (state.articles[uuid].slug === slug) return state.articles[uuid];
         } return null;
-      }
+      },
     },
     mutations: {
       setSettings(state, settings) {
@@ -63,7 +63,7 @@ const createStore = () => {
         })
       },
       loadArticle({ commit }, context) {
-        return this.$storyapi.get(`cdn/stories/blog/${context.slug}`, {
+        return this.$storyapi.get(`cdn/stories/blog/${context.slug || ''}`, {
           version: context.version,
           cv: context.cacheVersion
         }).then((res) => {

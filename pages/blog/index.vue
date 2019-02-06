@@ -3,9 +3,9 @@
     <h1 class="blog__header">Blog</h1>
     <search-bar :dataset="storyTitles" @filter="filter"/>
     <div class="blog__wrapper util__flex-col">
-      <nuxt-link v-for="blogPost in filteredStories" :key="blogPost.content._uid" v-if="blogPost.name !== 'root'" class="article container with-title is-center" :to="'/' + blogPost.full_slug">
-        <p class="article__title title">{{ blogPost.content.name }}</p>
-        <p class="article__description">{{ blogPost.content.intro }}</p>
+      <nuxt-link v-for="preview in filteredPreviews" :key="preview.id" class="article container with-title is-center" :to="'/blog/' + preview.slug">
+        <p class="article__title title">{{ preview.name }}</p>
+        <p class="article__description">{{ preview.intro }}</p>
       </nuxt-link>
     </div>
   </section>
@@ -15,25 +15,22 @@
 import SearchBar from '~/components/SearchBar.vue';
 
 export default {
-  middleware: 'loadArticles',
+  middleware: ['loadPreviews', 'loadArticle'],
   components: {
     SearchBar,
   },
   data () {
     return { 
       total: 0,
-      // articles: [],
       filteredTitles: [],
     }
   },
   computed: {
-    articles() {
-      return this.$store.state.articles;
+    previews() {
+      return this.$store.state.previews;
     },
     root() {
-      for (let i = 0; i < this.articles.length; i++) {
-        if (this.articles[i].name === 'root') return this.articles[i].content;
-      }
+      return this.$store.getters.getArticleBySlug('blog').content;
     },
     ogImage() {
       return `https://${this.root.og_image.slice(2)}`;
@@ -42,11 +39,11 @@ export default {
       return `https://${this.root.twitter_image.slice(2)}`;
     },
     storyTitles() {
-      if (!this.articles) return [];
-      return this.articles.map(story => story.name);
+      if (!this.previews) return [];
+      return this.previews.map(preview => preview.name);
     },
-    filteredStories() {
-      return this.articles.filter(story => this.filteredTitles.includes(story.name));
+    filteredPreviews() {
+      return this.previews.filter(preview => this.filteredTitles.includes(preview.name));
     }
   },
   methods: {
