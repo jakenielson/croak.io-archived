@@ -4,16 +4,16 @@
   line-height: 1.6em;
   text-align: center;
 }
-.header--medium {
-  font-size: 2em;
-  margin: 32px 0;
-  line-height: 1.6em;
-  text-align: center;
-}
-.header--small {
+.header--small, .header--medium {
   font-size: 1.5em;
-  margin: 24px 0;
+  margin: 80px 0 40px 0;
   line-height: 1.6em;
-  text-align: center;
+  text-align: left;
+  margin-left: 40px;
+  position: relative;
+  &::before {
+    content: '>';
+    position: absolute;
+    left: -40px;
+  }
 }
-
