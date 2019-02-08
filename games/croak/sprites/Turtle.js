@@ -3,7 +3,7 @@ import Phaser from 'phaser';
 export default class Turtle extends Phaser.Physics.Arcade.Sprite {
   constructor (scene, row, group, order) {
     const y = (row * 16) + 8;
-    const x = 208 + ((row - 2) * 50) + (group * 120) + (order * 24);
+    const x = 240 + ((row - 2) * 50) + (group * 120) + (order * 24);
     super(scene, x, y, 'turtle', 0);
 
     this.scene = scene;

@@ -10,8 +10,8 @@ export default {
   data() {
     return {
       game: null,
-      width: 208,
-      height: 208,
+      width: 240,
+      height: 240,
       resizeTimeout: null
     };
   },

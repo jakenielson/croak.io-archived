@@ -37,7 +37,7 @@ export default class TitleScene extends Scene {
 
   splash() {
     this.rect = this.add.rectangle(0, 0, this.sys.game.config.width, this.sys.game.config.height, 0x92d63b).setOrigin(0, 0);
-    this.icon = this.add.image(104, 104, 'splashScreen').setScale(2).setAlpha(0.01);
+    this.icon = this.add.image(120, 120, 'splashScreen').setScale(2).setAlpha(0.01);
     this.splashState = 'FadeIn';
   }
 
@@ -110,7 +110,7 @@ export default class TitleScene extends Scene {
   // sets the size of the camera
   setCamera(size) {
     if (this.cameras.main) {
-      this.cameras.main.setZoom(size / 208);
+      this.cameras.main.setZoom(size / 240);
       this.cameras.main.setOrigin(0, 0);
       this.cameras.main.setPosition(0, 0);
       this.cameras.main.setSize(size);

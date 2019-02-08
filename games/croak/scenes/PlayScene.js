@@ -32,7 +32,7 @@ export default class PlayScene extends Scene {
 
   // called when the scene starts, after init
   create() {
-    this.physics.world.setBounds(0, 0, 208, 208);
+    this.physics.world.setBounds(0, 0, 240, 240);
     this.setCamera(this.sys.game.config.width);
     this.events.on('resize', this.onResize, this);
     this.events.on('destroy', () => {
@@ -82,7 +82,7 @@ export default class PlayScene extends Scene {
 
   // create the map, tiles, and layers
   createMap() {
-    this.map = this.make.tilemap({ key: 'mortMap' });
+    this.map = this.make.tilemap({ key: 'croakMap' });
     this.tiles = this.map.addTilesetImage('mortTiles');
     this.mapLayers.ground = {
       data: this.map.createStaticLayer('Ground Layer', this.tiles, 0, 0)
@@ -182,7 +182,7 @@ export default class PlayScene extends Scene {
 
   // sets the size of the camera
   setCamera(size) {
-    this.cameras.main.setZoom(size / 208);
+    this.cameras.main.setZoom(size / 240);
     this.cameras.main.setOrigin(0, 0);
     this.cameras.main.setPosition(0, 0);
     this.cameras.main.setSize(size);

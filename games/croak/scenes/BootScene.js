@@ -1,5 +1,5 @@
 import { Scene } from 'phaser';
-import mortMap from '~/games/croak/maps/mortMap.json';
+import croakMap from '~/games/croak/maps/croakMap.json';
 import titleMap from '~/games/croak/maps/titleMap.json';
 
 export default class BootScene extends Scene {
@@ -9,7 +9,7 @@ export default class BootScene extends Scene {
 
   preload () {
     this.load.tilemapTiledJSON('titleMap', titleMap);
-    this.load.tilemapTiledJSON('mortMap', mortMap);
+    this.load.tilemapTiledJSON('croakMap', croakMap);
     this.load.image('splashScreen', '/croak/splashScreen.png');
     this.load.image('mortTiles', '/croak/mortTiles.png');
     this.load.bitmapFont('font', '/croak/font.png', '/croak/font.fnt');

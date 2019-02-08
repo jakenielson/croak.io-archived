@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 export default class TitleTurtle extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, index, text) {
-    super(scene, 208, 144 + (index * 16), 'turtle', 0);
+    super(scene, 240, 144 + (index * 16), 'turtle', 0);
 
     this.scene = scene;
     this.scene.physics.world.enable(this);
@@ -13,8 +13,8 @@ export default class TitleTurtle extends Phaser.Physics.Arcade.Sprite {
     this.swimming = false;
     this.leaving = false;
 
-    this.text = this.scene.add.bitmapText(208 + 32, 142 + (index * 16), 'outlineFont', text, 8).setInteractive();
-    this.textShadow = this.scene.add.ellipse(208 + 32, 154 + (index * 16), 40, 4, 0x000000, 170).setOrigin(0, 0);
+    this.text = this.scene.add.bitmapText(240 + 32, 142 + (index * 16), 'outlineFont', text, 8).setInteractive();
+    this.textShadow = this.scene.add.ellipse(240 + 32, 154 + (index * 16), 40, 4, 0x000000, 170).setOrigin(0, 0);
   }
 
   swimIn() {
