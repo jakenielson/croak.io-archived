@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 export default class TitleFrog extends Phaser.Physics.Arcade.Sprite {
   constructor(scene) {
-    super(scene, 216, 140, 'frog', 13);
+    super(scene, 248, 156, 'frog', 13);
 
     this.scene = scene;
     this.scene.physics.world.enable(this);
@@ -84,9 +84,9 @@ export default class TitleFrog extends Phaser.Physics.Arcade.Sprite {
   }
 
   swimCheck() {
-    if (this.x <= 60) {
+    if (this.x <= 76) {
       this.setVelocity(0);
-      this.x = 60;
+      this.x = 76;
       this.swimming = false;
     }
   }

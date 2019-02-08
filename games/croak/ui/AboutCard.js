@@ -3,24 +3,27 @@ export default class AboutCard {
     this.scene = scene;
     this.scene.add.existing(this);
     this.rects = [];
-    this.rects.push(this.scene.add.rectangle(6, 6, 196, 196, 0xffffff).setOrigin(0,0).setAlpha(0));
-    this.rects.push(this.scene.add.rectangle(8, 8, 192, 192, 0x000000).setOrigin(0,0).setAlpha(0));
+    this.rects.push(this.scene.add.rectangle(6, 6, 228, 228, 0xffffff).setOrigin(0,0).setAlpha(0));
+    this.rects.push(this.scene.add.rectangle(8, 8, 224, 224, 0x000000).setOrigin(0,0).setAlpha(0));
     const textContent = [
       "THIS IS CROSS OR CROAK,",
-      "THE FIRST GAME I MADE",
-      "FOR CROAK.IO.",
+      "MY FIRST GAME ON CROAK.IO!",
       "",
-      "THIS GAME USES PHASER",
-      "TILEMAPS, SPRITES,",
-      "ANIMATION, PHYSICS,",
-      "OBJECT GROUPS, INPUT,",
-      "AND SCENE TRANSITIONS.",
+      "IN MAKING THIS GAME, I",
+      "TOUCHED A LOT OF THE BASIC",
+      "FEATURES OF PHASER -",
+      "SCENES, TILEMAPS, SPRITES,",
+      "OBJECT GROUPS, PHYSICS,",
+      "INPUT, AND ANIMATION.",
       "",
-      "MOVE THE FROG WITH THE",
-      "ARROW KEYS OR SWIPE ON",
-      "YOUR PHONE SCREEN. GET",
-      "THEM ALL ACROSS THE",
-      "RIVER TO WIN THE GAME!"
+      "I RAN INTO SOME SMALL",
+      "CHALLENGES ALONG THE WAY,",
+      "LIKE POLISHING UP THE GRID",
+      "BASED MOVEMENT, SHOWING",
+      "POINTS AND LIVES TO THE",
+      "PLAYER, AND THIS TITLE",
+      "SCREEN. YOU CAN READ MORE",
+      "ABOUT IT IN MY BLOG!"
     ];
     this.text = this.scene.add.bitmapText(16, 16, 'font', textContent, 8).setAlpha(0);
   }
