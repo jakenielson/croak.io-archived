@@ -23,7 +23,7 @@ export default class PlayScene extends Scene {
     this.turtles = [];
     this.homeFrogs = [];
 
-    this.lives = 3;
+    this.lives = 7;
     this.isGameOver = false;
 
     this.cursors = null;
