@@ -3,7 +3,7 @@ import Phaser from 'phaser';
 export default class Car extends Phaser.Physics.Arcade.Sprite {
   constructor (scene, sprite, anim, row, direction, order) {
     const y = (row * 16) + 2;
-    const x = direction === 'left' ? 90 + (order * 120) : (order * -120) - 10;
+    const x = direction === 'left' ? 120 + (order * 120) : (order * -120) - 10;
     super(scene, x, y, sprite, 0);
 
     this.scene = scene;
@@ -28,8 +28,8 @@ export default class Car extends Phaser.Physics.Arcade.Sprite {
 
   update() {
     if (this.direction === 'left' && this.x < -40) {
-      this.setPosition(240, this.y);
-    } else if (this.direction === 'right' && this.x > 240) {
+      this.setPosition(292, this.y);
+    } else if (this.direction === 'right' && this.x > 292) {
       this.setPosition(-40, this.y);
     }
   }

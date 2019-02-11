@@ -17,7 +17,7 @@ export default class Log extends Phaser.Physics.Arcade.Sprite {
   }
 
   update() {
-    if (this.x > 240) {
+    if (this.x > 292) {
       this.setPosition(-40, this.y);
     }
   }
