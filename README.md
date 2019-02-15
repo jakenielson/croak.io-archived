@@ -1,22 +1,31 @@
-# croak.io
+## To Do
 
-> My website. Created with Nuxt, Storyblok, and love to host my games.
+## Group One
 
-## Build Setup
+<!-- * Fix stop position of frogs -->
+* Keep frogs centered
+* Keep frog animations synced
 
-``` bash
-# install dependencies
-$ yarn install
+## Group Two
 
-# serve with hot reload at localhost:3000
-$ yarn run dev
+* Add bottom UI and adjust frogs
+* Add points and high score cookie
+* Add high score to start screen
+* Transition to next level on win
 
-# build for production and launch server
-$ yarn run build
-$ yarn start
+## Group Three
 
-# generate static project
-$ yarn run generate
-```
+* Levels get incrementally harder (everything is just faster)
+* Adjust position of trucks
+* Rethink car spawning (put into pool and redistributed)
+* Game over screen
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+## Group Four
+
+* Turtles rise and sink
+* Flies and tongue
+* Special car behavior
+
+## Thoughts
+
+* Taylor thought the dancing frogs were cool. Frogs should dance left to right while playing for funsies.

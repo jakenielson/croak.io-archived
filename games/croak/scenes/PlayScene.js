@@ -45,22 +45,12 @@ export default class PlayScene extends Scene {
     this.createMap();
     this.createGameObjects();
     this.createUI();
-    this.spawnFrog();
+    // this.spawnFrog();
+    this.setupControls();
+    this.transitionIn();
+  }
 
-    this.events.on('transitionstart', () => {
-      this.rect = this.add.rectangle(0, 0, this.sys.game.config.width, this.sys.game.config.height, 0x000000)
-        .setOrigin(0, 0).setDepth(99);
-      this.tweens.add({
-        targets: this.rect,
-        alpha: 0,
-        duration: 1000
-      });
-    }, this);
-
-    this.events.on('transitioncomplete', () => {
-      this.scene.setVisible(1, 'PlayScene');
-    }, this);
-
+  setupControls() {
     this.input.on('pointerup', (event, target) => {
       const xDiff = event.upX - event.downX;
       const yDiff = event.upY - event.downY;
@@ -78,6 +68,23 @@ export default class PlayScene extends Scene {
         }
       }
     });
+  }
+
+  transitionIn() {
+    this.events.on('transitionstart', () => {
+      this.rect = this.add.rectangle(0, 0, this.sys.game.config.width, this.sys.game.config.height, 0x000000)
+        .setOrigin(0, 0).setDepth(99);
+      this.tweens.add({
+        targets: this.rect,
+        alpha: 0,
+        duration: 1000
+      });
+    }, this);
+
+    this.events.on('transitioncomplete', () => {
+      this.scene.setVisible(1, 'PlayScene');
+      this.UIHelper.spawnFrog();
+    }, this);
   }
 
   // create the map, tiles, and layers
@@ -124,16 +131,12 @@ export default class PlayScene extends Scene {
   // create the lives, score, etc.
   createUI() {
     this.UIHelper = new UIHelper(this);
-
-    this.events.on('death', () => this.UIHelper.onDeath());
   }
 
   //TODO: this logic is awkward, clean it up
   spawnFrog() {
     if (this.frog) {
       this.frog.destroy();
-      this.lives -= 1;
-      this.events.emit('death', this.lives);
     }
     if (this.lives >= 0) {
       this.createFrog();
@@ -153,6 +156,7 @@ export default class PlayScene extends Scene {
     if (this.isGameOver && this.anyCursorIsDown()) this.scene.restart();
     if (this.frog) this.frog.update(this.cursors);
     this.updateGameObjects();
+    this.UIHelper.update()
   }
 
   // triggers the update method of all game objects

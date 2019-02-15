@@ -123,6 +123,11 @@ export default class Frog extends Phaser.Physics.Arcade.Sprite {
 
   // respawn the frog
   reset() {
-    this.scene.spawnFrog();
+    this.scene.lives -= 1;
+    if (this.scene.lives > 0) {
+      this.scene.UIHelper.spawnFrog();
+    } else {
+      this.scene.gameOver();
+    }
   }
 }
