@@ -25,6 +25,7 @@ export default class UIHelper {
       this.scene.frog.destroy();
       this.scene.frog = null;
     }
+    if (this.lifeFrogs.length === 0) return;
     // Find the center frog
     const frogIndex = Math.floor((this.lifeFrogs.length - 1) / 2);
     this.centerFrog = this.lifeFrogs.splice(frogIndex, 1)[0];
@@ -32,7 +33,6 @@ export default class UIHelper {
     // Destroy the center frog when it gets into position (part of method mentioned previously)
     // When the frog is destroyed, spawn the player in its place
     this.centerFrog.enterGame().then(() => {
-      debugger;
       this.centerFrog.destroy();
       this.centerFrog = null;
       this.scene.spawnFrog();

@@ -2,13 +2,11 @@
 
 ## Group One
 
-<!-- * Fix stop position of frogs -->
-* Keep frogs centered
-* Keep frog animations synced
+DONE!
 
 ## Group Two
 
-* Add bottom UI and adjust frogs
+* Add bottom UI
 * Add points and high score cookie
 * Add high score to start screen
 * Transition to next level on win
@@ -25,7 +23,3 @@
 * Turtles rise and sink
 * Flies and tongue
 * Special car behavior
-
-## Thoughts
-
-* Taylor thought the dancing frogs were cool. Frogs should dance left to right while playing for funsies.

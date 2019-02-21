@@ -244,12 +244,10 @@ export default class PlayScene extends Scene {
     } if (frogExists) {
       this.frog.die();
     } else {
-      this.frog.destroy();
-      this.createFrog();
+      this.UIHelper.spawnFrog();
       const home = new HomeFrog(this, (tile.x * 16), 0);
       this.add.existing(home);
       this.homeFrogs.push(home);
-      if (this.winCheck()) this.win();
     }
   }
 
@@ -260,11 +258,6 @@ export default class PlayScene extends Scene {
     return (lily &&
         (((this.frog.x) % 16) <= 6 ||
         ((this.frog.x) % 16) >= 10))
-  }
-
-  // check if the player won the game
-  winCheck() {
-    return this.homeFrogs.length >= 6;
   }
 
   // show the win screen
