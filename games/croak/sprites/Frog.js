@@ -43,7 +43,7 @@ export default class Frog extends Phaser.Physics.Arcade.Sprite {
   // check if the player hit a hop button
   hopCheck(cursors) {
     if (cursors.up.isDown && ((this.y) > this.scene.physics.world.bounds.y)) this.hop([0, -64], 'up');
-    else if (cursors.down.isDown && ((this.y + 16) < (this.scene.physics.world.bounds.y + this.scene.physics.world.bounds.height))) this.hop([0, 64], 'down');
+    else if (cursors.down.isDown && ((this.y + 16) < (this.scene.physics.world.bounds.y + (this.scene.physics.world.bounds.height - 32)))) this.hop([0, 64], 'down');
     else if (cursors.left.isDown && ((this.x) > this.scene.physics.world.bounds.x)) this.hop([-64, 0], 'left');
     else if (cursors.right.isDown && ((this.x + 16) < (this.scene.physics.world.bounds.x + this.scene.physics.world.bounds.width))) this.hop([64, 0], 'right');
   }
@@ -85,6 +85,7 @@ export default class Frog extends Phaser.Physics.Arcade.Sprite {
       this.play(`idle_${animSuff}`);
       this.removeAllListeners('animationcomplete');
     }, this);
+    this.scene.UIHelper.hop(nextY);
   }
 
   // stop the frog
@@ -123,11 +124,6 @@ export default class Frog extends Phaser.Physics.Arcade.Sprite {
 
   // respawn the frog
   reset() {
-    this.scene.lives -= 1;
-    if (this.scene.lives > 0) {
-      this.scene.UIHelper.spawnFrog();
-    } else {
-      this.scene.gameOver();
-    }
+    this.scene.UIHelper.spawnFrog();
   }
 }

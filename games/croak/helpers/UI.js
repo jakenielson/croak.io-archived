@@ -5,14 +5,20 @@ export default class UIHelper {
     this.scene = scene;
     this.lifeFrogs = [];
     this.centerFrog = null;
+    this.score = 0;
+    this.level = 1;
+    this.waterline = 192;
 
     // create ui
     for (let i = 0; i < this.scene.lives; i++) {
-      // const icon = new Phaser.GameObjects.Image(this.scene, 24 + i * 32, 232, 'frog', 0);
       const frog = new LifeFrog(this.scene, 16 + (i * 32), 204);
       this.scene.add.existing(frog);
       this.lifeFrogs.push(frog);
     }
+    this.scene.add.rectangle(0, 224, 240, 16, 0x000000).setOrigin(0, 0);
+    this.scene.add.rectangle(0, 224, 240, 1, 0xffffff).setOrigin(0, 0);
+    this.levelText = this.scene.add.bitmapText(4, 230, 'font', `LEVEL ${this.level}`, 8);
+    this.scoreText = this.scene.add.bitmapText(228, 230, 'font', this.score, 8);
   }
 
   update() {
@@ -26,33 +32,31 @@ export default class UIHelper {
       this.scene.frog = null;
     }
     if (this.lifeFrogs.length === 0) return;
-    // Find the center frog
+
     const frogIndex = Math.floor((this.lifeFrogs.length - 1) / 2);
     this.centerFrog = this.lifeFrogs.splice(frogIndex, 1)[0];
-    // Center frog hops upwards into position (create method in LifeFrog for this)
-    // Destroy the center frog when it gets into position (part of method mentioned previously)
-    // When the frog is destroyed, spawn the player in its place
     this.centerFrog.enterGame().then(() => {
       this.centerFrog.destroy();
       this.centerFrog = null;
       this.scene.spawnFrog();
     });
-    // At the same time, other frogs fill in the gap (create another method in LifeFrog for this)
-    // Determine which side has more frogs
-    // If they are equal, favor the right side
-    // const rightOrLeft = !!(this.lifeFrogs.length % 2);
-    // for (let i = rightOrLeft ? 0 : frogIndex; rightOrLeft ? i < frogIndex : i < this.lifeFrogs.length; i++) {
-    //   this.lifeFrogs[i].jump(rightOrLeft);
-    // }
 
     for (let i = 0; i < this.lifeFrogs.length; i++) {
       this.lifeFrogs[i].jump(i < frogIndex);
     }
   }
-} 
 
-// Determine center frog
-// Anything above the center frog moves one space left
-// Anything below the center frog moves one space right
-// Center frog checks if it's centered. 
-// If not, it hops to the center before spawning.
+  hop(nextY) {
+    if (nextY < this.waterline) {
+      this.waterline = nextY;
+      this.score += 10;
+
+      const lastWidth = this.scoreText.width;
+      this.scoreText.setText(this.score);
+      const newWidth = this.scoreText.width;
+      console.log(lastWidth);
+      console.log(newWidth);
+      this.scoreText.setX(this.scoreText.x - (newWidth - lastWidth));
+    }
+  }
+}

@@ -22,9 +22,7 @@ export default class PlayScene extends Scene {
     this.logs = [];
     this.turtles = [];
     this.homeFrogs = [];
-
     this.lives = 7;
-    this.isGameOver = false;
 
     this.cursors = null;
     this.rect = null;
@@ -137,10 +135,7 @@ export default class PlayScene extends Scene {
   spawnFrog() {
     if (this.frog) {
       this.frog.destroy();
-    }
-    if (this.lives >= 0) {
-      this.createFrog();
-    }
+    } this.createFrog();
   }
 
   //TODO: this logic is awkward, clean it up
@@ -153,7 +148,6 @@ export default class PlayScene extends Scene {
 
   // called once per frame
   update() {
-    if (this.isGameOver && this.anyCursorIsDown()) this.scene.restart();
     if (this.frog) this.frog.update(this.cursors);
     this.updateGameObjects();
     this.UIHelper.update()
@@ -258,26 +252,6 @@ export default class PlayScene extends Scene {
     return (lily &&
         (((this.frog.x) % 16) <= 6 ||
         ((this.frog.x) % 16) >= 10))
-  }
-
-  // show the win screen
-  win() {
-    this.destroyAll();
-
-    this.isGameOver = true;
-
-    this.winText = this.add.bitmapText(104, 48, 'font', `YOU WIN`, 16);
-    this.winText.setOrigin(0.5);
-  }
-
-  // show the game over screen
-  gameOver() {
-    this.destroyAll();
-
-    this.isGameOver = true;
-
-    this.gameOverText = this.add.bitmapText(104, 48, 'font', `GAME OVER`, 16);
-    this.gameOverText.setOrigin(0.5);
   }
 
   // clean up for win / game over
