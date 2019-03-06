@@ -1,25 +1,9 @@
-## To Do
+Ok my level scrolls
+My ui is in its own scene
+The ui stays in position when the camera scrolls
 
-## Group One
-
-DONE!
-
-## Group Two
-
-* Add bottom UI
-* Add points and high score cookie
-* Add high score to start screen
-* Transition to next level on win
-
-## Group Three
-
-* Levels get incrementally harder (everything is just faster)
-* Adjust position of trucks
-* Rethink car spawning (put into pool and redistributed)
-* Game over screen
-
-## Group Four
-
-* Turtles rise and sink
-* Flies and tongue
-* Special car behavior
+NEXT:
+Move destroy/create stuff to reusable functions
+Destroy the old game objects
+Re-create game objects
+Investigate whether I have to reposition the level/camera (do I keep going up?)

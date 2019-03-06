@@ -4,7 +4,6 @@ import Cars from '~/games/croak/groups/Cars';
 import Log from '~/games/croak/sprites/Log';
 import Turtle from '~/games/croak/sprites/Turtle';
 import HomeFrog from '~/games/croak/sprites/HomeFrog';
-import UIHelper from '~/games/croak/helpers/UI';
 
 export default class PlayScene extends Scene {
   constructor () {
@@ -14,6 +13,7 @@ export default class PlayScene extends Scene {
   // called when the scene starts, before create
   init() {
     this.map = null;
+    this.nextMap = null;
     this.tiles = null;
     this.mapLayers = {};
 
@@ -26,6 +26,7 @@ export default class PlayScene extends Scene {
 
     this.cursors = null;
     this.rect = null;
+    this.cameraPanning = false;
   }
 
   // called when the scene starts, after init
@@ -40,12 +41,10 @@ export default class PlayScene extends Scene {
     
     this.cursors = this.input.keyboard.createCursorKeys();
     
-    this.createMap();
+    this.createMap(); 
     this.createGameObjects();
-    this.createUI();
-    // this.spawnFrog();
     this.setupControls();
-    this.transitionIn();
+    this.transitionIn(); 
   }
 
   setupControls() {
@@ -81,7 +80,7 @@ export default class PlayScene extends Scene {
 
     this.events.on('transitioncomplete', () => {
       this.scene.setVisible(1, 'PlayScene');
-      this.UIHelper.spawnFrog();
+      this.events.emit('spawnFrog')
     }, this);
   }
 
@@ -126,11 +125,6 @@ export default class PlayScene extends Scene {
     this.cars = new Cars(this.physics.world, this, [], 7, 5, 2);
   }
 
-  // create the lives, score, etc.
-  createUI() {
-    this.UIHelper = new UIHelper(this);
-  }
-
   //TODO: this logic is awkward, clean it up
   spawnFrog() {
     if (this.frog) {
@@ -149,8 +143,8 @@ export default class PlayScene extends Scene {
   // called once per frame
   update() {
     if (this.frog) this.frog.update(this.cursors);
+    if (this.cameraPanning) this.panCamera();
     this.updateGameObjects();
-    this.UIHelper.update()
   }
 
   // triggers the update method of all game objects
@@ -183,6 +177,7 @@ export default class PlayScene extends Scene {
     this.cameras.main.setZoom(size / 240);
     this.cameras.main.setOrigin(0, 0);
     this.cameras.main.setPosition(0, 0);
+    this.cameras.main.setScroll(0, 0);
     this.cameras.main.setSize(size);
   }
 
@@ -238,7 +233,7 @@ export default class PlayScene extends Scene {
     } if (frogExists) {
       this.frog.die();
     } else {
-      this.UIHelper.spawnFrog();
+      this.events.emit('spawnFrog')
       const home = new HomeFrog(this, (tile.x * 16), 0);
       this.add.existing(home);
       this.homeFrogs.push(home);
@@ -260,8 +255,44 @@ export default class PlayScene extends Scene {
     this.logs.forEach(log => log.destroy());
     this.turtles.forEach(turtle => turtle.destroy());
     this.homeFrogs.forEach(frog => frog.destroy());
-    this.frog.destroy();
-    this.frog = null;
-    this.events.removeAllListeners('death');
+    for (let layer in this.mapLayers) {
+      this.mapLayers[layer].data = this.mapLayers[layer].nextData;
+    }
+    this.map.destroy();
+    this.map = this.nextMap;
+  }
+
+  // build a new level and go to it
+  goToNextLevel() {
+    this.createNextLevel();
+    this.cameraPanning = true;
+  }
+
+  // create the next level
+  createNextLevel() {
+    this.nextMap = this.make.tilemap({ key: 'croakMap' });
+    this.tiles = this.nextMap.addTilesetImage('mortTiles');
+    this.mapLayers.ground.nextData = this.nextMap.createStaticLayer('Ground Layer', this.tiles, 0, -240);
+    this.mapLayers.water.nextData = this.nextMap.createStaticLayer('Water Layer', this.tiles, 0, -240);
+    this.mapLayers.lily.nextData = this.nextMap.createStaticLayer('Lily Layer', this.tiles, 0, -240);
+  }
+
+  panCamera() {
+    if (this.cameras.main.scrollY > -240) this.cameras.main.scrollY -= 2;
+    // if (this.cameras.main.scrollY > -100) this.cameras.main.scrollY -= 2;
+    else {
+      this.destroyAll();
+      this.resetLevelPosition();
+      this.createGameObjects();
+      this.events.emit('level_up');
+      this.cameraPanning = false;
+    }
+  }
+
+  resetLevelPosition() {
+    for (let layer in this.mapLayers) {
+      this.mapLayers[layer].data.setY(0);
+      this.cameras.main.scrollY = 0;
+    }
   }
 }

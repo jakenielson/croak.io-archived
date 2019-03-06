@@ -162,6 +162,7 @@ export default class TitleScene extends Scene {
       allowInput: false,
       onUpdate: this.transitionOut
     });
+    this.scene.start('UIScene');
     this.scene.setVisible(0, 'PlayScene');
   }
 

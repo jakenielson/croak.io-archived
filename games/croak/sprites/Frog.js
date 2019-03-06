@@ -85,7 +85,8 @@ export default class Frog extends Phaser.Physics.Arcade.Sprite {
       this.play(`idle_${animSuff}`);
       this.removeAllListeners('animationcomplete');
     }, this);
-    this.scene.UIHelper.hop(nextY);
+    // this.scene.UIHelper.hop(nextY);
+    this.scene.events.emit('hop', nextY);
   }
 
   // stop the frog
@@ -124,6 +125,6 @@ export default class Frog extends Phaser.Physics.Arcade.Sprite {
 
   // respawn the frog
   reset() {
-    this.scene.UIHelper.spawnFrog();
+    this.scene.events.emit('spawnFrog');
   }
 }
