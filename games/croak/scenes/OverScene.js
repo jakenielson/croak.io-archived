@@ -54,9 +54,26 @@ export default class OverScene extends Scene {
     this.lockedInput = true;
   }
 
+  transitionOut() {
+    this.rect.setAlpha(this.rect.alpha + 0.08 > 1 ? 1 : this.rect.alpha + 0.08);
+  }
+
+  toGame() {
+    this.rect = this.add.rectangle(0, 0, this.sys.game.config.width, this.sys.game.config.height, 0x000000)
+      .setOrigin(0, 0).setAlpha(0.01).setDepth(99999);
+    this.scene.transition({
+      target: 'PlayScene',
+      duration: 500,
+      moveBelow: true,
+      allowInput: false,
+      onUpdate: this.transitionOut
+    });
+    this.scene.setVisible(0, 'PlayScene');
+  }
+
   selectOption() {
     if (this.option === 0) {
-      this.scene.start('PlayScene');
+      this.toGame();
     } else {
       this.scene.start('TitleScene');
     } this.lockedInput = true;
