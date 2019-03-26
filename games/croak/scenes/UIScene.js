@@ -1,7 +1,7 @@
 import { Scene } from 'phaser';
 import UIHelper from '~/games/croak/helpers/UI';
 
-export default class PlayScene extends Scene {
+export default class UIScene extends Scene {
   constructor () {
     super({ key: 'UIScene'});
   }
@@ -23,9 +23,12 @@ export default class PlayScene extends Scene {
     this.playScene.events.on('level_up', () => {
       this.UIHelper.levelUp();
     });
+    this.playScene.events.on('home_frog', () => {
+      this.UIHelper.homeFrog();
+    });
   }
 
   update() {
-    this.UIHelper.update();
+    if (this.UIHelper) this.UIHelper.update();
   }
 }

@@ -3,10 +3,9 @@ import Phaser from 'phaser';
 export default class LifeFrog extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x, y) {
     super(scene, x, y, 'frog', 0);
-
     this.scene = scene;
     this.scene.add.existing(this);
-    this.scene.physics.world.enable(this);
+    if (this.scene.physics.world) this.scene.physics.world.enable(this);
     this.setOrigin(0, 0);
     this.play('idle_down');
 
@@ -111,6 +110,24 @@ export default class LifeFrog extends Phaser.Physics.Arcade.Sprite {
           return resolve();
         }, this);
       }
+    })
+  }
+
+  forward() {
+    return new Promise((resolve, reject) => {
+      this.direction = 'up';
+      this.stoppingPoint = this.y - 16;
+      this.setVelocity(0, -48);
+      this.play('jump_up');
+      this.moving = true;
+      this.on('animationcomplete', () => {
+        this.removeAllListeners('animationcomplete');
+        this.stop();
+        this.setFlipX(false);
+        this.play('idle_down');
+        this.direction = 'down';
+        resolve();
+      }, this);
     })
   }
 }

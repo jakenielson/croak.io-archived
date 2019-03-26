@@ -1,9 +1,12 @@
-Ok my level scrolls
-My ui is in its own scene
-The ui stays in position when the camera scrolls
+* Game over > Title > Game works
+* Game over > Game doesn't work
+* UI isn't showing up .....
+* I should try moving the UIScene create call to the PlayScene
 
-NEXT:
-Move destroy/create stuff to reusable functions
-Destroy the old game objects
-Re-create game objects
-Investigate whether I have to reposition the level/camera (do I keep going up?)
+* I'm using restart() improperly
+---------------------------------
+
+
+* Turn lilies into game objects
+* Take away lily when a frog dies
+* Only spawn lilies equal to frogs

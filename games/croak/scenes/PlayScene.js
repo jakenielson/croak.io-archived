@@ -19,14 +19,19 @@ export default class PlayScene extends Scene {
 
     this.frog = null;
     this.cars = null;
+    this.nextCars = null;
     this.logs = [];
+    this.nextLogs = [];
     this.turtles = [];
+    this.nextTurtles = [];
     this.homeFrogs = [];
-    this.lives = 7;
+    // this.lives = 7;
+    this.lives = 1;
 
     this.cursors = null;
     this.rect = null;
     this.cameraPanning = false;
+    this.overcard = null;
   }
 
   // called when the scene starts, after init
@@ -34,16 +39,13 @@ export default class PlayScene extends Scene {
     this.physics.world.setBounds(0, 0, 240, 240);
     this.setCamera(this.sys.game.config.width);
     this.events.on('resize', this.onResize, this);
-    this.events.on('destroy', () => {
-      this.destroyAll();
-      this.events.destroy();
-    });
     
     this.cursors = this.input.keyboard.createCursorKeys();
     
     this.createMap(); 
     this.createGameObjects();
     this.setupControls();
+    this.scene.start('UIScene');
     this.transitionIn(); 
   }
 
@@ -69,6 +71,7 @@ export default class PlayScene extends Scene {
 
   transitionIn() {
     this.events.on('transitionstart', () => {
+      debugger;
       this.rect = this.add.rectangle(0, 0, this.sys.game.config.width, this.sys.game.config.height, 0x000000)
         .setOrigin(0, 0).setDepth(99);
       this.tweens.add({
@@ -79,8 +82,9 @@ export default class PlayScene extends Scene {
     }, this);
 
     this.events.on('transitioncomplete', () => {
+      debugger;
       this.scene.setVisible(1, 'PlayScene');
-      this.events.emit('spawnFrog')
+      this.events.emit('spawnFrog');
     }, this);
   }
 
@@ -105,24 +109,64 @@ export default class PlayScene extends Scene {
   }
 
   // create the cars, logs, etc.
-  createGameObjects() {
+  createGameObjects(newGame = false) {
+    const turtles = [];
+    const logs = [];
+    let cars = null;
     for (let i = 0; i < 3; i++) {
-      const row = (i * 2) + 1;
-      this.logs.push(new Log(this, row, 0));
-      this.logs.push(new Log(this, row, 1));
+      let row = (i * 2) + 1;
+      if (newGame) row -= 15;
+      logs.push(new Log(this, row, 0));
+      logs.push(new Log(this, row, 1));
     }
 
     for (let i = 0; i < 2; i++ ) {
-      const row = (i * 2) + 2;
-      this.turtles.push(new Turtle(this, row, 0, 0));
-      this.turtles.push(new Turtle(this, row, 0, 1));
-      this.turtles.push(new Turtle(this, row, 0, 2));
-      this.turtles.push(new Turtle(this, row, 1, 0));
-      this.turtles.push(new Turtle(this, row, 1, 1));
-      this.turtles.push(new Turtle(this, row, 1, 2));
+      let row = (i * 2) + 2;
+      if (newGame) row -= 15;
+      turtles.push(new Turtle(this, row, 0, 0));
+      turtles.push(new Turtle(this, row, 0, 1));
+      turtles.push(new Turtle(this, row, 0, 2));
+      turtles.push(new Turtle(this, row, 1, 0));
+      turtles.push(new Turtle(this, row, 1, 1));
+      turtles.push(new Turtle(this, row, 1, 2));
     }
 
-    this.cars = new Cars(this.physics.world, this, [], 7, 5, 2);
+    const rowOffset = newGame ? -8 : 7;
+    cars = new Cars(this.physics.world, this, [], rowOffset, 5, 2);
+
+    if (newGame) {
+      this.newTurtles = turtles;
+      this.newLogs = logs;
+      this.newCars = cars;
+    } else {
+      this.turtles = turtles;
+      this.logs = logs;
+      this.cars = cars;
+    }
+  }
+
+  repositionGameObjects() {
+    // Adjust the references of the objects
+    this.cars = this.newCars;
+    this.newCars = null;
+    this.logs = this.newLogs;
+    this.newLogs = [];
+    this.turtles = this.newTurtles;
+    this.newTurtles = [];
+
+    // Adjust the positions of the objects by one game length
+    this.cars.getChildren().forEach((car) => {
+      car.row = car.row += 15;
+      car.setY(car.y + 240)
+    });
+    this.logs.forEach((log) => {
+      log.row = log.row += 15;
+      log.setY(log.y + 240)
+    });
+    this.turtles.forEach((turtle) => {
+      turtle.row = turtle.row += 15;
+      turtle.setY(turtle.y + 240)
+    });
   }
 
   //TODO: this logic is awkward, clean it up
@@ -142,9 +186,11 @@ export default class PlayScene extends Scene {
 
   // called once per frame
   update() {
-    if (this.frog) this.frog.update(this.cursors);
-    if (this.cameraPanning) this.panCamera();
-    this.updateGameObjects();
+    if (!this.gameOver) {
+      if (this.frog) this.frog.update(this.cursors);
+      if (this.cameraPanning) this.panCamera();
+      this.updateGameObjects();
+    }
   }
 
   // triggers the update method of all game objects
@@ -233,7 +279,8 @@ export default class PlayScene extends Scene {
     } if (frogExists) {
       this.frog.die();
     } else {
-      this.events.emit('spawnFrog')
+      this.events.emit('spawnFrog');
+      this.events.emit('home_frog');
       const home = new HomeFrog(this, (tile.x * 16), 0);
       this.add.existing(home);
       this.homeFrogs.push(home);
@@ -251,10 +298,14 @@ export default class PlayScene extends Scene {
 
   // clean up for win / game over
   destroyAll() {
-    this.cars.clear(true, true);
-    this.logs.forEach(log => log.destroy());
-    this.turtles.forEach(turtle => turtle.destroy());
-    this.homeFrogs.forEach(frog => frog.destroy());
+    this.cars.destroy(true);
+    this.cars = [];
+    this.logs.forEach(log => log.destroy(true));
+    this.logs = [];
+    this.turtles.forEach(turtle => turtle.destroy(true));
+    this.turtles = [];
+    this.homeFrogs.forEach(frog => frog.destroy(true));
+    this.homeFrogs = [];
     for (let layer in this.mapLayers) {
       this.mapLayers[layer].data = this.mapLayers[layer].nextData;
     }
@@ -275,6 +326,7 @@ export default class PlayScene extends Scene {
     this.mapLayers.ground.nextData = this.nextMap.createStaticLayer('Ground Layer', this.tiles, 0, -240);
     this.mapLayers.water.nextData = this.nextMap.createStaticLayer('Water Layer', this.tiles, 0, -240);
     this.mapLayers.lily.nextData = this.nextMap.createStaticLayer('Lily Layer', this.tiles, 0, -240);
+    this.createGameObjects(true);
   }
 
   panCamera() {
@@ -283,7 +335,7 @@ export default class PlayScene extends Scene {
     else {
       this.destroyAll();
       this.resetLevelPosition();
-      this.createGameObjects();
+      this.repositionGameObjects();
       this.events.emit('level_up');
       this.cameraPanning = false;
     }
@@ -294,5 +346,10 @@ export default class PlayScene extends Scene {
       this.mapLayers[layer].data.setY(0);
       this.cameras.main.scrollY = 0;
     }
+  }
+
+  triggerGameOver() {
+    this.events.removeAllListeners('spawnFrog');
+    this.scene.start('OverScene');
   }
 }

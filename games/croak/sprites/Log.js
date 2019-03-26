@@ -3,6 +3,7 @@ import Phaser from 'phaser';
 export default class Log extends Phaser.Physics.Arcade.Sprite {
   constructor (scene, row, order) {
     const y = (row * 16) + 8;
+    if (row < 0) row += 15;
     const x = (order * -140) - 10 - (row * 16);
     super(scene, x, y, 'log', 0);
 

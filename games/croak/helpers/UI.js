@@ -10,6 +10,7 @@ export default class UIHelper {
     this.level = 1;
     this.waterline = 192;
     this.dropCounter = 0;
+    this.homeFrogs = 0;
     this.dropThresh = 40;
     this.dropLock = false;
 
@@ -26,6 +27,7 @@ export default class UIHelper {
   }
 
   update() {
+    if (this.gameOver) return;
     if (this.centerFrog) this.centerFrog.update();
     this.lifeFrogs.forEach((frog) => frog.update());
     
@@ -49,7 +51,11 @@ export default class UIHelper {
       this.playScene.frog = null;
     }
     if (this.lifeFrogs.length === 0) {
-      this.playScene.goToNextLevel();
+      if (this.homeFrogs === 0) {
+        this.playScene.triggerGameOver();
+      } else {
+        this.playScene.goToNextLevel();
+      }
       return;
     }
 
@@ -88,5 +94,28 @@ export default class UIHelper {
   levelUp() {
     this.level += 1;
     this.levelText.setText(`LEVEL ${this.level}`);
+    this.respawnFrogs();
+  }
+
+  respawnFrogs() {
+    for (let i = 0; i < this.homeFrogs; i++) {
+      const frog = new LifeFrog(this.playScene, 16 + ((7 - this.homeFrogs) * 16) + (i * 32), 220);
+      this.playScene.add.existing(frog);
+      this.lifeFrogs.push(frog);
+    } this.homeFrogs = 0;
+
+    const promList = [];
+    this.lifeFrogs.forEach(frog => promList.push(frog.forward()));
+    Promise.all(promList).then(() => {
+      this.spawnFrog();
+    });
+  }
+
+  homeFrog() {
+    this.homeFrogs += 1;
+  }
+
+  clearAll() {
+    this.lifeFrogs.forEach(frog => frog.destroy());
   }
 }
