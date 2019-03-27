@@ -25,7 +25,8 @@ export default class PlayScene extends Scene {
     this.turtles = [];
     this.nextTurtles = [];
     this.homeFrogs = [];
-    this.lives = 7;
+    // this.lives = 7;
+    this.lives = 1;
 
     this.cursors = null;
     this.rect = null;
@@ -70,7 +71,6 @@ export default class PlayScene extends Scene {
 
   transitionIn() {
     this.events.on('transitionstart', () => {
-      debugger;
       this.rect = this.add.rectangle(0, 0, this.sys.game.config.width, this.sys.game.config.height, 0x000000)
         .setOrigin(0, 0).setDepth(99);
       this.tweens.add({
@@ -81,7 +81,6 @@ export default class PlayScene extends Scene {
     }, this);
 
     this.events.on('transitioncomplete', () => {
-      debugger;
       this.scene.setVisible(1, 'PlayScene');
       this.events.emit('spawnFrog');
     }, this);

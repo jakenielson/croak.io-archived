@@ -13,14 +13,45 @@ export default class OverScene extends Scene {
     // this.add.bitmapText(48, 104, 'font', 'GAME OVER', 16).setDepth(9999);
     this.add.bitmapText(48, 40, 'font', 'GAME OVER', 16).setDepth(9999);
     this.add.bitmapText(48, 104, 'outlineFont', 'Continue?', 16).setDepth(9999);
-    this.add.bitmapText(126, 160, 'font', 'YES', 16).setDepth(9999);
-    this.add.bitmapText(128, 184, 'font', 'NO', 16).setDepth(9999);
+    this.add.bitmapText(126, 160, 'font', 'YES', 16)
+      .setDepth(9999)
+      .setInteractive()
+      .on('pointerdown', () => {
+        if (this.option != 0) {
+          this.changeOption()
+        } setTimeout(() => {
+          this.selectOption();
+        }, 100);
+      });
+    this.add.bitmapText(128, 184, 'font', 'NO', 16)
+      .setDepth(9999)
+      .setInteractive()
+      .on('pointerdown', () => {
+        if (this.option != 1) {
+          this.changeOption()
+        } setTimeout(() => {
+          this.selectOption();
+        }, 100);
+      });
     this.chevron = this.add.bitmapText(98, 156, 'outlineFont', '>', 16).setDepth(9999);
     this.option = 0;
     this.lockedInput = false;
     this.cursors = this.input.keyboard.createCursorKeys();
     this.setCamera(this.sys.game.config.width);
     this.events.on('resize', this.onResize, this);
+    // this.input.on('pointerup', (event, target) => {
+    //   const xDiff = event.upX - event.downX;
+    //   const yDiff = event.upY - event.downY;
+    //   const time = event.upTime - event.downTime;
+
+    //   if (time < 1000) {
+    //     if ((xDiff <= 5 && xDiff >= -5) && (yDiff <= 5 && yDiff >= -5)) {
+    //       this.selectOption();
+    //     } else if (yDiff >= 10 || yDiff <= -10) {
+    //       this.changeOption();
+    //     }
+    //   }
+    // });
   }
 
   onResize(width, height) {
