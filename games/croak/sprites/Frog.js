@@ -110,6 +110,7 @@ export default class Frog extends Phaser.Physics.Arcade.Sprite {
   // commit die
   die() {
     if (!this.dead) {
+      this.scene.lives -= 1;
       this.dead = true;
       this.moving = false;
       this.setDepth(99);

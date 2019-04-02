@@ -1,6 +1,7 @@
 import { Scene } from 'phaser';
 import Frog from '~/games/croak/sprites/Frog';
 import Cars from '~/games/croak/groups/Cars';
+import LilyPads from '~/games/croak/groups/LilyPads';
 import Log from '~/games/croak/sprites/Log';
 import Turtle from '~/games/croak/sprites/Turtle';
 import HomeFrog from '~/games/croak/sprites/HomeFrog';
@@ -26,7 +27,7 @@ export default class PlayScene extends Scene {
     this.nextTurtles = [];
     this.homeFrogs = [];
     // this.lives = 7;
-    this.lives = 1;
+    this.lives = 3;
 
     this.cursors = null;
     this.rect = null;
@@ -101,9 +102,9 @@ export default class PlayScene extends Scene {
         else if (tile && !riding) this.frog.die();
       }
     }
-    this.mapLayers.lily = {
-      data: this.map.createStaticLayer('Lily Layer', this.tiles, 0, 0)
-    }
+    // this.mapLayers.lily = {
+    //   data: this.map.createStaticLayer('Lily Layer', this.tiles, 0, 0)
+    // }
   }
 
   // create the cars, logs, etc.
@@ -111,6 +112,7 @@ export default class PlayScene extends Scene {
     const turtles = [];
     const logs = [];
     let cars = null;
+    let lilyPads = null;
     for (let i = 0; i < 3; i++) {
       let row = (i * 2) + 1;
       if (newGame) row -= 15;
@@ -131,15 +133,18 @@ export default class PlayScene extends Scene {
 
     const rowOffset = newGame ? -8 : 7;
     cars = new Cars(this.physics.world, this, [], rowOffset, 5, 2);
+    lilyPads = new LilyPads(this.physics.world, this, [], newGame, this.lives);
 
     if (newGame) {
       this.newTurtles = turtles;
       this.newLogs = logs;
       this.newCars = cars;
+      this.newLilyPads = lilyPads;
     } else {
       this.turtles = turtles;
       this.logs = logs;
       this.cars = cars;
+      this.lilyPads = lilyPads;
     }
   }
 
@@ -151,11 +156,16 @@ export default class PlayScene extends Scene {
     this.newLogs = [];
     this.turtles = this.newTurtles;
     this.newTurtles = [];
+    this.lilyPads = this.newLilyPads;
+    this.newLilyPads = null;
 
     // Adjust the positions of the objects by one game length
     this.cars.getChildren().forEach((car) => {
       car.row = car.row += 15;
       car.setY(car.y + 240)
+    });
+    this.lilyPads.getChildren().forEach((lilyPad) => {
+      lilyPad.setY(lilyPad.y + 240);
     });
     this.logs.forEach((log) => {
       log.row = log.row += 15;
@@ -283,15 +293,40 @@ export default class PlayScene extends Scene {
       this.add.existing(home);
       this.homeFrogs.push(home);
     }
+
+    // let frogExists = false;
+    // for (let i = 0; i < this.homeFrogs.length; i++) {
+    //   const hf = this.homeFrogs[i];
+    //   if ((tile.x * 16) === hf.x) frogExists = true;
+    // } if (frogExists) {
+    //   this.frog.die();
+    // } else {
+    //   this.events.emit('spawnFrog');
+    //   this.events.emit('home_frog');
+    //   const home = new HomeFrog(this, (tile.x * 16), 0);
+    //   this.add.existing(home);
+    //   this.homeFrogs.push(home);
+    // }
   }
 
   // TODO: this is awkward
   // check if the frog landed on a lilypad and scored
   homeCheck(tile) {
-    const lily = this.mapLayers.lily.data.getTileAt(tile.x, tile.y);
+    let lily = false;
+    this.lilyPads.getChildren().forEach((lilyPad) => {
+      if (this.physics.overlap(this.frog, lilyPad)) {
+        lily = true;
+      }
+    })
+    // const lily = this.physics.overlap(this.frog, this.lilyPads);
+    // const lily = this.mapLayers.lily.data.getTileAt(tile.x, tile.y);
+
     return (lily &&
-        (((this.frog.x) % 16) <= 6 ||
-        ((this.frog.x) % 16) >= 10))
+      (((this.frog.x) % 16) <= 6 ||
+      ((this.frog.x) % 16) >= 10))
+    // return (lily &&
+    //     (((this.frog.x) % 16) <= 6 ||
+    //     ((this.frog.x) % 16) >= 10))
   }
 
   // clean up for win / game over
@@ -304,6 +339,8 @@ export default class PlayScene extends Scene {
     this.turtles = [];
     this.homeFrogs.forEach(frog => frog.destroy(true));
     this.homeFrogs = [];
+    this.lilyPads.destroy(true);
+    this.lilyPads = [];
     for (let layer in this.mapLayers) {
       this.mapLayers[layer].data = this.mapLayers[layer].nextData;
     }
@@ -323,7 +360,7 @@ export default class PlayScene extends Scene {
     this.tiles = this.nextMap.addTilesetImage('mortTiles');
     this.mapLayers.ground.nextData = this.nextMap.createStaticLayer('Ground Layer', this.tiles, 0, -240);
     this.mapLayers.water.nextData = this.nextMap.createStaticLayer('Water Layer', this.tiles, 0, -240);
-    this.mapLayers.lily.nextData = this.nextMap.createStaticLayer('Lily Layer', this.tiles, 0, -240);
+    // this.mapLayers.lily.nextData = this.nextMap.createStaticLayer('Lily Layer', this.tiles, 0, -240);
     this.createGameObjects(true);
   }
 

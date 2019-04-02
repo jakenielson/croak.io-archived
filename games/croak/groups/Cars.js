@@ -25,7 +25,7 @@ export default class Cars extends Phaser.Physics.Arcade.Group {
         const sprite = this.sprites[r];
         const anim = this.anims[r];
 
-        const car = new Car (scene, sprite, anim, row, direction, k);
+        const car = new Car(scene, sprite, anim, row, direction, k);
         this.add(car);
       }
     }

@@ -12,6 +12,7 @@ export default class BootScene extends Scene {
     this.load.tilemapTiledJSON('croakMap', croakMap);
     this.load.image('splashScreen', '/croak/splashScreen.png');
     this.load.image('mortTiles', '/croak/mortTiles.png');
+    this.load.image('lilypads', '/croak/lilypads.png');
     this.load.bitmapFont('font', '/croak/font.png', '/croak/font.fnt');
     this.load.bitmapFont('outlineFont', '/croak/outlineFont.png', '/croak/outlineFont.fnt');
     this.load.spritesheet('frog', '/croak/mortFrog.png', { frameWidth: 16, frameHeight: 16 });

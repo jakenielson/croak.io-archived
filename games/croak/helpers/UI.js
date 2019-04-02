@@ -16,7 +16,7 @@ export default class UIHelper {
 
     // create ui
     for (let i = 0; i < this.playScene.lives; i++) {
-      const frog = new LifeFrog(this.playScene, 16 + (i * 32), 204);
+      const frog = new LifeFrog(this.playScene, 16 + ((7 - this.playScene.lives) * 16) + (i * 32), 204);
       this.playScene.add.existing(frog);
       this.lifeFrogs.push(frog);
     }
