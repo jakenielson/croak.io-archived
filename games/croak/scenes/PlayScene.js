@@ -26,8 +26,8 @@ export default class PlayScene extends Scene {
     this.turtles = [];
     this.nextTurtles = [];
     this.homeFrogs = [];
-    // this.lives = 7;
-    this.lives = 3;
+    this.lives = 7;
+    // this.lives = 3;
 
     this.cursors = null;
     this.rect = null;
@@ -376,7 +376,7 @@ export default class PlayScene extends Scene {
     }
   }
 
-  resetLevelPosition() {
+  resetLevelPosition() {   
     for (let layer in this.mapLayers) {
       this.mapLayers[layer].data.setY(0);
       this.cameras.main.scrollY = 0;
@@ -385,6 +385,9 @@ export default class PlayScene extends Scene {
 
   triggerGameOver() {
     this.events.removeAllListeners('spawnFrog');
+    this.events.removeAllListeners('hop');
+    this.events.removeAllListeners('level_up');
+    this.events.removeAllListeners('home_frog');
     this.scene.start('OverScene');
   }
 }

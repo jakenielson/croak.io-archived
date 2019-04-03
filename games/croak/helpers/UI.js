@@ -92,6 +92,7 @@ export default class UIHelper {
   }
 
   levelUp() {
+    debugger;
     this.level += 1;
     this.levelText.setText(`LEVEL ${this.level}`);
     this.respawnFrogs();
