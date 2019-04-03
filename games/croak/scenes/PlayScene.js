@@ -287,8 +287,8 @@ export default class PlayScene extends Scene {
     } if (frogExists) {
       this.frog.die();
     } else {
-      this.events.emit('spawnFrog');
       this.events.emit('home_frog');
+      this.events.emit('spawnFrog');
       const home = new HomeFrog(this, (tile.x * 16), 0);
       this.add.existing(home);
       this.homeFrogs.push(home);
