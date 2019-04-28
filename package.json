@@ -15,15 +15,15 @@
     "@nuxtjs/axios": "^5.0.0",
     "cross-env": "^5.2.0",
     "emailjs-com": "^2.3.2",
-    "marked": "^0.5.1",
-    "nes.css": "^0.0.2",
+    "marked": "^0.6.0",
+    "nes.css": "^2.0.0",
     "nuxt": "^2.0.0",
     "phaser": "^3.15.1",
-    "storyblok-nuxt": "^0.0.9"
+    "storyblok-nuxt": "^1.0.0"
   },
   "devDependencies": {
-    "css-loader": "^1.0.1",
-    "file-loader": "^2.0.0",
+    "css-loader": "^2.0.1",
+    "file-loader": "^3.0.0",
     "node-sass": "^4.10.0",
     "nodemon": "^1.11.0",
     "sass-loader": "^7.1.0"
