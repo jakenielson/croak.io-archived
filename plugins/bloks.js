@@ -8,6 +8,10 @@ import Paragraph from '~/components/bloks/Paragraph.vue';
 import BlogHeader from '~/components/bloks/BlogHeader.vue';
 import BlogImage from '~/components/bloks/BlogImage.vue';
 import CodeBlock from '~/components/bloks/CodeBlock.vue';
+import PageSection from '~/components/bloks/PageSection.vue';
+import GameCarousel from '~/components/bloks/GameCarousel.vue';
+import GameFeature from '~/components/bloks/GameFeature.vue';
+import WelcomeSection from '~/components/bloks/WelcomeSection.vue';
 
 Vue.component('page', Page);
 Vue.component('blog', Blog);
@@ -18,3 +22,7 @@ Vue.component('paragraph', Paragraph);
 Vue.component('blog-header', BlogHeader);
 Vue.component('blog-image', BlogImage);
 Vue.component('code-block', CodeBlock);
+Vue.component('page-section', PageSection);
+Vue.component('game-carousel', GameCarousel);
+Vue.component('game-feature', GameFeature);
+Vue.component('welcome-section', WelcomeSection);

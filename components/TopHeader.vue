@@ -4,18 +4,19 @@
     <div class="top-header__wrapper util__flex" :class="{'is-open': isOpen}">
       <i class="icon close top-header__close" v-if="isOpen" @click="closeNav"></i>
       <nav class="top-header__col button-col">
-      <ul class="top-header__nav">
-        <li class="top-header__nav-item" v-for="(nav, index) in mainNav" :key="index">
-          <nuxt-link v-if="nav.internal" class="top-header__link" :to="nav.link.cached_url" @click.native="closeNav">
-            <img v-if="nav.icon" class="top-header__icon" :src="getSrc(nav.icon)">
-            <button v-else class="btn">{{ nav.name }}</button>
-          </nuxt-link>
-          <a v-else class="top-header__link" :href="nav.link.cached_url" target="_blank" @click="closeNav">
-            <img v-if="nav.icon" class="top-header__icon" :src="getSrc(nav.icon)">
-            <button v-else class="btn">{{ nav.name }}</button>
-          </a>
-        </li>
-      </ul>
+        <img class="site-logo" :src="getSrc(siteLogo)">
+        <ul class="top-header__nav">
+          <li class="top-header__nav-item" v-for="(nav, index) in mainNav" :key="index">
+            <nuxt-link v-if="nav.internal" class="top-header__link" :to="nav.link.cached_url" @click.native="closeNav">
+              <img v-if="nav.icon" class="top-header__icon" :src="getSrc(nav.icon)">
+              <b-button type="is-white">{{ nav.name }}</b-button>
+            </nuxt-link>
+            <a v-else class="top-header__link" :href="nav.link.cached_url" target="_blank" @click="closeNav">
+              <img v-if="nav.icon" class="top-header__icon" :src="getSrc(nav.icon)">
+              <b-button type="is-white">{{ nav.name }}</b-button>
+            </a>
+          </li>
+        </ul>
       </nav>
       <nav class="top-header__col icon-col">
         <ul class="top-header__nav top-header__sub">
@@ -51,7 +52,10 @@ export default {
     },
     collapseIcon() {
       return this.$store.state.settings.collapse_icon;
-    }
+    },
+    siteLogo() {
+      return this.$store.state.settings.site_logo;
+    },
   },
   methods: {
     getSrc(src) {
@@ -70,7 +74,13 @@ export default {
 <style lang="scss">
   .top-header {
     justify-content: space-between;
-    padding: 30px;
+    background-color: #14a02e;
+    height: 60px;
+  }
+
+  .top-header__col {
+    display: flex;
+    flex-direction: row;
   }
 
   .top-header__wrapper {
@@ -91,12 +101,22 @@ export default {
     cursor: pointer;
   }
 
+  .site-logo {
+    float: left;
+    position: relative;
+    z-index: 99;
+    // top: 5px;
+    // left: 5px;
+  }
+
   .top-header__nav {
     list-style: none;
     display: flex;
     flex-direction: row;
-    padding-left: 0;
+    align-items: center;
+    height: 60px;
     margin: 0;
+    padding-left: 20px;
 
     .top-header__link {
       margin: 0 5px;

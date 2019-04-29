@@ -1,6 +1,6 @@
-$brand-color-1: #41b883;
-$brand-color-2: #3b8070;
-$brand-color-3: #35495e;
+$brand-color-1: #14a02e;
+$brand-color-2: #f5a097;
+$brand-color-3: #59c135;
 $breakpoint-small: 480px;
 $breakpoint-medium: 768px;
 $breakpoint-large: 960px;
@@ -21,3 +21,4 @@ $breakpoint-large-max: ($breakpoint-xlarge - 1);
 @import 'components/util.scss';
 @import 'components/nuxt.scss';
 @import 'responsive.scss';
+@import 'buefy.scss';

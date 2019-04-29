@@ -35,7 +35,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    { src: 'nes.css/scss/nes.scss', lang: 'scss' }
+    // { src: 'nes.css/scss/nes.scss', lang: 'scss' }
   ],
 
   /*
@@ -53,6 +53,7 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
+    'nuxt-buefy',
     ['storyblok-nuxt', { accessToken: 'BMrhKOV0AUIQc7QLAKF4UAtt', cacheProvider: 'memory' }]
   ],
   /*
