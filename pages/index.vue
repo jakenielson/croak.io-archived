@@ -1,5 +1,5 @@
 <template>
-  <section class="util__container home__section">
+  <section class="home__section">
     <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
   </section>
 </template>

@@ -35,11 +35,12 @@ export default {
   .background-image {
     width: 100%;
     height: 400px;
+    object-fit: cover;
   }
 
   .content-wrapper {
     position: absolute;
-    right: 40px;
+    left: 60%;
     top: 40px;
 
     .title-block {
@@ -51,8 +52,8 @@ export default {
       font-family: 'Press Start 2P', cursive;
       font-size: 30px;
       text-align: center;
-      border-radius: 4px;
-      border: 4px solid white;
+      border-radius: 10px;
+      border: 5px solid white;
       display: flex;
       flex-direction: column;
       align-items: center;
