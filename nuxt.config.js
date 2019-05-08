@@ -18,8 +18,9 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,700'},
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Press+Start+2P'}
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,700' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Press+Start+2P' },
+      { rel: "stylesheet", href: "https://use.fontawesome.com/releases/v5.2.0/css/all.css" }
     ],
     script: [
       { src: 'https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js' }
@@ -53,7 +54,7 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
-    'nuxt-buefy',
+    ['nuxt-buefy', { defaultIconPack: 'fas', defaultContainerElement: '#content' }],
     ['storyblok-nuxt', { accessToken: 'BMrhKOV0AUIQc7QLAKF4UAtt', cacheProvider: 'memory' }]
   ],
   /*

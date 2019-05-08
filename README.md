@@ -1,10 +1,13 @@
-BUGS FIXED!
+# Redesign
 
---
+# Home
+* Stare at the home page and figure out what i can do better
+  * Make grid cards cooler
+  * Customize mobile nav and keep logo
+  * Later
+    * Hook up email signup and contact form
+    * Delete unused blok components
 
-## FOR FUTURE PROJECTS
-
-* For game objects, find common things that can be repeated, and make a parent class that includes all that shit
-  - For example, I copy-pasted functions from Cars to LilyPads. Any time you copy-paste, think about this.
-* Everything I marked as "this is awkward" came back to bite me in the ass. Trust your instincts. Use the force.
-* Event listeners must be TOTALLY ERADICATED when you start the game over. Biggest headache.
+# Blog
+* Think about how I want to do blok cards. I want there to be one per page, but also have an image, title, and description.
+* Page Search component

@@ -1,17 +1,18 @@
 <template>
-  <div v-editable="blok" class="game-feature">
-    <img :src="imageSrc" class="background-image">
-    <div class="content-wrapper">
-      <div class="title-block">
-        <p class="title-text">{{ blok.title }}</p>
-      </div>
-      <div class="button-wrapper">
-        <nuxt-link class="play-link" :to="blok.play_link.cached_url">
-          <b-button class="game-button" type="is-white" size="is-medium">Play</b-button>
-        </nuxt-link>
-        <nuxt-link class="blog-link" :to="blok.blog_link.cached_url">
-          <b-button class="game-button" type="is-white" size="is-medium">Blog</b-button>
-        </nuxt-link>
+  <div v-editable="blok" class="game-feature hero is-large is-primary" :style="{'background-image': `url('${imageSrc}')`}">
+    <div class="game-feature hero-body">
+      <div class="container has-text-right">
+        <h1 class="title is-white">
+          {{ blok.title }}
+        </h1>
+        <div class="subtitle">
+          <nuxt-link class="play-link" :to="blok.play_link.cached_url">
+            <b-button class="game-button" type="is-white" size="is-medium">Play</b-button>
+          </nuxt-link>
+          <nuxt-link class="blog-link" :to="blok.blog_link.cached_url">
+            <b-button class="game-button" type="is-white" size="is-medium">Blog</b-button>
+          </nuxt-link>
+        </div>
       </div>
     </div>
   </div>
@@ -29,47 +30,27 @@ export default {
 </script>
 <style lang="scss" scoped>
 .game-feature {
-  position: relative;
-  height: 400px;
+  background-size: cover;
 
-  .background-image {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
+  font-family: 'Press Start 2P', cursive;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
+
+  .hero-body {
+    background: rgba(0, 0, 0, 0.3);
   }
 
-  .content-wrapper {
-    position: absolute;
-    left: 60%;
-    top: 40px;
+  .title {
+    text-shadow: 6px 6px 0px black;
+    padding: 10px 0;
+    font-size: 48px;
+  }
 
-    .title-block {
-      width: 250px;
-      height: 250px;
-      padding: 0 20px;
-      background-color: black;
-      color: white;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 30px;
-      text-align: center;
-      border-radius: 10px;
-      border: 5px solid white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .button-wrapper {
-      display: flex;
-      width: 250px;
-      margin-top: 20px;
-      justify-content: space-around;
-
-      .game-button {
-        font-family: 'Press Start 2P', cursive;
-      }
-    }
+  .subtitle button {
+    font-family: 'Press Start 2P', cursive;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+    box-shadow: 6px 6px black;
   }
 }
 </style>

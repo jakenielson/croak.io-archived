@@ -11,11 +11,6 @@ $breakpoint-medium-max: ($breakpoint-large - 1);
 $breakpoint-large-max: ($breakpoint-xlarge - 1);
 
 @import 'elements/body.scss';
-@import 'elements/headers.scss';
-@import 'elements/paragraph.scss';
-@import 'elements/links.scss';
-@import 'elements/inputs.scss';
-@import 'elements/buttons.scss';
 @import 'elements/markdown.scss';
 @import 'elements/code.scss';
 @import 'components/util.scss';

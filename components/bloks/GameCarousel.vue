@@ -10,7 +10,4 @@ export default {
 }
 </script>
 <style scoped>
-.game-carousel {
-  height: 400px;
-}
 </style>
