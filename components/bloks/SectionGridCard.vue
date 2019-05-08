@@ -14,8 +14,8 @@ export default {
 
 <style lang="scss" scoped>
 .section-grid-card {
-  height: 200px;
-  width: 200px;
+  height: 180px;
+  width: calc(50% - 20px);
   margin-right: 20px;
   margin-bottom: 20px;
   text-align: center;

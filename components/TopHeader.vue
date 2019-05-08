@@ -90,17 +90,13 @@ export default {
     height: 2px;
   }
 }
-// @media (max-width: 1088px) {
-//   .logo {
-//     display: none;
-//   }
-// }
 @media screen and (max-width: 1087px) {
   .navbar-menu.is-active {
     position: absolute;
     top: 52px;
     right: 0;
-    width: 120px;
+    width: 150px;
+    // font-size: 20px;
   }
 }
 @media screen and (max-width: 768px) {
