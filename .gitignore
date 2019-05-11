@@ -79,3 +79,6 @@ dist
 
 # IDE
 .idea
+
+# IDK
+pages/.DS_Store

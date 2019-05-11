@@ -1,28 +1,40 @@
 <template>
-  <section class="blog__section util__container util__flex-col">
-    <h1 class="blog__header">Blog</h1>
-    <search-bar :dataset="storyTitles" @filter="filter"/>
-    <div class="blog__wrapper util__flex-col">
-      <nuxt-link v-for="preview in filteredPreviews" :key="preview.id" class="article container with-title is-center" :to="'/blog/' + preview.slug">
-        <p class="article__title title">{{ preview.name }}</p>
-        <p class="article__description">{{ preview.intro }}</p>
+  <section class="section blog__section">
+    <page-index-search name="Blog" :titles="storyTitles" :tags="storyTags" @searchInput="searchInput" @tagInput="tagInput"/>
+    <div class="blog-card-list">
+      <nuxt-link v-for="preview in filteredPreviews" :key="preview.id" class="page-card card" :to="'/blog/' + preview.slug">
+        <div class="card-header">
+          <p class="card-header-title is-centered">
+            {{ preview.name }}
+          </p>
+        </div>
+        <div class="card-image">
+          <figure class="image is-3by1">
+            <img :src="`https://${preview.image.slice(2)}`" :alt="preview.imageAlt">
+          </figure>
+        </div>
+        <div class="card-content">
+          <p class="content">
+            {{ preview.intro }}
+          </p>
+        </div>
       </nuxt-link>
     </div>
   </section>
 </template>
 
 <script>
-import SearchBar from '~/components/SearchBar.vue';
+import PageIndexSearch from '~/components/PageIndexSearch.vue';
 
 export default {
   middleware: ['loadPreviews', 'loadArticle'],
   components: {
-    SearchBar,
+    PageIndexSearch,
   },
   data () {
     return { 
-      total: 0,
       filteredTitles: [],
+      selectedTags: [],
     }
   },
   computed: {
@@ -42,14 +54,29 @@ export default {
       if (!this.previews) return [];
       return this.previews.map(preview => preview.name);
     },
+    storyTags() {
+      const res = [];
+      if (!this.previews) return res;
+      this.previews.forEach(preview => {
+        preview.tags.forEach(tag => {
+          if (!res.includes(tag)) res.push(tag);
+        })
+      });
+      return res;
+    },
     filteredPreviews() {
-      return this.previews.filter(preview => this.filteredTitles.includes(preview.name));
+      return this.previews.filter(preview =>
+        this.filteredTitles.includes(preview.name)
+        && (this.selectedTags.length === 0 || this.selectedTags.some(t => preview.tags.indexOf(t) >= 0)));
     }
   },
   methods: {
-    filter(filteredTitles) {
+    searchInput(filteredTitles) {
       this.filteredTitles = filteredTitles;
     },
+    tagInput(selectedTags) {
+      this.selectedTags = selectedTags;
+    }
   },
   head() {
     return {
@@ -83,15 +110,25 @@ export default {
 
 <style lang="scss">
 .blog__section {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
+.blog-card-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
 
-.blog__header {
-  margin-bottom: 40px;
-}
-
-.article {
-  margin: 40px;
-  max-width: 600px;
+  .page-card {
+    height: auto;
+    min-height: 325px;
+    width: 400px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
 }
 </style>
