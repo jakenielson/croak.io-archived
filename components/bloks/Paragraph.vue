@@ -9,3 +9,14 @@ export default {
   props: ['blok'],
 }
 </script>
+
+<style lang="scss" scoped>
+.paragraph {
+  padding: 0 50px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: start;
+  width: 100%;
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
-  <!-- <div class="blog-image__wrapper"> -->
+  <div class="blog-image__background" :class="blok.background_color">
     <img v-editable="blok" class="blog-image" :src="src"/>
-  <!-- </div> -->
+  </div>
 </template>
 
 <script>
@@ -15,17 +15,16 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.blog-image__wrapper {
+<style lang="scss" scoped>
+.blog-image__background {
   display: flex;
   position: relative;
   flex-direction: row;
   justify-content: center;
+  width: 100%;
 }
 .blog-image {
   width: 100%;
   object-fit: contain;
-  margin-bottom: 40px;
-  border-radius: 6px;
 }
 </style>

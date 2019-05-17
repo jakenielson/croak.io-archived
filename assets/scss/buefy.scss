@@ -10,9 +10,15 @@ $pink2: #fad6b8;
 $pink3: #f5a097;
 $pink4: #dc7b98;
 $pink5: #bc4a9b;
+$blue1: #1b65d2;
+$blue1-invert: findColorInvert($blue1);
+$red1: #c20013;
+$red1-invert: findColorInvert($red1);
+$yellow1: #ffd900;
+$yellow1-invert: findColorInvert($yellow1);
 
 // Set your colors
-$primary: $green3;
+$primary: $green2;
 $primary-invert: findColorInvert($primary);
 $secondary: $pink3;
 $secondary-invert: findColorInvert($secondary);
@@ -27,6 +33,9 @@ $colors: (
     "black": ($black, $white),
     "light": ($light, $light-invert),
     "dark": ($dark, $dark-invert),
+    "blue": ($blue, $blue-invert),
+    "red": ($red, $red-invert),
+    "yellow": ($yellow, $yellow-invert),
     "primary": ($primary, $primary-invert),
     "secondary": ($secondary, $secondary-invert),
     "tertiary": ($tertiary, $tertiary-invert),

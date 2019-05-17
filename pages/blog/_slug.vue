@@ -1,5 +1,8 @@
 <template>
-  <section class="util__container blog-container">
+  <section class="blog-container">
+    <div class="blog-hero__background" :class="article.content.hero_color">
+      <img class="blog-hero__image" :src="heroImage"/>
+    </div>
     <component v-if="article.content.component" :key="article.content._uid" :blok="article.content" :is="article.content.component"></component>
   </section>
 </template>
@@ -28,6 +31,9 @@ export default {
     twitterImage () {
       return `https://${this.article.content.twitter_image.slice(2)}`;
     },
+    heroImage() {
+      return `https://${this.article.content.hero_image.slice(2)}`;
+    }
   },
   mixins: [storyblokLivePreview],
   asyncData (context) {
@@ -62,3 +68,23 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.blog-hero__background {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  align-self: stretch;
+}
+.blog-hero__image {
+  width: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+</style>

@@ -1,13 +1,11 @@
 # Redesign
 
-# Home
-* Make grid cards cooler and hook up links
-* Hook up email signup and contact form
-* Delete unused blok components
+* Add blog image and background color to blog page
+* Add colors
+* Use blog image and background color for cards
+* Use blog image component for mid-article images
 
-# Blog
-* Done!
+* Headers use Press Start 2P
 
-# Games
-* asyncData for THIS page's content
-* getPreviews-esque for cards
+
+* Maybe I should have a different background color than white. Light green?

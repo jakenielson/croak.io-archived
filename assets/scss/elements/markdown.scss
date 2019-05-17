@@ -9,8 +9,7 @@
 
     h2, h3 {
       font-size: 1.5em;
-      margin: 80px 0 40px 0;
-      line-height: 1.6em;
+      margin-bottom: 40px;
       text-align: left;
       margin-left: 40px;
       position: relative;
@@ -22,9 +21,7 @@
     }
 
     p {
-      line-height: 1.8em;
-      margin: 20px 40px;
-      font-size: 1em;
+      margin-bottom: 20px;
       -webkit-hyphens: auto;
       -ms-hyphens: auto;
       hyphens: auto;
@@ -32,8 +29,12 @@
       word-break: normal;
     }
 
-    a {
-      color: $brand-color-2;
+    ul {
+      padding: 20px 40px;
+
+      li {
+        margin-top: 20px;
+      }
     }
   }
 }

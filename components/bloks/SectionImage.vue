@@ -20,6 +20,7 @@ export default {
   img {
     min-height: 250px;
     min-width: 250px;
+    image-rendering: pixelated;
   }
 }
 </style>

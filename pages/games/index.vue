@@ -139,6 +139,14 @@ export default {
     margin-right: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
+
+    .card-header {
+      font-size: 24px;
+    }
+
+    .card-content {
+      font-size: 18px;
+    }
   }
 }
 </style>

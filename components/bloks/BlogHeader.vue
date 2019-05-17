@@ -24,5 +24,26 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.blog-header {
+  font-family: 'Press Start 2P', cursive;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
+  &.header--large {
+    text-align: center;
+    font-size: 48px;
+    margin: 40px 0 60px 0;
+  }
+  &.header--medium {
+    text-align: left;
+    font-size: 24px;
+    margin: 40px 0 40px 0;
+    padding-left: 50px;
+    align-self: flex-start;
+    &::before {
+      content: ">";
+      margin-left: -50px;
+    }
+  }
+}
 </style>
