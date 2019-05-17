@@ -17,12 +17,19 @@ export default {
 
 <style lang="scss" scoped>
 .code-block {
-  width: calc(100% - 100px);
-  margin: 20px 0 60px 0;
+  // width: calc(100% - 100px);
+  width: 100%;
+  margin-bottom: 1.5em;
 
   .card-header {
     .card-header-title {
       color: white;
+      font-family: 'Press Start 2P', cursive;
+      -webkit-font-smoothing: none;
+      -moz-osx-font-smoothing: none;
+      padding: 20px;
+      font-size: 18px;
+      overflow-x: scroll;
     }
   }
   
@@ -31,7 +38,7 @@ export default {
 
     .code-block__body {
       border: none;
-      padding: 0 20px;
+      padding: 0 25px;
     }
   }
 }

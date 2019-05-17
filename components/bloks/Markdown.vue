@@ -21,7 +21,6 @@ export default {
 <style lang="scss" scoped>
 .markdown {
   padding: 0 50px;
-  margin-bottom: 20px;
   font-size: 24px;
   font-weight: 300;
   width: 100%;

@@ -1,11 +1,16 @@
 # Redesign
 
-* Add blog image and background color to blog page
-* Add colors
-* Use blog image and background color for cards
-* Use blog image component for mid-article images
+* Revisit images for home, blog, and game cards
+* Fix colors for backgrounds (light versions)
+* Add new font
 
-* Headers use Press Start 2P
+* About page
+* Game page
+* Home grid cards
 
+* Express
+* Email api
+* Mailing list databse
 
-* Maybe I should have a different background color than white. Light green?
+* Complete blog posts
+* Write new article

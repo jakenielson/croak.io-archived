@@ -31,7 +31,7 @@ export default {
   -moz-osx-font-smoothing: none;
   &.header--large {
     text-align: center;
-    font-size: 48px;
+    font-size: 36px;
     margin: 40px 0 60px 0;
   }
   &.header--medium {
