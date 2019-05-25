@@ -7,7 +7,9 @@ import OverScene from '~/games/croak/scenes/OverScene';
 
 class Game extends Phaser.Game {
     constructor(config, height, width) {
-      super({...config, height, width, type: Phaser.AUTO, scene: [BootScene, TitleScene, PlayScene, UIScene, OverScene]});
+      super({...config, height, width, type: Phaser.AUTO,
+        scene: [BootScene, TitleScene, PlayScene, UIScene, OverScene],
+        scale: {mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH, parent: 'game-container', height: 240, width: 240}});
     }
 }
 

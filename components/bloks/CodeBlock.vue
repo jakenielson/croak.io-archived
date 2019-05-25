@@ -17,9 +17,8 @@ export default {
 
 <style lang="scss" scoped>
 .code-block {
-  // width: calc(100% - 100px);
   width: 100%;
-  margin-bottom: 1.5em;
+  margin-bottom: 36px;
 
   .card-header {
     .card-header-title {

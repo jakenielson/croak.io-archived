@@ -38,7 +38,8 @@ export default class OverScene extends Scene {
     this.lockedInput = false;
     this.cursors = this.input.keyboard.createCursorKeys();
     this.setCamera(this.sys.game.config.width);
-    this.events.on('resize', this.onResize, this);
+    // this.events.on('resize', this.onResize, this);
+    this.scale.on('resize', this.onResize, this);
     // this.input.on('pointerup', (event, target) => {
     //   const xDiff = event.upX - event.downX;
     //   const yDiff = event.upY - event.downY;
@@ -54,15 +55,9 @@ export default class OverScene extends Scene {
     // });
   }
 
-  onResize(width, height) {
+  onResize(gameSize, baseSize, displaySize, resolution) {
     if (this.cameras.main) {
-      if (width === undefined) {
-        width = this.sys.game.config.width;
-      }
-      if (height === undefined) {
-        height = this.sys.game.config.height;
-      } 
-      this.setCamera(width);
+      this.setCamera(gameSize.height);
     }
   }
 

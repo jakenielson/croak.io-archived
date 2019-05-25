@@ -78,6 +78,9 @@ module.exports = {
     extend(config, ctx) {
     }
   },
+  serverMiddleware: [
+    '~/api/index.js'
+  ],
   generate: {
     routes: function () {
       return axios.get('https://api.storyblok.com/v1/cdn/stories?token=BMrhKOV0AUIQc7QLAKF4UAtt&starts_with=blog')

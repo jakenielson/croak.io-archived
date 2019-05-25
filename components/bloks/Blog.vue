@@ -13,6 +13,8 @@ export default {
 .blog {
   font-size: 20px;
   // max-width: 1200px;
+  padding-left: 80px;
+  padding-right: 80px;
   width: 100%;
   display: flex;
   flex-direction: column;

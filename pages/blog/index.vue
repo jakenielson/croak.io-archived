@@ -9,9 +9,9 @@
           </p>
         </div>
         <div class="card-image">
-          <figure class="image is-3by1">
-            <img :src="`https://${preview.image.slice(2)}`" :alt="preview.imageAlt">
-          </figure>
+          <div class="card-image__background" :class="preview.imageColor">
+            <img class="card-image__image" :src="`https://${preview.image.slice(2)}`"/>
+          </div>
         </div>
         <div class="card-content">
           <p class="content">
@@ -25,16 +25,22 @@
 
 <script>
 import PageIndexSearch from '~/components/PageIndexSearch.vue';
+// import axios from '~/plugins/axios'
 
 export default {
   middleware: ['loadPreviews', 'loadArticle'],
   components: {
     PageIndexSearch,
   },
+  // async asyncData({ params }) {
+  //   let { data } = await axios.get('/api/users');
+  //   return { users: data }
+  // },
   data () {
     return { 
       filteredTitles: [],
       selectedTags: [],
+      users: []
     }
   },
   computed: {
@@ -124,11 +130,24 @@ export default {
 
   .page-card {
     height: auto;
-    min-height: 325px;
+    min-height: 380px;
     width: 400px;
     margin-right: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
+
+    .card-image__background {
+      display: flex;
+      position: relative;
+      flex-direction: row;
+      justify-content: center;
+      align-self: stretch;
+    }
+    .card-image__image {
+      height: 160px;
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
 
     .card-header {
       font-size: 24px;

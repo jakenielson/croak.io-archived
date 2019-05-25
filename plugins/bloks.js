@@ -20,6 +20,7 @@ import SectionCard from '~/components/bloks/SectionCard.vue';
 import SectionContact from '~/components/bloks/SectionContact.vue';
 import SectionCardGrid from '~/components/bloks/SectionCardGrid.vue';
 import SectionGridCard from '~/components/bloks/SectionGridCard.vue';
+import SectionAbout from '~/components/bloks/SectionAbout.vue';
 
 Vue.component('page', Page);
 Vue.component('blog', Blog);
@@ -42,3 +43,4 @@ Vue.component('section-card', SectionCard);
 Vue.component('section-contact', SectionContact);
 Vue.component('section-card-grid', SectionCardGrid);
 Vue.component('section-grid-card', SectionGridCard);
+Vue.component('section-about', SectionAbout);

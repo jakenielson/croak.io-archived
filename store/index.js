@@ -18,6 +18,9 @@ const createStore = () => {
           if (state.articles[uuid].slug === slug) return state.articles[uuid];
         } return null;
       },
+      getPreviewBySlug: (state) => (slug) => {
+        return state.previews.find(p => p.slug === slug);
+      }
     },
     mutations: {
       setSettings(state, settings) {
@@ -53,7 +56,7 @@ const createStore = () => {
           cv: context.cacheVersion,
           starts_with: `blog`,
           is_startpage: `0`,
-          excluding_fields: `body,component,og_image`
+          excluding_fields: `body,component,og_image,twitter_image`
         }).then((res) => {
           const previews = res.data.stories.map((story) => {
             return {
@@ -61,8 +64,9 @@ const createStore = () => {
               slug: story.slug,
               name: story.content.name,
               intro: story.content.intro,
-              image: story.content.twitter_image,
+              image: story.content.hero_image,
               imageAlt: story.content.image_alt,
+              imageColor: story.content.hero_color,
               tags: story.content.tags,
             }
           });
@@ -83,7 +87,7 @@ const createStore = () => {
           cv: context.cacheVersion,
           starts_with: `games`,
           is_startpage: `0`,
-          excluding_fields: `body,component,og_image`
+          excluding_fields: `body,component,og_image,twitter_image`
         }).then((res) => {
           const games = res.data.stories.map((story) => {
             return {
@@ -91,7 +95,7 @@ const createStore = () => {
               slug: story.slug,
               name: story.content.name,
               intro: story.content.intro,
-              image: story.content.twitter_image,
+              image: story.content.preview_image,
               imageAlt: story.content.image_alt,
               tags: story.content.tags,
             }

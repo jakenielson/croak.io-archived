@@ -50,7 +50,7 @@ export default {
 .size-large {
   flex: 5;
 }
-@media (max-width: 1010px) {
+@media (max-width: 1087px) {
   .hide-when-small {
     display: none;
   }

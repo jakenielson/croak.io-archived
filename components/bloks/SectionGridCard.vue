@@ -1,9 +1,9 @@
 <template>
-  <div v-editable="blok" class="section-grid-card box">
+  <nuxt-link v-editable="blok" class="section-grid-card box" :to="blok.link.cached_url">
     <p class="content">
       {{ blok.text }}
     </p>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>

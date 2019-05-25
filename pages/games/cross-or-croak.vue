@@ -28,7 +28,7 @@ export default {
   },
   asyncData(context) {
     let version = context.query._storyblok || context.isDev ? 'draft' : 'published'
-    let endpoint = `cdn/stories/games/croak`
+    let endpoint = `cdn/stories/games/cross-or-croak`
 
     return context.app.$storyapi.get(endpoint, {
       version: version,
@@ -72,5 +72,10 @@ export default {
 <style lang="scss">
 .game {
   width: 100%;
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 </style>

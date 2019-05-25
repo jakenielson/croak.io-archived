@@ -1,7 +1,7 @@
 <template>
   <div class="page-index-search is-centered">
     <h1 class="page-index-search__header">{{ name }}</h1>
-     <b-field horizontal label="Search" custom-class="is-medium" class="search-input">
+    <b-field horizontal label="Search" custom-class="is-medium" class="search-input">
       <b-input name="search" size="is-medium" expanded v-model="query"></b-input>
     </b-field>
     <div class="tag-wrapper is-centered">
@@ -93,6 +93,13 @@ export default {
       font-size: 18px;
       padding: 5px 10px;
       border-radius: 5px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .page-index-search {
+    .search-input {
+      padding-right: 0;
     }
   }
 }

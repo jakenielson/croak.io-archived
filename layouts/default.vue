@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper default-layout-wrapper">
     <top-header/>
     <main id="main" role="main" class="">
       <nuxt/>
@@ -19,4 +19,13 @@ export default {
 
 <style lang="scss">
 @import '../assets/scss/styles.scss';
+.default-layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  main {
+    flex-grow: 1;
+  }
+}
 </style>

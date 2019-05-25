@@ -53,6 +53,9 @@ $link-focus-border: $primary;
 
 $family-primary: 'Zilla Slab', serif;
 
+$box-link-hover-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1);
+$box-link-active-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1);
+
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";

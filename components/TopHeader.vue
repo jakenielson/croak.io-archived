@@ -1,10 +1,7 @@
 <template>
-  <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-primary" role="navigation" aria-label="main navigation" id="top-header">
     <div class="navbar-brand">
       <img :src="getSrc(siteLogo)" class="logo">
-      <!-- <nuxt-link class="navbar-item" to="/">
-        <img :src="getSrc(siteLogo)" class="logo">
-      </nuxt-link> -->
       <a role="button" class="navbar-burger burger" :class="activeClass" aria-label="menu" aria-expanded="false" data-target="main-navbar" @click="toggleNav">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>

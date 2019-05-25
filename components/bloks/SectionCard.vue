@@ -6,15 +6,15 @@
       </p>
     </div>
     <div class="card-image">
-      <figure class="image is-3by1">
-        <img :src="imageSrc" :alt="blok.title">
-      </figure>
+      <div class="card-image__background" :class="preview.imageColor">
+        <img class="card-image__image" :src="`https://${preview.image.slice(2)}`"/>
+      </div>
     </div>
-    <div class="card-content">
+    <!-- <div class="card-content">
       <p class="content">
         {{ blok.body }}
       </p>
-    </div>
+    </div> -->
   </nuxt-link>
 </template>
 
@@ -22,9 +22,12 @@
 export default {
   props: ['blok'],
   computed: {
+    preview() {
+      return this.$store.getters.getPreviewBySlug(this.blok.link.cached_url.split('/').slice(-1)[0]);
+    },
     imageSrc() {
-      return `https://${this.blok.image.slice(2)}`;
-    }
+      return `https://${this.preview.image.slice(2)}`;
+    },
   }
 }
 </script>
@@ -36,6 +39,21 @@ export default {
 
   .card-header-title {
     font-size: 24px;
+  }
+
+  .card-image__background {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    align-self: stretch;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .card-image__image {
+    height: 240px;
+    object-fit: contain;
+    image-rendering: pixelated;
   }
 
   .card-content {

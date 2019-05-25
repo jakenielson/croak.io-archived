@@ -31,7 +31,8 @@ export default class TitleScene extends Scene {
 
   create () {
     this.setCamera(this.sys.game.config.width);
-    this.events.on('resize', this.onResize, this);
+    // this.events.on('resize', this.onResize, this);
+    this.scale.on('resize', this.onResize, this);
     this.splash();
   }
 
@@ -95,15 +96,9 @@ export default class TitleScene extends Scene {
   }
 
   // triggered when the game resizes
-  onResize(width, height) {
+  onResize(gameSize, baseSize, displaySize, resolution) {
     if (this.cameras.main) {
-      if (width === undefined) {
-        width = this.sys.game.config.width;
-      }
-      if (height === undefined) {
-        height = this.sys.game.config.height;
-      } 
-      this.setCamera(width);
+      this.setCamera(gameSize.height);
     }
   }
 

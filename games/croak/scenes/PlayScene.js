@@ -39,7 +39,8 @@ export default class PlayScene extends Scene {
   create() {
     this.physics.world.setBounds(0, 0, 240, 240);
     this.setCamera(this.sys.game.config.width);
-    this.events.on('resize', this.onResize, this);
+    // this.events.on('resize', this.onResize, this);
+    this.scale.on('resize', this.onResize, this);
     
     this.cursors = this.input.keyboard.createCursorKeys();
     
@@ -216,14 +217,10 @@ export default class PlayScene extends Scene {
   }
 
   // triggered when the game resizes
-  onResize(width, height) {
-    if (width === undefined) {
-      width = this.sys.game.config.width;
+  onResize(gameSize, baseSize, displaySize, resolution) {
+    if (this.cameras.main) {
+      this.setCamera(gameSize.height);
     }
-    if (height === undefined) {
-      height = this.sys.game.config.height;
-    } 
-    this.setCamera(width);
   }
 
   // sets the size of the camera

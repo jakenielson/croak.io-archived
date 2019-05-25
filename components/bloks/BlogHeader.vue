@@ -34,7 +34,7 @@ export default {
     font-size: 36px;
     margin: 40px 0 60px 0;
   }
-  &.header--medium {
+  &.header--medium, &.header--small {
     text-align: left;
     font-size: 24px;
     margin: 40px 0 40px 0;
