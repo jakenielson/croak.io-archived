@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const EmailService = require('../lib/EmailService');
+const EmailService = require('../tools/EmailService');
 
 const router = Router();
 
