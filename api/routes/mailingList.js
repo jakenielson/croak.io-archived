@@ -2,7 +2,7 @@ const { Router } = require('express');
 const mongodb = require('mongodb');
 const cryptoRandomString = require('crypto-random-string');
 
-const EmailService = require('../lib/EmailService');
+const EmailService = require('../lib/emailService');
 
 const router = Router();
 
