@@ -3,6 +3,8 @@ import axios from 'axios'
 const pkg = require('./package')
 const path = require('path')
 
+require('dotenv').config()
+
 module.exports = {
   mode: 'universal',
 
@@ -44,7 +46,6 @@ module.exports = {
   */
   plugins: [
     '~/plugins/bloks',
-    '~/plugins/emailjs',
     { src: '~/plugins/phaser', ssr: false }
   ],
 
@@ -54,6 +55,7 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
+    '@nuxtjs/dotenv',
     ['nuxt-buefy', { defaultIconPack: 'fas', defaultContainerElement: '#content' }],
     ['storyblok-nuxt', { accessToken: 'BMrhKOV0AUIQc7QLAKF4UAtt', cacheProvider: 'memory' }]
   ],

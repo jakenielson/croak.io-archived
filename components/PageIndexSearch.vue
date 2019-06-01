@@ -90,7 +90,7 @@ export default {
       box-shadow: none;
       outline: none;
       cursor: pointer;
-      font-size: 18px;
+      font-size: 20px;
       padding: 5px 10px;
       border-radius: 5px;
     }

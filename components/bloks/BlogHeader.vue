@@ -29,6 +29,7 @@ export default {
   font-family: 'Press Start 2P', cursive;
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: none;
+  font-weight: bold;
   &.header--large {
     text-align: center;
     font-size: 36px;
@@ -37,7 +38,7 @@ export default {
   &.header--medium, &.header--small {
     text-align: left;
     font-size: 24px;
-    margin: 40px 0 40px 0;
+    margin: 20px 0 20px 0;
     padding-left: 50px;
     align-self: flex-start;
     &::before {

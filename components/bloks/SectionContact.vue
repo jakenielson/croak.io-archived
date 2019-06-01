@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     sendEmail() {
-      axios.post('/api/email', {
+      axios.post('/api/contact', {
         name: this.name,
         email: this.email,
         subject: this.subject,

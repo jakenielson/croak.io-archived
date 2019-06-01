@@ -1,15 +1,15 @@
 # Backend
-* Deploy to heroku
-* Hide config secrets
-* Mailing list database
+* Heroku config and mailgun domain
 
 # Content
 * Complete blog posts
 * Write new article
 
-# Redesign
+# Style
 * Think about colors
-* Think about font size consistency
-* Think about header consistency
-* Think about where your CSS lives
-* Think about adding pop to grid cards (image, then text on hover?)
+* Try nunito and operator mono fonts
+* Mobile (game, blog, contact, esp. )
+* CSS organization
+
+# Deployment
+* Once we're ready to deploy, get mailgun custom domain ready

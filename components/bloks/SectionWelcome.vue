@@ -3,15 +3,36 @@
     <h2 class="title-text">{{ blok.title }}</h2>
     <p class="body-text">{{ blok.body }}</p>
     <!-- <p class="signup-text">{{ blok.signup_text }}</p> -->
-    <b-field :label="blok.signup_text" class="signup-text">
-      <b-input :name="blok.signup_text" placeholder="you@email.com" expanded></b-input>
+    <b-field :label="blok.signup_text" class="signup-text" custom-class="is-medium signup-text">
+      <b-input :name="blok.signup_text" v-model="email" placeholder="you@email.com" size="is-medium" expanded></b-input>
+    </b-field>
+    <b-field>
+      <p class="control">
+        <button class="button is-medium is-primary" @click="registerEmail">
+          Sign up
+        </button>
+      </p>
     </b-field>
   </div>
 </template>
 
 <script>
+import axios from '~/plugins/axios';
+
 export default {
   props: ['blok'],
+  data() {
+    return {
+      email: '',
+    }
+  },
+  methods: {
+    registerEmail() {
+      axios.post('/api/mailing-list/register', {
+        email: this.email
+      });
+    }
+  }
 }
 </script>
 
@@ -26,6 +47,8 @@ export default {
   .title-text {
     font-size: 48px;
     font-weight: bold;
+    // text-align: center;
+    // width: 100%;
   }
 
   .body-text {
@@ -34,9 +57,13 @@ export default {
   }
 
   .signup-text {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
-    width: 100%;
+    // width: 100%;
+  }
+
+  .button {
+    font-weight: bold;
   }
 }
 </style>

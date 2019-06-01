@@ -1,6 +1,7 @@
 <template>
   <div class="code-block card">
     <header class="card-header has-background-dark">
+    <!-- <header class="card-header has-background-primary"> -->
       <p v-editable="blok" class="card-header-title">{{ blok.title }}</p>
     </header>
     <div class="card-content has-background-light">
@@ -18,7 +19,7 @@ export default {
 <style lang="scss" scoped>
 .code-block {
   width: 100%;
-  margin-bottom: 36px;
+  margin: 20px 0 36px 0;
 
   .card-header {
     .card-header-title {

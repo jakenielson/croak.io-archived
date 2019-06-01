@@ -25,17 +25,12 @@
 
 <script>
 import PageIndexSearch from '~/components/PageIndexSearch.vue';
-// import axios from '~/plugins/axios'
 
 export default {
   middleware: ['loadPreviews', 'loadArticle'],
   components: {
     PageIndexSearch,
   },
-  // async asyncData({ params }) {
-  //   let { data } = await axios.get('/api/users');
-  //   return { users: data }
-  // },
   data () {
     return { 
       filteredTitles: [],
@@ -154,7 +149,7 @@ export default {
     }
 
     .card-content {
-      font-size: 18px;
+      font-size: 20px;
     }
   }
 }

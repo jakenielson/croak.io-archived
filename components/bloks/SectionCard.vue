@@ -35,7 +35,8 @@ export default {
 <style lang="scss" scoped>
 .section-card {
   border-radius: 5px;
-  width: 100%;
+  max-width: calc(100vw - 80px);
+  width: 400px;
 
   .card-header-title {
     font-size: 24px;
