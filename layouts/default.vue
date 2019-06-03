@@ -24,8 +24,11 @@ export default {
   flex-direction: column;
   height: 100%;
 
+  background-color: pink;
+
   main {
     flex-grow: 1;
+    background-color: lightblue;
   }
 }
 </style>
