@@ -79,11 +79,12 @@ export default {
   display: flex;
   position: relative;
   flex-direction: row;
-  justify-content: center;
+  justify-content: stretch;
   align-self: stretch;
 }
 .blog-hero__image {
-  width: 100%;
+  // width: 100%;
+  flex: 1;
   object-fit: contain;
   image-rendering: pixelated;
 }

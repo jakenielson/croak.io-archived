@@ -24,7 +24,6 @@ export default {
   width: 100%;
 }
 .blog-image {
-  // width: 100%;
   flex: 1;
   object-fit: contain;
 }
