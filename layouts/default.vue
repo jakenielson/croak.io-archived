@@ -22,13 +22,12 @@ export default {
 .default-layout-wrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
-
-  background-color: pink;
+  flex: 1;
 
   main {
     flex-grow: 1;
-    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>

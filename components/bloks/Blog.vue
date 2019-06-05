@@ -12,7 +12,6 @@ export default {
 <style lang="scss" scoped>
 .blog {
   font-size: 20px;
-  // max-width: 1200px;
   padding-left: 80px;
   padding-right: 80px;
   width: 100%;
@@ -20,5 +19,11 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 768px) {
+  .blog {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 </style>
