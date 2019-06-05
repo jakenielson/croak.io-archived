@@ -76,7 +76,5 @@ export default {
   justify-content: center;
   align-items: stretch;
   flex: 1;
-
-  background-color: red;
 }
 </style>
