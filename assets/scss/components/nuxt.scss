@@ -1,5 +1,6 @@
 html, body {
   max-width: 100vw;
+  background-color: lightgreen;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -9,4 +10,5 @@ html, body {
   flex: 1;
   display: flex;
   flex-direction: column;
+  background-color: yellow;
 }

@@ -24,10 +24,13 @@ export default {
   flex-direction: column;
   flex: 1;
 
+  background-color: pink;
+
   main {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    background-color: lightblue;
   }
 }
 </style>

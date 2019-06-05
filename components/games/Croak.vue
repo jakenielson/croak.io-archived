@@ -41,6 +41,8 @@ export default {
   -moz-osx-font-smoothing: none;
   width: calc(100% - 80px);
   height: calc(100% - 80px);
+
+  background-color: purple;
   
   canvas {
     border: 4px solid black;
