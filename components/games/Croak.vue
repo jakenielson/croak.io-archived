@@ -39,8 +39,8 @@ export default {
   font-family: 'Press Start 2P', cursive;
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: none;
-  width: calc(100% - 80px);
-  height: calc(100% - 80px);
+  flex: 1;
+  max-height: calc(100vh - 92px);
 
   background-color: purple;
   

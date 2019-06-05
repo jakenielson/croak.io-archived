@@ -71,12 +71,11 @@ export default {
 
 <style lang="scss">
 .game {
-  width: 100%;
   display: flex;
-  flex-direction: center;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 100%;
+  align-items: stretch;
+  flex: 1;
 
   background-color: red;
 }
