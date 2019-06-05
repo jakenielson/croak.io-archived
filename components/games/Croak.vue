@@ -34,25 +34,5 @@ export default {
 }
 </script>
 
-<style lang="scss">
-#game-container {
-  font-family: 'Press Start 2P', cursive;
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: none;
-  flex: 1;
-  max-height: calc(100vh - 132px);
-  margin-left: 40px;
-  margin-right: 40px;
-  image-rendering: optimizeSpeed;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: -o-crisp-edges;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor;
-  image-rendering: pixelated;
-  
-  canvas {
-    border: 4px solid black;
-  }
-}
+<style lang="scss" scoped>
 </style>

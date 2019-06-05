@@ -109,7 +109,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .blog__section {
   display: flex;
   flex-direction: column;

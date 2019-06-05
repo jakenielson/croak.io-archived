@@ -69,7 +69,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .game {
   display: flex;
   flex-direction: column;
