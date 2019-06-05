@@ -10,7 +10,7 @@ export default class BootScene extends Scene {
   preload () {
     this.load.tilemapTiledJSON('titleMap', titleMap);
     this.load.tilemapTiledJSON('croakMap', croakMap);
-    this.load.image('splashScreen', '/croak/splashScreen.png');
+    this.load.image('splashScreen', '/croak/splash.png');
     this.load.image('mortTiles', '/croak/mortTiles.png');
     this.load.image('lilypads', '/croak/lilypads.png');
     this.load.bitmapFont('font', '/croak/font.png', '/croak/font.fnt');
