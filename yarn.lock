@@ -2749,9 +2749,13 @@ event-stream@^4.0.1:
     stream-combiner "^0.2.2"
     through "^2.3.8"
 
-eventemitter3@^3.0.0, eventemitter3@^3.1.0:
+eventemitter3@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.0.tgz#090b4d6cdbd645ed10bf750d4b5407942d7ba163"
+
+eventemitter3@^3.1.0:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
 
 events@^3.0.0:
   version "3.0.0"
@@ -5030,7 +5034,7 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
 
-phaser@^3.15.1:
+phaser@3.16:
   version "3.16.2"
   resolved "https://registry.yarnpkg.com/phaser/-/phaser-3.16.2.tgz#ae95dcbd5c4ed8eb550d99570ceaa9d2fed8e277"
   dependencies:
