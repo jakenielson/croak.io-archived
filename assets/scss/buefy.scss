@@ -17,6 +17,9 @@ $red1-invert: findColorInvert($red1);
 $yellow1: #ffd900;
 $yellow1-invert: findColorInvert($yellow1);
 
+// This is the black from mort's logo
+$black: #060608;
+
 // Set your colors
 $primary: $green2;
 $primary-invert: findColorInvert($primary);
@@ -46,12 +49,18 @@ $colors: (
     "twitter": ($twitter, $twitter-invert),
 );
 
+// Text
+$text: $black;
+$label-color: $black;
+$card-header-color: $black;
+$input-color: $black;
+
 // Links
 $link: $primary;
 $link-invert: $primary-invert;
 $link-focus-border: $primary;
 
-$family-primary: 'Zilla Slab', serif;
+$family-primary: 'Nunito', sans-serif;
 
 $box-link-hover-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1);
 $box-link-active-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1);
