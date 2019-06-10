@@ -127,8 +127,9 @@ export default {
     height: auto;
     min-height: 380px;
     width: 400px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin: 10px;
+    // margin-right: 20px;
+    // margin-bottom: 20px;
     border-radius: 5px;
 
     .card-image__background {
