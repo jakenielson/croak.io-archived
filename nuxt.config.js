@@ -22,7 +22,6 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,700' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Nunito:400,700,900&display=swap' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Space+Mono:400,700&display=swap' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Press+Start+2P' },
       { rel: "stylesheet", href: "https://use.fontawesome.com/releases/v5.2.0/css/all.css" }
     ],
