@@ -34,13 +34,23 @@ export default {
     }
   },
   methods: {
+    clearForm() {
+      this.name = '';
+      this.email = '';
+      this.subject = '';
+      this.body = '';
+    },
     sendEmail() {
       axios.post('/api/contact', {
         name: this.name,
         email: this.email,
         subject: this.subject,
         body: this.body
-      });
+      }).then(() => {
+        this.clearForm();
+      }).catch(() => {
+        this.clearForm();
+      })
     },
   }
 }

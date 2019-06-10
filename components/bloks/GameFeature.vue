@@ -9,9 +9,9 @@
           <nuxt-link class="play-link" :to="blok.play_link.cached_url">
             <b-button class="game-button" type="is-white" size="is-medium">Play</b-button>
           </nuxt-link>
-          <nuxt-link class="blog-link" :to="blok.blog_link.cached_url">
+          <!-- <nuxt-link class="blog-link" :to="blok.blog_link.cached_url">
             <b-button class="game-button" type="is-white" size="is-medium">Blog</b-button>
-          </nuxt-link>
+          </nuxt-link> -->
         </div>
       </div>
     </div>

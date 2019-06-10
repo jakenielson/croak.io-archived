@@ -5,7 +5,6 @@ const EmailService = require('../lib/emailService');
 const router = Router();
 
 router.post('/contact', (req, res) => {
-  // EmailService.sendText('req.body.email', 'jakenielsonweb@gmail.com', `${req.body.name}: ${req.body.subject}`, req.body.body)
   EmailService.sendText('contact@croak.io', 'jakenielsonweb@gmail.com', `${req.body.name}: ${req.body.subject}`, req.body.body)
     .then(() => {
       res.status(201).json({"message": "success"});

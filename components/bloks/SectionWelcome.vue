@@ -30,7 +30,11 @@ export default {
     registerEmail() {
       axios.post('/api/mailing-list/register', {
         email: this.email
-      });
+      }).then(() => {
+        this.email = '';
+      }).catch(() => {
+        this.email = '';
+      })
     }
   }
 }
@@ -59,7 +63,7 @@ export default {
   .signup-text {
     font-size: 24px;
     font-weight: bold;
-    // width: 100%;
+    width: 100%;
   }
 
   .button {
