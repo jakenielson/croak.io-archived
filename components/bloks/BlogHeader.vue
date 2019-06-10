@@ -47,4 +47,16 @@ export default {
     }
   }
 }
+@media screen and (max-width: 768px) {
+  .blog-header {
+    &.header--medium, &.header--small {
+      padding-left: 20px;
+      align-self: flex-start;
+      &::before {
+        content: none;
+        margin-left: 0;
+      }
+    }
+  }
+}
 </style>

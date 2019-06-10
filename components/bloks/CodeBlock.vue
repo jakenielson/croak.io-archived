@@ -42,4 +42,13 @@ export default {
     }
   }
 }
+@media screen and (max-width: 768px) {
+  .code-block {
+    .card-content {
+      .code-block__body {
+        padding: 0;
+      }
+    }
+  }
+}
 </style>

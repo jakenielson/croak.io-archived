@@ -40,3 +40,12 @@
     padding-right: 50px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .blog {
+    .markdown__body {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
