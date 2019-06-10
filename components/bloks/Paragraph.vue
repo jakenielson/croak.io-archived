@@ -13,7 +13,7 @@ export default {
 <style lang="scss" scoped>
 .paragraph {
   padding: 0 50px;
-  margin-bottom: 1.5em;
+  margin-bottom: 20px;
   font-size: 24px;
   font-weight: 300;
   text-align: start;
