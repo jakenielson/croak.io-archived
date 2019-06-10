@@ -19,4 +19,9 @@ export default {
   text-align: start;
   width: 100%;
 }
+@media screen and (max-width: 768px) {
+  .paragraph {
+    padding: 0 20px;
+  }
+}
 </style>
