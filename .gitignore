@@ -82,3 +82,6 @@ dist
 
 # IDK
 pages/.DS_Store
+
+.DS_Store
+.editorconfig
