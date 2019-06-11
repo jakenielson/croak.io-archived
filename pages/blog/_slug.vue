@@ -83,7 +83,6 @@ export default {
   align-self: stretch;
 }
 .blog-hero__image {
-  // width: 100%;
   flex: 1;
   object-fit: contain;
   image-rendering: pixelated;

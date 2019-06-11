@@ -1,10 +1,6 @@
 <template>
   <section v-editable="story.content" class="game">
     <Croak />
-    <!-- <div class="game-footer container with-title is-center">
-      <p class="game-footer__title title">{{ story.content.name }}</p>
-      <p class="game-footer__description">{{ story.content.description }}</p>
-    </div> -->
   </section>
 </template>
 

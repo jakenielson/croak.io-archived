@@ -67,16 +67,4 @@ export default {
 </script>
 
 <style lang="scss">
-// .home__section .page {
-//   min-height: calc(100% - 150px);
-//   display: flex;
-//   flex-direction: row;
-//   align-items: stretch;
-//   justify-content: space-evenly;
-// }
-// @media only screen and (max-width: 950px) {
-//   .home__section .page {
-//     flex-direction: column;
-//   }
-// }
 </style>

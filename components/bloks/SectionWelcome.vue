@@ -51,8 +51,6 @@ export default {
   .title-text {
     font-size: 48px;
     font-weight: bold;
-    // text-align: center;
-    // width: 100%;
   }
 
   .body-text {

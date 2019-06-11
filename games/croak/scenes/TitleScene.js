@@ -31,7 +31,6 @@ export default class TitleScene extends Scene {
 
   create () {
     this.setCamera(this.sys.game.config.width);
-    // this.events.on('resize', this.onResize, this);
     this.scale.on('resize', this.onResize, this);
     this.splash();
   }

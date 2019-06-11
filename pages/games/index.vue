@@ -137,8 +137,6 @@ export default {
     min-height: 325px;
     width: 400px;
     margin: 10px;
-    // margin-right: 20px;
-    // margin-bottom: 20px;
     border-radius: 5px;
 
     .card-header {

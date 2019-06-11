@@ -142,6 +142,5 @@ export default class BootScene extends Scene {
   create () {
     this.createAnimations();
     this.scene.start('TitleScene');
-    // this.scene.start('PlayScene');
   }
 }

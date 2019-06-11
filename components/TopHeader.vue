@@ -70,7 +70,6 @@ export default {
   font-family: 'Press Start 2P', cursive;
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: none;
-  // text-shadow: 2px 2px 2px black;
   font-weight: bold;
   font-size: 12px;
   max-height: 40px;
@@ -93,7 +92,6 @@ export default {
     top: 52px;
     right: 0;
     width: 150px;
-    // font-size: 20px;
   }
 }
 @media screen and (max-width: 768px) {
